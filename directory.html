@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Village Directory - Tangeda</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .directory-section {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: #fff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #4a773c;
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      th {
+        position: sticky;
+        top: 0;
+      }
+      td {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Village Directory</h1>
+    <p>Key contacts for administration, services, and support in Tangeda.</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="directory.html" class="active">Directory</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <section class="directory-section">
+    <table>
+      <thead>
+        <tr>
+          <th>Role</th>
+          <th>Name</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sarpanch</td>
+          <td>Smt. Lakshmi Garu</td>
+          <td>98765 43210</td>
+        </tr>
+        <tr>
+          <td>School Headmaster</td>
+          <td>Shri. Krishnaiah</td>
+          <td>98765 12345</td>
+        </tr>
+        <tr>
+          <td>Primary Health Worker</td>
+          <td>Dr. Lakshmi</td>
+          <td>99887 77665</td>
+        </tr>
+        <tr>
+          <td>Agricultural Officer</td>
+          <td>Sri Ramesh</td>
+          <td>99000 11000</td>
+        </tr>
+        <tr>
+          <td>Electricity Board Contact</td>
+          <td>Engineer Balu</td>
+          <td>98765 55678</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    <p>© 2025 Tangeda Village. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
