@@ -108,3 +108,19 @@ footer {
   padding: 15px;
   margin-top: 40px;
 }
+/* === Gallery Section === */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+  background-color: #fdfae8;
+}
+
+.gallery img {
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
