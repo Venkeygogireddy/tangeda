@@ -102,31 +102,19 @@ footer {
   font-size: 14px;
 }
 .hero {
-  background: url("images/village-banner.jpg") center/cover no-repeat;
-  height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  text-align: center;
+  background-image: url('images/hero-bg.jpg'); /* <-- make sure this image exists */
+  background-size: cover;
+  background-position: center;
   color: white;
+  text-align: center;
+  padding: 60px 20px;
 }
 
-.hero-overlay {
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  width: 100%;
-}
 .about-container {
   max-width: 900px;
   margin: 0 auto;
   padding: 40px 20px;
   text-align: left;
-}
-
-.about-container h2 {
-  color: #222;
-  margin-top: 40px;
 }
 
 .about-image {
