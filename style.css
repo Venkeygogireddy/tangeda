@@ -117,4 +117,29 @@ footer {
   padding: 20px;
   width: 100%;
 }
+.about-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: left;
+}
+
+.about-container h2 {
+  color: #222;
+  margin-top: 40px;
+}
+
+.about-image {
+  display: block;
+  max-width: 300px;
+  border-radius: 8px;
+  margin: 20px auto;
+}
+
+.timeline {
+  max-width: 600px;
+  margin: 20px auto;
+  padding-left: 20px;
+  list-style-type: disc;
+}
 
