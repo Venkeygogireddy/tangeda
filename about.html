@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About – Tangeda</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <header class="hero">
     <h1>Welcome to Tangeda</h1>
     <p>Founded by The King Anumula Machireddy Garu</p>
@@ -27,9 +28,26 @@
     <a href="travel.html">Travel Info</a>
   </nav>
 
-  <!-- Main content wrapped for better styling -->
-  <div class="about-container">
+  <!-- Search bar with suggestions -->
+  <div class="search-bar">
+    <input list="suggestions" id="searchInput" placeholder="Search...">
+    <datalist id="suggestions">
+      <option value="History">
+      <option value="Festivals">
+      <option value="Temples">
+      <option value="People">
+      <option value="Gallery">
+      <option value="News">
+      <option value="Services">
+      <option value="Directory">
+      <option value="Guestbook">
+      <option value="Contact">
+      <option value="Travel Info">
+    </datalist>
+    <button onclick="searchSite()">🔍</button>
+  </div>
 
+  <main class="content-wrapper">
     <section>
       <h2>About Tangeda</h2>
       <p>
@@ -44,12 +62,12 @@
         The legendary founder of Tangeda, Anumula Machireddy Garu, was a visionary ruler who emphasized self-reliance,
         spiritual integrity, and education. His legacy still echoes in the temples and stories told by elders.
       </p>
-      <img src="images/king-placeholder.jpg" alt="King Anumula Machireddy Garu" class="about-image">
+      <img src="images/king-placeholder.jpg" alt="King Anumula Machireddy Garu" style="max-width: 300px; border-radius: 8px;">
     </section>
 
     <section>
       <h2>Village Timeline</h2>
-      <ul class="timeline">
+      <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
         <li><strong>1600s:</strong> Founding of Tangeda by Anumula Machireddy Garu</li>
         <li><strong>1800s:</strong> Temples constructed in the village center</li>
         <li><strong>1947:</strong> Participation in India’s independence movement</li>
@@ -57,11 +75,43 @@
         <li><strong>2020:</strong> Digital initiatives and festival archives began</li>
       </ul>
     </section>
-
-  </div>
+  </main>
 
   <footer>
     <p>© 2025 Tangeda Village. All rights reserved.</p>
   </footer>
+
+  <!-- Search functionality -->
+  <script>
+    function searchSite() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+
+      if (query.includes("about") || query.includes("history")) {
+        window.location.href = "about.html";
+      } else if (query.includes("festival")) {
+        window.location.href = "festivals.html";
+      } else if (query.includes("temple")) {
+        window.location.href = "temples.html";
+      } else if (query.includes("people")) {
+        window.location.href = "people.html";
+      } else if (query.includes("gallery")) {
+        window.location.href = "gallery.html";
+      } else if (query.includes("news")) {
+        window.location.href = "news.html";
+      } else if (query.includes("services")) {
+        window.location.href = "services.html";
+      } else if (query.includes("directory")) {
+        window.location.href = "directory.html";
+      } else if (query.includes("guestbook")) {
+        window.location.href = "guestbook.html";
+      } else if (query.includes("contact")) {
+        window.location.href = "contact.html";
+      } else if (query.includes("travel")) {
+        window.location.href = "travel.html";
+      } else {
+        alert("No matching section found.");
+      }
+    }
+  </script>
 </body>
 </html>
