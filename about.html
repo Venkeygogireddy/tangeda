@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About – Tangeda</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <header class="hero">
     <h1>Welcome to Tangeda</h1>
     <p>Founded by The King Anumula Machireddy Garu</p>
@@ -29,14 +27,9 @@
     <a href="travel.html">Travel Info</a>
   </nav>
 
-  <!-- 🔍 Search Bar -->
-  <div class="search-container">
-    <input type="text" placeholder="Search..." />
-    <button type="submit"><i class="fa fa-search"></i></button>
-  </div>
+  <!-- Main content wrapped for better styling -->
+  <div class="about-container">
 
-  <!-- 📖 Main Content -->
-  <div class="content-wrapper">
     <section>
       <h2>About Tangeda</h2>
       <p>
@@ -51,12 +44,12 @@
         The legendary founder of Tangeda, Anumula Machireddy Garu, was a visionary ruler who emphasized self-reliance,
         spiritual integrity, and education. His legacy still echoes in the temples and stories told by elders.
       </p>
-      <img src="images/king-placeholder.jpg" alt="King Anumula Machireddy Garu" style="max-width: 300px; border-radius: 8px;" />
+      <img src="images/king-placeholder.jpg" alt="King Anumula Machireddy Garu" class="about-image">
     </section>
 
     <section>
       <h2>Village Timeline</h2>
-      <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
+      <ul class="timeline">
         <li><strong>1600s:</strong> Founding of Tangeda by Anumula Machireddy Garu</li>
         <li><strong>1800s:</strong> Temples constructed in the village center</li>
         <li><strong>1947:</strong> Participation in India’s independence movement</li>
@@ -64,19 +57,11 @@
         <li><strong>2020:</strong> Digital initiatives and festival archives began</li>
       </ul>
     </section>
+
   </div>
 
   <footer>
     <p>© 2025 Tangeda Village. All rights reserved.</p>
   </footer>
-  <script>
-  document.querySelector('.search-container button').addEventListener('click', function () {
-    const query = document.querySelector('.search-container input').value.trim();
-    if (query) {
-      window.location.href = `search.html?q=${encodeURIComponent(query)}`;
-    }
-  });
-</script>
-
 </body>
 </html>
