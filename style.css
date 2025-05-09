@@ -102,7 +102,7 @@ footer {
   font-size: 14px;
 }
 .hero {
-  background: url("images/your-village-banner.jpg") center/cover no-repeat;
+  background: url("images/village-banner.jpg") center/cover no-repeat;
   height: 300px;
   display: flex;
   align-items: center;
