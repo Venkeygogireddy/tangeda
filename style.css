@@ -102,7 +102,7 @@ footer {
   font-size: 14px;
 }
 .hero {
-  background-image: url('images/hero-bg.jpg'); /* <-- make sure this image exists */
+  background-image: url('images/village-banner.jpg'); /* <-- make sure this image exists */
   background-size: cover;
   background-position: center;
   color: white;
