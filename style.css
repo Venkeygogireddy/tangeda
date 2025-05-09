@@ -1,4 +1,5 @@
-/* General layout */
+
+/* Base layout */
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -6,16 +7,6 @@ body {
   background-color: #fffceb;
 }
 
-header.hero {
-  background-image: url('images/village-banner.jpg');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  text-align: center;
-  padding: 60px 20px;
-}
-
-/* Navigation */
 nav {
   background-color: #111;
   display: flex;
@@ -36,68 +27,96 @@ nav a.active {
   color: black;
 }
 
-/* ---------------------
-   Search Bar Styling
----------------------- */
+header {
+  text-align: center;
+  padding: 40px 20px;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  background-image: url('images/village-banner.jpg');
+}
+
 .search-container {
+  margin-top: 10px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 15px;
-  background-color: #f4f4f4;
-  border-bottom: 1px solid #ccc;
+  gap: 5px;
 }
 
 .search-container input[type="text"] {
-  padding: 8px;
-  width: 250px;
-  font-size: 16px;
+  padding: 10px 15px;
   border: 1px solid #ccc;
-  border-radius: 4px 0 0 4px;
+  border-radius: 24px;
+  width: 250px;
+  max-width: 80%;
+  font-size: 16px;
 }
 
 .search-container button {
-  padding: 8px 12px;
-  background-color: #ffc107;
-  border: 1px solid #ffc107;
-  border-left: none;
-  border-radius: 0 4px 4px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  background-color: #333;
+  color: white;
   cursor: pointer;
-  font-size: 16px;
 }
 
 .search-container button:hover {
-  background-color: #e0a800;
+  background-color: #555;
 }
 
-/* Responsive behavior for smaller screens */
-@media (max-width: 600px) {
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    display: block;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  header {
+    font-size: 18px;
+    padding: 20px;
+  }
+
   .search-container {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
   }
 
-  .search-container input[type="text"],
-  .search-container button {
-    width: 100%;
-    border-radius: 4px;
-  }
-
-  .search-container button {
-    margin-top: 5px;
-    border-left: 1px solid #ccc;
+  .search-container input[type="text"] {
+    width: 90%;
   }
 }
 
-/* Main content */
-.content-wrapper {
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #4c7337;
+  color: white;
+  font-size: 14px;
+}
+.hero {
+  background-image: url('images/village-banner.jpg'); /* <-- make sure this image exists */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.about-container {
   max-width: 900px;
   margin: 0 auto;
   padding: 40px 20px;
   text-align: left;
 }
 
-/* About section image */
 .about-image {
   display: block;
   max-width: 300px;
@@ -105,19 +124,32 @@ nav a.active {
   margin: 20px auto;
 }
 
-/* Timeline */
 .timeline {
   max-width: 600px;
   margin: 20px auto;
   padding-left: 20px;
   list-style-type: disc;
 }
-
-/* Footer */
-footer {
-  background-color: #4c7337;
-  color: white;
+.news-section {
   text-align: center;
-  padding: 20px;
-  font-size: 14px;
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
 }
+
+.news-intro {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.news-card {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-left: 6px solid #007BFF;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  text-align: left;
+  border-radius: 5px;
+}
+
