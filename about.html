@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About – Tangeda</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
 
@@ -28,26 +29,14 @@
     <a href="travel.html">Travel Info</a>
   </nav>
 
-  <!-- Search bar with suggestions -->
-  <div class="search-bar">
-    <input list="suggestions" id="searchInput" placeholder="Search...">
-    <datalist id="suggestions">
-      <option value="History">
-      <option value="Festivals">
-      <option value="Temples">
-      <option value="People">
-      <option value="Gallery">
-      <option value="News">
-      <option value="Services">
-      <option value="Directory">
-      <option value="Guestbook">
-      <option value="Contact">
-      <option value="Travel Info">
-    </datalist>
-    <button onclick="searchSite()">🔍</button>
+  <!-- 🔍 Search Bar -->
+  <div class="search-container">
+    <input type="text" placeholder="Search..." />
+    <button type="submit"><i class="fa fa-search"></i></button>
   </div>
 
-  <main class="content-wrapper">
+  <!-- 📖 Main Content -->
+  <div class="content">
     <section>
       <h2>About Tangeda</h2>
       <p>
@@ -62,7 +51,7 @@
         The legendary founder of Tangeda, Anumula Machireddy Garu, was a visionary ruler who emphasized self-reliance,
         spiritual integrity, and education. His legacy still echoes in the temples and stories told by elders.
       </p>
-      <img src="images/king-placeholder.jpg" alt="King Anumula Machireddy Garu" style="max-width: 300px; border-radius: 8px;">
+      <img src="images/king-placeholder.jpg" alt="King Anumula Machireddy Garu" style="max-width: 300px; border-radius: 8px;" />
     </section>
 
     <section>
@@ -75,43 +64,19 @@
         <li><strong>2020:</strong> Digital initiatives and festival archives began</li>
       </ul>
     </section>
-  </main>
+  </div>
 
   <footer>
     <p>© 2025 Tangeda Village. All rights reserved.</p>
   </footer>
-
-  <!-- Search functionality -->
   <script>
-    function searchSite() {
-      const query = document.getElementById('searchInput').value.toLowerCase();
-
-      if (query.includes("about") || query.includes("history")) {
-        window.location.href = "about.html";
-      } else if (query.includes("festival")) {
-        window.location.href = "festivals.html";
-      } else if (query.includes("temple")) {
-        window.location.href = "temples.html";
-      } else if (query.includes("people")) {
-        window.location.href = "people.html";
-      } else if (query.includes("gallery")) {
-        window.location.href = "gallery.html";
-      } else if (query.includes("news")) {
-        window.location.href = "news.html";
-      } else if (query.includes("services")) {
-        window.location.href = "services.html";
-      } else if (query.includes("directory")) {
-        window.location.href = "directory.html";
-      } else if (query.includes("guestbook")) {
-        window.location.href = "guestbook.html";
-      } else if (query.includes("contact")) {
-        window.location.href = "contact.html";
-      } else if (query.includes("travel")) {
-        window.location.href = "travel.html";
-      } else {
-        alert("No matching section found.");
-      }
+  document.querySelector('.search-container button').addEventListener('click', function () {
+    const query = document.querySelector('.search-container input').value.trim();
+    if (query) {
+      window.location.href = `search.html?q=${encodeURIComponent(query)}`;
     }
-  </script>
+  });
+</script>
+
 </body>
 </html>
