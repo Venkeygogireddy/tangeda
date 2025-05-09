@@ -130,4 +130,26 @@ footer {
   padding-left: 20px;
   list-style-type: disc;
 }
+.news-section {
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.news-intro {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.news-card {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-left: 6px solid #007BFF;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  text-align: left;
+  border-radius: 5px;
+}
 
