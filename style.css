@@ -101,3 +101,20 @@ footer {
   color: white;
   font-size: 14px;
 }
+.hero {
+  background: url("images/your-village-banner.jpg") center/cover no-repeat;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.hero-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  width: 100%;
+}
+
