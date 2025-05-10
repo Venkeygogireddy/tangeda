@@ -1,48 +1,52 @@
-/* Base layout */
+/* === Base Layout === */
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  background-color: #fffceb;
+  font-family: Arial, sans-serif;
+  background-color: #fdfae8;
 }
 
-/* ===== Navigation ===== */
+/* === Navigation === */
 nav {
   background-color: #111;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  padding: 10px 0;
+  flex-wrap: wrap;
 }
 
 nav a {
   color: white;
-  padding: 10px 20px;
   text-decoration: none;
+  padding: 14px 20px;
   font-weight: bold;
 }
 
+nav a:hover,
 nav a.active {
-  background-color: #ffc800;
+  background-color: #ffcc00;
   color: black;
 }
 
-/* ===== Scrollable Header Slider ===== */
+/* === Header Slider === */
 .hero-slider {
   position: relative;
   overflow: hidden;
   height: 350px;
 }
 
+.slider-wrapper {
+  position: relative;
+  height: 100%;
+}
+
 .slider-container {
   display: flex;
-  animation: scrollSlider 18s linear infinite;
-  width: max-content;
+  transition: transform 0.6s ease-in-out;
+  height: 100%;
 }
 
 .slide {
-  min-width: 100vw;
-  height: 350px;
+  min-width: 100%;
+  height: 100%;
   flex-shrink: 0;
 }
 
@@ -52,6 +56,53 @@ nav a.active {
   object-fit: cover;
 }
 
+/* === Slider Controls === */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.slider-btn.prev { left: 10px; }
+.slider-btn.next { right: 10px; }
+
+.slider-btn:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+/* === Dot Indicators === */
+.slider-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #fff;
+}
+
+/* === Header Text & Search === */
 .header-text {
   position: absolute;
   top: 50%;
@@ -60,9 +111,9 @@ nav a.active {
   color: white;
   text-align: center;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+  z-index: 1;
 }
 
-/* ===== Search Bar ===== */
 .search-container {
   margin-top: 20px;
   display: flex;
@@ -70,26 +121,20 @@ nav a.active {
   gap: 10px;
 }
 
-.search-container input[type="text"] {
-  padding: 10px 15px;
+.search-container input {
+  padding: 10px 16px;
+  border-radius: 30px;
   border: 1px solid #ccc;
-  border-radius: 24px;
-  width: 250px;
-  max-width: 80%;
-  font-size: 16px;
+  font-size: 14px;
+  width: 220px;
 }
 
 .search-container button {
-  padding: 10px;
+  background: white;
   border: none;
+  padding: 8px;
   border-radius: 50%;
-  background-color: #333;
-  color: white;
   cursor: pointer;
-}
-
-.search-container button:hover {
-  background-color: #555;
 }
 
 .search-container button img {
@@ -97,13 +142,36 @@ nav a.active {
   height: 18px;
 }
 
-/* ===== Keyframes for Header Scroll ===== */
-@keyframes scrollSlider {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-300%); } /* Adjust based on number of slides */
+/* === Page Sections === */
+section {
+  padding: 40px 20px;
+  text-align: center;
 }
 
-/* ===== Responsive Design ===== */
+.highlights {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.highlight-box {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  width: 260px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* === Footer === */
+footer {
+  background: #4a773c;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+
+/* === Responsive Design === */
 @media (max-width: 768px) {
   nav {
     flex-direction: column;
@@ -117,114 +185,12 @@ nav a.active {
     text-align: center;
   }
 
-  .header-text {
-    font-size: 16px;
-    padding: 10px;
-  }
-
   .search-container {
     flex-direction: column;
     align-items: center;
   }
 
-  .search-container input[type="text"] {
+  .search-container input {
     width: 90%;
   }
-}
-
-/* ===== Footer ===== */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #4c7337;
-  color: white;
-  font-size: 14px;
-}
-
-/* ===== Legacy Hero (for other pages) ===== */
-.hero {
-  background-image: url('images/village-banner.jpg');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  text-align: center;
-  padding: 60px 20px;
-}
-
-/* ===== About Section ===== */
-.about-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  text-align: left;
-}
-
-.about-image {
-  display: block;
-  max-width: 300px;
-  border-radius: 8px;
-  margin: 20px auto;
-}
-
-.timeline {
-  max-width: 600px;
-  margin: 20px auto;
-  padding-left: 20px;
-  list-style-type: disc;
-}
-
-/* ===== News Section ===== */
-.news-section {
-  text-align: center;
-  padding: 40px 20px;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.news-intro {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.news-card {
-  background: #fff;
-  padding: 20px;
-  margin-bottom: 15px;
-  border-left: 6px solid #007BFF;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  text-align: left;
-  border-radius: 5px;
-}
-
-/* ===== Gallery Section ===== */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 16px;
-  padding: 20px;
-  background-color: #f8f8f8;
-}
-
-.gallery img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.gallery img:hover {
-  transform: scale(1.05);
-}
-
-figure {
-  margin: 0;
-  text-align: center;
-}
-
-figcaption {
-  margin-top: 8px;
-  font-size: 14px;
-  color: #333;
 }
