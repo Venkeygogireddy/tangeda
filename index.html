@@ -12,22 +12,27 @@
       background-color: #fdfae8;
     }
 
-    /* ===== Scrollable Header Slider ===== */
+    /* === Header Slider === */
     .hero-slider {
       position: relative;
       overflow: hidden;
       height: 350px;
     }
 
+    .slider-wrapper {
+      position: relative;
+      height: 100%;
+    }
+
     .slider-container {
       display: flex;
-      animation: scrollSlider 18s linear infinite;
-      width: max-content;
+      transition: transform 0.6s ease-in-out;
+      height: 100%;
     }
 
     .slide {
-      min-width: 100vw;
-      height: 350px;
+      min-width: 100%;
+      height: 100%;
       flex-shrink: 0;
     }
 
@@ -35,6 +40,50 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 12px;
+      cursor: pointer;
+      font-size: 24px;
+      border-radius: 50%;
+      z-index: 2;
+    }
+
+    .slider-btn.prev { left: 10px; }
+    .slider-btn.next { right: 10px; }
+
+    .slider-btn:hover {
+      background: rgba(0,0,0,0.7);
+    }
+
+    .slider-dots {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 2;
+    }
+
+    .dot {
+      height: 12px;
+      width: 12px;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .dot.active {
+      background-color: #fff;
     }
 
     .header-text {
@@ -45,6 +94,7 @@
       color: white;
       text-align: center;
       text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+      z-index: 1;
     }
 
     .search-container {
@@ -75,12 +125,7 @@
       height: 18px;
     }
 
-    @keyframes scrollSlider {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-300%); } /* Adjust if more or fewer slides */
-    }
-
-    /* ===== Navigation and Layout ===== */
+    /* === Navigation === */
     nav {
       background-color: #111;
       display: flex;
@@ -101,6 +146,7 @@
       color: black;
     }
 
+    /* === Sections === */
     section {
       padding: 40px 20px;
       text-align: center;
@@ -127,114 +173,51 @@
       text-align: center;
       padding: 15px;
     }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav a {
+        display: block;
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .search-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .search-container input {
+        width: 90%;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- ===== Scrollable Header Section ===== -->
+  <!-- === Header with Slider, Controls, Dots === -->
   <header class="hero-slider">
-    <div class="slider-container">
-      <div class="slide"><img src="images/header1.jpg" alt="Scenic View 1"></div>
-      <div class="slide"><img src="images/header2.jpg" alt="Scenic View 2"></div>
-      <div class="slide"><img src="images/header3.jpg" alt="Scenic View 3"></div>
-      <!-- Add more slides if needed -->
+    <div class="slider-wrapper">
+      <div class="slider-container" id="slider">
+        <div class="slide"><img src="images/header1.jpg" alt="Scenic View 1"></div>
+        <div class="slide"><img src="images/header2.jpg" alt="Scenic View 2"></div>
+        <div class="slide"><img src="images/header3.jpg" alt="Scenic View 3"></div>
+      </div>
+      <button class="slider-btn prev" onclick="prevSlide()">&#10094;</button>
+      <button class="slider-btn next" onclick="nextSlide()">&#10095;</button>
+      <div class="slider-dots" id="slider-dots">
+        <span onclick="goToSlide(0)" class="dot active"></span>
+        <span onclick="goToSlide(1)" class="dot"></span>
+        <span onclick="goToSlide(2)" class="dot"></span>
+      </div>
     </div>
     <div class="header-text">
       <h1>Welcome to Tangeda</h1>
       <p>Founded by The King Anumula Machireddy Garu</p>
       <div class="search-container">
-        <input type="text" id="site-search" placeholder="Search..." onkeypress="if(event.key==='Enter'){ performSearch(); }">
-        <button onclick="performSearch()" title="Search">
-          <img src="images/search_icon.svg" alt="Search" />
-        </button>
-        <button onclick="startVoiceSearch()" title="Voice Search">
-          <img src="images/mic_icon.svg" alt="Mic" />
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- ===== Navigation Menu ===== -->
-  <nav>
-    <a href="index.html" class="active">Home</a>
-    <a href="about.html">About</a>
-    <a href="festivals.html">Festivals</a>
-    <a href="temples.html">Temples</a>
-    <a href="people.html">People</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="news.html">News</a>
-    <a href="services.html">Services</a>
-    <a href="directory.html">Directory</a>
-    <a href="guestbook.html">Guestbook</a>
-    <a href="contact.html">Contact</a>
-    <a href="travel.html">Travel Info</a>
-  </nav>
-
-  <!-- ===== Main Content ===== -->
-  <section>
-    <h2>Discover Tangeda</h2>
-    <p>Tangeda is a village rich in culture and history, known for its heritage and community. Learn about its people, festivals, and the royal roots that shaped it.</p>
-  </section>
-
-  <section class="highlights">
-    <div class="highlight-box">
-      <h3>Rich Heritage</h3>
-      <p>Founded centuries ago, Tangeda is home to deep-rooted traditions and historic temples.</p>
-    </div>
-    <div class="highlight-box">
-      <h3>Cultural Events</h3>
-      <p>Celebrate colorful festivals like Sankranthi, Ganesh Chaturthi, and Muharram with unity and joy.</p>
-    </div>
-    <div class="highlight-box">
-      <h3>Community Services</h3>
-      <p>From schools to healthcare and electricity, the village is equipped to support its people.</p>
-    </div>
-  </section>
-
-  <!-- ===== Footer ===== -->
-  <footer>
-    <p>© 2025 Tangeda Village. All rights reserved.</p>
-  </footer>
-
-  <!-- ===== JavaScript for Search & Voice ===== -->
-  <script>
-    function performSearch() {
-      const query = document.getElementById('site-search').value.toLowerCase();
-      const pageMap = {
-        "home": "index.html",
-        "history": "history.html",
-        "festivals": "festivals.html",
-        "temples": "temples.html",
-        "people": "people.html",
-        "gallery": "gallery.html",
-        "contact": "contact.html",
-        "services": "services.html",
-        "recipes": "recipes.html",
-        "news": "news.html"
-      };
-      for (const keyword in pageMap) {
-        if (query.includes(keyword)) {
-          window.location.href = pageMap[keyword];
-          return;
-        }
-      }
-      alert("No matching page found.");
-    }
-
-    function startVoiceSearch() {
-      if (!('webkitSpeechRecognition' in window)) {
-        alert("Voice recognition not supported in this browser.");
-        return;
-      }
-      const recognition = new webkitSpeechRecognition();
-      recognition.lang = "en-US";
-      recognition.onresult = function(event) {
-        document.getElementById('site-search').value = event.results[0][0].transcript;
-        performSearch();
-      };
-      recognition.start();
-    }
-  </script>
-
-</body>
-</html>
+        <input type="text" id="site-search" placeholder="Search..." onkeypress="if(event.key==='Enter'){
