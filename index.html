@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,45 +11,57 @@
       font-family: Arial, sans-serif;
       background-color: #fdfae8;
     }
-    header {
+
+    /* ===== Scrollable Header Slider ===== */
+    .hero-slider {
       position: relative;
-      background-image: url("images/village-banner.jpg");
-      background-size: cover;
-      background-position: center;
+      overflow: hidden;
+      height: 350px;
+    }
+
+    .slider-container {
+      display: flex;
+      animation: scrollSlider 18s linear infinite;
+      width: max-content;
+    }
+
+    .slide {
+      min-width: 100vw;
+      height: 350px;
+      flex-shrink: 0;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .header-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       color: white;
       text-align: center;
-      padding: 80px 20px;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
     }
-    nav {
-      background-color: #111;
+
+    .search-container {
+      margin-top: 20px;
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
+      gap: 10px;
     }
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: 14px 20px;
-      font-weight: bold;
-    }
-    nav a:hover, nav a.active {
-      background-color: #ffcc00;
-      color: black;
-    }
-    .search-container {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+
     .search-container input {
       padding: 10px 16px;
       border-radius: 30px;
       border: 1px solid #ccc;
       font-size: 14px;
+      width: 220px;
     }
+
     .search-container button {
       background: white;
       border: none;
@@ -59,20 +69,50 @@
       border-radius: 50%;
       cursor: pointer;
     }
+
     .search-container button img {
       width: 18px;
       height: 18px;
     }
+
+    @keyframes scrollSlider {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-300%); } /* Adjust if more or fewer slides */
+    }
+
+    /* ===== Navigation and Layout ===== */
+    nav {
+      background-color: #111;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 14px 20px;
+      font-weight: bold;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: #ffcc00;
+      color: black;
+    }
+
     section {
       padding: 40px 20px;
       text-align: center;
     }
+
     .highlights {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
     }
+
     .highlight-box {
       background: #fff;
       border-radius: 8px;
@@ -80,6 +120,7 @@
       width: 260px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
+
     footer {
       background: #4a773c;
       color: white;
@@ -89,6 +130,7 @@
   </style>
 </head>
 <body>
+
   <!-- ===== Scrollable Header Section ===== -->
   <header class="hero-slider">
     <div class="slider-container">
@@ -98,34 +140,37 @@
       <!-- Add more slides if needed -->
     </div>
     <div class="header-text">
-    <h1>Welcome to Tangeda</h1>
-    <p>Founded by The King Anumula Machireddy Garu</p>
-    <div class="search-container">
-      <input type="text" id="site-search" placeholder="Search..." onkeypress="if(event.key==='Enter'){ performSearch(); }">
-      <button onclick="performSearch()" title="Search">
-        <img src="images/search_icon.svg" alt="Search" />
-      </button>
-      <button onclick="startVoiceSearch()" title="Voice Search">
-        <img src="images/mic_icon.svg" alt="Mic" />
-      </button>
+      <h1>Welcome to Tangeda</h1>
+      <p>Founded by The King Anumula Machireddy Garu</p>
+      <div class="search-container">
+        <input type="text" id="site-search" placeholder="Search..." onkeypress="if(event.key==='Enter'){ performSearch(); }">
+        <button onclick="performSearch()" title="Search">
+          <img src="images/search_icon.svg" alt="Search" />
+        </button>
+        <button onclick="startVoiceSearch()" title="Voice Search">
+          <img src="images/mic_icon.svg" alt="Mic" />
+        </button>
+      </div>
     </div>
   </header>
 
+  <!-- ===== Navigation Menu ===== -->
   <nav>
-  <a href="index.html" class="active">Home</a>
-  <a href="about.html">About</a>
-  <a href="festivals.html">Festivals</a>
-  <a href="temples.html">Temples</a>
-  <a href="people.html">People</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="news.html">News</a>
-  <a href="services.html">Services</a>
-  <a href="directory.html">Directory</a>
-  <a href="guestbook.html">Guestbook</a>
-  <a href="contact.html">Contact</a>
-  <a href="travel.html">Travel Info</a>
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="festivals.html">Festivals</a>
+    <a href="temples.html">Temples</a>
+    <a href="people.html">People</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="news.html">News</a>
+    <a href="services.html">Services</a>
+    <a href="directory.html">Directory</a>
+    <a href="guestbook.html">Guestbook</a>
+    <a href="contact.html">Contact</a>
+    <a href="travel.html">Travel Info</a>
   </nav>
 
+  <!-- ===== Main Content ===== -->
   <section>
     <h2>Discover Tangeda</h2>
     <p>Tangeda is a village rich in culture and history, known for its heritage and community. Learn about its people, festivals, and the royal roots that shaped it.</p>
@@ -146,10 +191,12 @@
     </div>
   </section>
 
+  <!-- ===== Footer ===== -->
   <footer>
     <p>© 2025 Tangeda Village. All rights reserved.</p>
   </footer>
 
+  <!-- ===== JavaScript for Search & Voice ===== -->
   <script>
     function performSearch() {
       const query = document.getElementById('site-search').value.toLowerCase();
