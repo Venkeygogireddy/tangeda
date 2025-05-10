@@ -25,6 +25,14 @@ nav a.active {
   background-color: #ffcc00;
   color: black;
 }
+.hero {
+  background-image: url('images/village-banner.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 80px 20px;
+  text-align: center;
+  color: white;
+}
 
 /* === Header Slider === */
 .hero-slider {
