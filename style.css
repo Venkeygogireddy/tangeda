@@ -1,19 +1,11 @@
 
-/* General layout */
+
+/* Base layout */
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   background-color: #fffceb;
-}
-
-header.hero {
-  background-image: url('images/village-banner.jpg');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  text-align: center;
-  padding: 60px 20px;
 }
 
 nav {
@@ -36,41 +28,90 @@ nav a.active {
   color: black;
 }
 
-/* Search Bar */
-.search-bar {
+header {
+  text-align: center;
+  padding: 40px 20px;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  background-image: url('images/village-banner.jpg');
+}
+
+.search-container {
+  margin-top: 10px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 12px;
-  background-color: #f8f8f8;
-  border-bottom: 1px solid #ccc;
+  gap: 5px;
 }
 
-.search-bar input[type="text"] {
+.search-container input[type="text"] {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 24px;
   width: 250px;
-  padding: 8px;
+  max-width: 80%;
   font-size: 16px;
-  border: 1px solid #aaa;
-  border-radius: 4px 0 0 4px;
-  outline: none;
 }
 
-.search-bar button {
-  padding: 9px 12px;
-  background-color: #ffc107;
-  color: black;
+.search-container button {
+  padding: 10px;
   border: none;
-  border-radius: 0 4px 4px 0;
+  border-radius: 50%;
+  background-color: #333;
+  color: white;
   cursor: pointer;
-  font-size: 16px;
 }
 
-.search-bar button:hover {
-  background-color: #e0a800;
+.search-container button:hover {
+  background-color: #555;
 }
 
-/* Page content wrapper */
-.content-wrapper {
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    display: block;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  header {
+    font-size: 18px;
+    padding: 20px;
+  }
+
+  .search-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-container input[type="text"] {
+    width: 90%;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #4c7337;
+  color: white;
+  font-size: 14px;
+}
+.hero {
+  background-image: url('images/village-banner.jpg'); /* <-- make sure this image exists */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.about-container {
   max-width: 900px;
   margin: 0 auto;
   padding: 40px 20px;
@@ -90,11 +131,55 @@ nav a.active {
   padding-left: 20px;
   list-style-type: disc;
 }
-
-footer {
-  background-color: #4c7337;
-  color: white;
+.news-section {
   text-align: center;
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.news-intro {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.news-card {
+  background: #fff;
   padding: 20px;
+  margin-bottom: 15px;
+  border-left: 6px solid #007BFF;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  text-align: left;
+  border-radius: 5px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+figure {
+  margin: 0;
+  text-align: center;
+}
+
+figcaption {
+  margin-top: 8px;
   font-size: 14px;
+  color: #333;
 }
