@@ -1,185 +1,67 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to Tangeda</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #fdfae8;
-    }
-    header {
-      position: relative;
-      background-image: url("images/village-banner.jpg");
-      background-size: cover;
-      background-position: center;
-      color: white;
-      text-align: center;
-      padding: 80px 20px;
-    }
-    nav {
-      background-color: #111;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: 14px 20px;
-      font-weight: bold;
-    }
-    nav a:hover, nav a.active {
-      background-color: #ffcc00;
-      color: black;
-    }
-    .search-container {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .search-container input {
-      padding: 10px 16px;
-      border-radius: 30px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-    }
-    .search-container button {
-      background: white;
-      border: none;
-      padding: 8px;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-    .search-container button img {
-      width: 18px;
-      height: 18px;
-    }
-    section {
-      padding: 40px 20px;
-      text-align: center;
-    }
-    .highlights {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .highlight-box {
-      background: #fff;
-      border-radius: 8px;
-      padding: 20px;
-      width: 260px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-    footer {
-      background: #4a773c;
-      color: white;
-      text-align: center;
-      padding: 15px;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About – Tangeda</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <header>
+  <header class="hero">
     <h1>Welcome to Tangeda</h1>
     <p>Founded by The King Anumula Machireddy Garu</p>
-    <div class="search-container">
-      <input type="text" id="site-search" placeholder="Search..." onkeypress="if(event.key==='Enter'){ performSearch(); }">
-      <button onclick="performSearch()" title="Search">
-        <img src="images/search_icon.svg" alt="Search" />
-      </button>
-      <button onclick="startVoiceSearch()" title="Voice Search">
-        <img src="images/mic_icon.svg" alt="Mic" />
-      </button>
-    </div>
   </header>
 
   <nav>
-  <a href="index.html" class="active">Home</a>
-  <a href="about.html">About</a>
-  <a href="festivals.html">Festivals</a>
-  <a href="temples.html">Temples</a>
-  <a href="people.html">People</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="news.html">News</a>
-  <a href="services.html">Services</a>
-  <a href="directory.html">Directory</a>
-  <a href="guestbook.html">Guestbook</a>
-  <a href="contact.html">Contact</a>
-  <a href="travel.html">Travel Info</a>
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="festivals.html">Festivals</a>
+    <a href="temples.html">Temples</a>
+    <a href="people.html">People</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="news.html">News</a>
+    <a href="services.html">Services</a>
+    <a href="directory.html">Directory</a>
+    <a href="guestbook.html">Guestbook</a>
+    <a href="contact.html">Contact</a>
+    <a href="travel.html">Travel Info</a>
   </nav>
 
-  <section>
-    <h2>Discover Tangeda</h2>
-    <p>Tangeda is a village rich in culture and history, known for its heritage and community. Learn about its people, festivals, and the royal roots that shaped it.</p>
-  </section>
+  <!-- Main content wrapped for better styling -->
+  <div class="about-container">
 
-  <section class="highlights">
-    <div class="highlight-box">
-      <h3>Rich Heritage</h3>
-      <p>Founded centuries ago, Tangeda is home to deep-rooted traditions and historic temples.</p>
-    </div>
-    <div class="highlight-box">
-      <h3>Cultural Events</h3>
-      <p>Celebrate colorful festivals like Sankranthi, Ganesh Chaturthi, and Muharram with unity and joy.</p>
-    </div>
-    <div class="highlight-box">
-      <h3>Community Services</h3>
-      <p>From schools to healthcare and electricity, the village is equipped to support its people.</p>
-    </div>
-  </section>
+    <section>
+      <h2>About Tangeda</h2>
+      <p>
+        Tangeda is a historic village nestled in the heart of Andhra Pradesh. Known for its strong cultural roots and
+        vibrant traditions, the village traces its origin back several centuries.
+      </p>
+    </section>
+
+    <section>
+      <h2>King Anumula Machireddy Garu</h2>
+      <p>
+        The legendary founder of Tangeda, Anumula Machireddy Garu, was a visionary ruler who emphasized self-reliance,
+        spiritual integrity, and education. His legacy still echoes in the temples and stories told by elders.
+      </p>
+      <img src="images/king-placeholder.jpg" alt="King Anumula Machireddy Garu" class="about-image">
+    </section>
+
+    <section>
+      <h2>Village Timeline</h2>
+      <ul class="timeline">
+        <li><strong>1600s:</strong> Founding of Tangeda by Anumula Machireddy Garu</li>
+        <li><strong>1800s:</strong> Temples constructed in the village center</li>
+        <li><strong>1947:</strong> Participation in India’s independence movement</li>
+        <li><strong>1980s:</strong> Village school and water system established</li>
+        <li><strong>2020:</strong> Digital initiatives and festival archives began</li>
+      </ul>
+    </section>
+
+  </div>
 
   <footer>
     <p>© 2025 Tangeda Village. All rights reserved.</p>
   </footer>
-
-  <script>
-    function performSearch() {
-      const query = document.getElementById('site-search').value.toLowerCase();
-      const pageMap = {
-        "home": "index.html",
-        "history": "history.html",
-        "festivals": "festivals.html",
-        "temples": "temples.html",
-        "people": "people.html",
-        "gallery": "gallery.html",
-        "contact": "contact.html",
-        "services": "services.html",
-        "recipes": "recipes.html",
-        "news": "news.html"
-      };
-      for (const keyword in pageMap) {
-        if (query.includes(keyword)) {
-          window.location.href = pageMap[keyword];
-          return;
-        }
-      }
-      alert("No matching page found.");
-    }
-
-    function startVoiceSearch() {
-      if (!('webkitSpeechRecognition' in window)) {
-        alert("Voice recognition not supported in this browser.");
-        return;
-      }
-      const recognition = new webkitSpeechRecognition();
-      recognition.lang = "en-US";
-      recognition.onresult = function(event) {
-        document.getElementById('site-search').value = event.results[0][0].transcript;
-        performSearch();
-      };
-      recognition.start();
-    }
-  </script>
-
 </body>
 </html>
