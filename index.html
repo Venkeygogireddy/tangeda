@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,86 +8,142 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Welcome to Tangeda</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fdfae8;
+    }
+    header {
+      position: relative;
+      background-image: url("images/village-banner.jpg");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    nav {
+      background-color: #111;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 14px 20px;
+      font-weight: bold;
+    }
+    nav a:hover, nav a.active {
+      background-color: #ffcc00;
+      color: black;
+    }
+    .search-container {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .search-container input {
+      padding: 10px 16px;
+      border-radius: 30px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    .search-container button {
+      background: white;
+      border: none;
+      padding: 8px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .search-container button img {
+      width: 18px;
+      height: 18px;
+    }
+    section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .highlights {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .highlight-box {
+      background: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      width: 260px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    footer {
+      background: #4a773c;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- SLIDER SECTION -->
-  <section class="slider">
-    <div class="slides">
-      <div class="slide active">
-        <img src="images/village-banner.jpg" alt="Slide 1">
-      </div>
-      <div class="slide">
-        <img src="images/bg2.jpg" alt="Slide 2">
-      </div>
-      <div class="slide">
-        <img src="images/bg3.jpg" alt="Slide 3">
-      </div>
-    </div>
-
-    <div class="search-top-right">
+  <header>
+    <h1>Welcome to Tangeda</h1>
+    <p>Founded by The King Anumula Machireddy Garu</p>
+    <div class="search-container">
       <input type="text" id="site-search" placeholder="Search..." onkeypress="if(event.key==='Enter'){ performSearch(); }">
       <button onclick="performSearch()" title="Search">
-        <img src="images/search-icon.svg" alt="Search" />
+        <img src="images/search_icon.svg" alt="Search" />
       </button>
       <button onclick="startVoiceSearch()" title="Voice Search">
-        <img src="images/mic-icon.svg" alt="Mic" />
+        <img src="images/mic_icon.svg" alt="Mic" />
       </button>
     </div>
+  </header>
 
-    <div class="hero-text">
-      <h1>Welcome to Tangeda</h1>
-      <p>Founded by The King Anumula Machireddy Garu</p>
-    </div>
-
-    <button class="prev">&#10094;</button>
-    <button class="next">&#10095;</button>
-    <div class="dots"></div>
-  </section>
-
-  <!-- NAVIGATION -->
   <nav>
-    <a href="index.html" class="active">Home</a>
-    <a href="about.html">About</a>
-    <a href="festivals.html">Festivals</a>
-    <a href="temples.html">Temples</a>
-    <a href="people.html">People</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="news.html">News</a>
-    <a href="services.html">Services</a>
-    <a href="directory.html">Directory</a>
-    <a href="guestbook.html">Guestbook</a>
-    <a href="contact.html">Contact</a>
-    <a href="travel.html">Travel Info</a>
+  <a href="index.html" class="active">Home</a>
+  <a href="about.html">About</a>
+  <a href="festivals.html">Festivals</a>
+  <a href="temples.html">Temples</a>
+  <a href="people.html">People</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="news.html">News</a>
+  <a href="services.html">Services</a>
+  <a href="directory.html">Directory</a>
+  <a href="guestbook.html">Guestbook</a>
+  <a href="contact.html">Contact</a>
+  <a href="travel.html">Travel Info</a>
   </nav>
 
-  <!-- MAIN CONTENT -->
-  <section class="main-intro">
+  <section>
     <h2>Discover Tangeda</h2>
     <p>Tangeda is a village rich in culture and history, known for its heritage and community. Learn about its people, festivals, and the royal roots that shaped it.</p>
+  </section>
 
-    <div class="feature-block">
+  <section class="highlights">
+    <div class="highlight-box">
       <h3>Rich Heritage</h3>
       <p>Founded centuries ago, Tangeda is home to deep-rooted traditions and historic temples.</p>
     </div>
-
-    <div class="feature-block">
+    <div class="highlight-box">
       <h3>Cultural Events</h3>
       <p>Celebrate colorful festivals like Sankranthi, Ganesh Chaturthi, and Muharram with unity and joy.</p>
     </div>
-
-    <div class="feature-block">
+    <div class="highlight-box">
       <h3>Community Services</h3>
       <p>From schools to healthcare and electricity, the village is equipped to support its people.</p>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <p>© 2025 Tangeda Village. All rights reserved.</p>
   </footer>
 
-  <!-- JAVASCRIPT -->
   <script>
     function performSearch() {
       const query = document.getElementById('site-search').value.toLowerCase();
@@ -122,67 +181,6 @@
       };
       recognition.start();
     }
-
-    const slides = document.querySelectorAll('.slide');
-    const dotsContainer = document.querySelector('.dots');
-    const next = document.querySelector('.next');
-    const prev = document.querySelector('.prev');
-
-    let currentIndex = 0;
-    let interval;
-
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
-      document.querySelector('.slides').style.transform = `translateX(-${index * 100}%)`;
-
-      document.querySelectorAll('.dots span').forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-      });
-
-      currentIndex = index;
-    }
-
-    function nextSlide() {
-      showSlide((currentIndex + 1) % slides.length);
-    }
-
-    function prevSlide() {
-      showSlide((currentIndex - 1 + slides.length) % slides.length);
-    }
-
-    function startAutoSlide() {
-      interval = setInterval(nextSlide, 5000);
-    }
-
-    function createDots() {
-      slides.forEach((_, i) => {
-        const dot = document.createElement('span');
-        dot.addEventListener('click', () => {
-          clearInterval(interval);
-          showSlide(i);
-          startAutoSlide();
-        });
-        dotsContainer.appendChild(dot);
-      });
-    }
-
-    next.addEventListener('click', () => {
-      clearInterval(interval);
-      nextSlide();
-      startAutoSlide();
-    });
-
-    prev.addEventListener('click', () => {
-      clearInterval(interval);
-      prevSlide();
-      startAutoSlide();
-    });
-
-    createDots();
-    showSlide(0);
-    startAutoSlide();
   </script>
 
 </body>
