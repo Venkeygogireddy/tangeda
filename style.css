@@ -275,3 +275,42 @@ figcaption {
     font-size: 16px;
   }
 }
+/* Search bar in top-right of slider */
+.search-top-right {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+.search-top-right input {
+  padding: 10px 16px;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.search-top-right button {
+  background: #111;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.search-top-right button img {
+  width: 18px;
+  height: 18px;
+}
+
+/* Right-aligned intro content */
+.intro-right {
+  padding: 40px 20px;
+  text-align: right;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: 40px;
+}
