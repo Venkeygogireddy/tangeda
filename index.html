@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <!-- SLIDER with SEARCH and WELCOME TEXT -->
+  <!-- SLIDER SECTION -->
   <section class="slider">
     <div class="slides">
       <div class="slide active">
@@ -22,18 +22,21 @@
       </div>
     </div>
 
+    <!-- SEARCH BAR TOP RIGHT -->
+    <div class="search-top-right">
+      <input type="text" id="site-search" placeholder="Search..." onkeypress="if(event.key==='Enter'){ performSearch(); }">
+      <button onclick="performSearch()" title="Search">
+        <img src="images/search_icon.svg" alt="Search" />
+      </button>
+      <button onclick="startVoiceSearch()" title="Voice Search">
+        <img src="images/mic_icon.svg" alt="Mic" />
+      </button>
+    </div>
+
+    <!-- WELCOME TEXT -->
     <div class="hero-text">
       <h1>Welcome to Tangeda</h1>
       <p>Founded by The King Anumula Machireddy Garu</p>
-      <div class="search-container">
-        <input type="text" id="site-search" placeholder="Search..." onkeypress="if(event.key==='Enter'){ performSearch(); }">
-        <button onclick="performSearch()" title="Search">
-          <img src="images/search_icon.svg" alt="Search" />
-        </button>
-        <button onclick="startVoiceSearch()" title="Voice Search">
-          <img src="images/mic_icon.svg" alt="Mic" />
-        </button>
-      </div>
     </div>
 
     <button class="prev">&#10094;</button>
@@ -57,8 +60,8 @@
     <a href="travel.html">Travel Info</a>
   </nav>
 
-  <!-- MAIN CONTENT -->
-  <section>
+  <!-- MAIN CONTENT RIGHT ALIGNED -->
+  <section class="intro-right">
     <h2>Discover Tangeda</h2>
     <p>Tangeda is a village rich in culture and history, known for its heritage and community. Learn about its people, festivals, and the royal roots that shaped it.</p>
   </section>
@@ -183,5 +186,6 @@
     showSlide(0);
     startAutoSlide();
   </script>
+
 </body>
 </html>
