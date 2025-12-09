@@ -1,44 +1,93 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Welcome to Tangeda</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- (Optional) your external CSS if you use it -->
+  <!-- <link rel="stylesheet" href="style.css" /> -->
+
   <style>
+    :root {
+      --bg: #fdfae8;
+      --nav-bg: #111111;
+      --accent: #ffcc00;
+      --accent-soft: #ffe680;
+      --text: #111827;
+      --muted: #4b5563;
+      --card-bg: #ffffff;
+      --footer-bg: #4a773c;
+      --radius: 14px;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #fdfae8;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
     }
+
+    /* HERO / HEADER */
+
     header {
       position: relative;
       background-image: url("images/village-banner.jpg");
       background-size: cover;
       background-position: center;
-      color: black;
       text-align: center;
-      padding: 80px 20px;
+      padding: 80px 20px 100px;
+      color: #ffffff;
+      overflow: hidden;
     }
-    nav {
-      background-color: #111;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+
+    /* dark overlay for readability */
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.45),
+        rgba(0, 0, 0, 0.55)
+      );
+      z-index: 0;
     }
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: 14px 20px;
-      font-weight: bold;
+
+    header > * {
+      position: relative;
+      z-index: 1;
     }
-    nav a:hover, nav a.active {
-      background-color: #ffcc00;
-      color: black;
+
+    header h1 {
+      font-size: 2.4rem;
+      margin: 0 0 8px;
+      text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
     }
+
+    header p {
+      margin: 0;
+      font-weight: 300;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Search */
+
     .search-container {
       position: absolute;
       top: 20px;
@@ -46,56 +95,216 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      z-index: 2;
     }
+
     .search-container input {
       padding: 10px 16px;
       border-radius: 30px;
-      border: 1px solid #ccc;
+      border: 1px solid #ddd;
       font-size: 14px;
+      min-width: 180px;
+      outline: none;
     }
+
+    .search-container input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(255, 204, 0, 0.3);
+    }
+
     .search-container button {
-      background: white;
+      background: #ffffff;
       border: none;
       padding: 8px;
       border-radius: 50%;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     }
+
     .search-container button img {
       width: 18px;
       height: 18px;
     }
+
+    /* Hero Buttons */
+
+    .hero-actions {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #111111;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #ffffff;
+      border-color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-soft);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      background-color: var(--nav-bg);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 14px 18px;
+      font-weight: 600;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: var(--accent);
+      color: #111111;
+    }
+
+    /* CONTENT SECTIONS */
+
     section {
-      padding: 40px 20px;
+      padding: 60px 20px;
+    }
+
+    .section-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
       text-align: center;
     }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 1.8rem;
+    }
+
+    .lead-text {
+      max-width: 800px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* HIGHLIGHTS */
+
     .highlights {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
+      max-width: var(--max-width);
+      margin: 0 auto;
     }
+
     .highlight-box {
-      background: #fff;
-      border-radius: 8px;
-      padding: 20px;
-      width: 260px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      width: 280px;
+      box-shadow: var(--shadow);
+      text-align: left;
     }
+
+    .highlight-box h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .highlight-box p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* FOOTER */
+
     footer {
-      background: #4a773c;
+      background: var(--footer-bg);
       color: white;
       text-align: center;
-      padding: 15px;
+      padding: 16px 10px;
+      font-size: 13px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 768px) {
+      header {
+        padding: 70px 16px 80px;
+      }
+
+      .search-container {
+        position: static;
+        margin-top: 12px;
+        justify-content: center;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      nav {
+        overflow-x: auto;
+      }
+
+      nav a {
+        flex: 0 0 auto;
+      }
+
+      .highlight-box {
+        width: 100%;
+        max-width: 360px;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Welcome to Tangeda</h1>
-    <p>Founded by The King Anumula Machireddy Garu</p>
     <div class="search-container">
-      <input type="text" id="site-search" placeholder="Search..." onkeypress="if(event.key==='Enter'){ performSearch(); }">
+      <input
+        type="text"
+        id="site-search"
+        placeholder="Search..."
+        onkeypress="if(event.key==='Enter'){ performSearch(); }"
+      />
       <button onclick="performSearch()" title="Search">
         <img src="images/search_icon.svg" alt="Search" />
       </button>
@@ -103,40 +312,64 @@
         <img src="images/mic_icon.svg" alt="Mic" />
       </button>
     </div>
+
+    <h1>Welcome to Tangeda</h1>
+    <p>Founded by The King Anumula Machireddy Garu</p>
+
+    <div class="hero-actions">
+      <a href="#discover" class="btn btn-primary">Discover Tangeda</a>
+      <a href="travel.html" class="btn btn-secondary">How to Reach</a>
+    </div>
   </header>
 
   <nav>
-  <a href="index.html" class="active">Home</a>
-  <a href="about.html">About</a>
-  <a href="festivals.html">Festivals</a>
-  <a href="temples.html">Temples</a>
-  <a href="people.html">People</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="news.html">News</a>
-  <a href="services.html">Services</a>
-  <a href="directory.html">Directory</a>
-  <a href="guestbook.html">Guestbook</a>
-  <a href="contact.html">Contact</a>
-  <a href="travel.html">Travel Info</a>
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="festivals.html">Festivals</a>
+    <a href="temples.html">Temples</a>
+    <a href="people.html">People</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="news.html">News</a>
+    <a href="services.html">Services</a>
+    <a href="directory.html">Directory</a>
+    <a href="guestbook.html">Guestbook</a>
+    <a href="contact.html">Contact</a>
+    <a href="travel.html">Travel Info</a>
   </nav>
 
-  <section>
-    <h2>Discover Tangeda</h2>
-    <p>Tangeda is a village rich in culture and history, known for its heritage and community. Learn about its people, festivals, and the royal roots that shaped it.</p>
+  <section id="discover">
+    <div class="section-inner">
+      <h2>Discover Tangeda</h2>
+      <p class="lead-text">
+        Tangeda is a village rich in culture and history, known for its heritage and community.
+        Learn about its people, festivals, and the royal roots that shaped it.
+      </p>
+    </div>
   </section>
 
-  <section class="highlights">
-    <div class="highlight-box">
-      <h3>Rich Heritage</h3>
-      <p>Founded centuries ago, Tangeda is home to deep-rooted traditions and historic temples.</p>
-    </div>
-    <div class="highlight-box">
-      <h3>Cultural Events</h3>
-      <p>Celebrate colorful festivals like Sankranthi, Ganesh Chaturthi, and Muharram with unity and joy.</p>
-    </div>
-    <div class="highlight-box">
-      <h3>Community Services</h3>
-      <p>From schools to healthcare and electricity, the village is equipped to support its people.</p>
+  <section>
+    <div class="highlights">
+      <div class="highlight-box">
+        <h3>Rich Heritage</h3>
+        <p>
+          Founded centuries ago, Tangeda is home to deep-rooted traditions and historic temples
+          that preserve its royal legacy.
+        </p>
+      </div>
+      <div class="highlight-box">
+        <h3>Cultural Events</h3>
+        <p>
+          Celebrate colourful festivals like Sankranthi, Ganesh Chaturthi, and Muharram
+          with unity and joy across the village.
+        </p>
+      </div>
+      <div class="highlight-box">
+        <h3>Community Services</h3>
+        <p>
+          From schools to healthcare and reliable electricity, the village is equipped
+          to support its people and their future.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -146,19 +379,27 @@
 
   <script>
     function performSearch() {
-      const query = document.getElementById('site-search').value.toLowerCase();
+      const query = document.getElementById("site-search").value.toLowerCase().trim();
+      if (!query) return;
+
       const pageMap = {
-        "home": "index.html",
-        "history": "history.html",
-        "festivals": "festivals.html",
-        "temples": "temples.html",
-        "people": "people.html",
-        "gallery": "gallery.html",
-        "contact": "contact.html",
-        "services": "services.html",
-        "recipes": "recipes.html",
-        "news": "news.html"
+        home: "index.html",
+        history: "history.html",
+        festivals: "festivals.html",
+        festival: "festivals.html",
+        temples: "temples.html",
+        temple: "temples.html",
+        people: "people.html",
+        gallery: "gallery.html",
+        photos: "gallery.html",
+        contact: "contact.html",
+        services: "services.html",
+        service: "services.html",
+        recipes: "recipes.html",
+        news: "news.html",
+        travel: "travel.html"
       };
+
       for (const keyword in pageMap) {
         if (query.includes(keyword)) {
           window.location.href = pageMap[keyword];
@@ -169,19 +410,19 @@
     }
 
     function startVoiceSearch() {
-      if (!('webkitSpeechRecognition' in window)) {
+      if (!("webkitSpeechRecognition" in window)) {
         alert("Voice recognition not supported in this browser.");
         return;
       }
       const recognition = new webkitSpeechRecognition();
       recognition.lang = "en-US";
-      recognition.onresult = function(event) {
-        document.getElementById('site-search').value = event.results[0][0].transcript;
+      recognition.onresult = function (event) {
+        const transcript = event.results[0][0].transcript;
+        document.getElementById("site-search").value = transcript;
         performSearch();
       };
       recognition.start();
     }
   </script>
-
 </body>
 </html>
