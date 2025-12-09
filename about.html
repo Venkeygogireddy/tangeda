@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Tangeda</title>
+  <title>Welcome to Tangeda</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-  <!-- Hero / Header -->
+  <!-- HERO SECTION -->
   <header>
-    <h1>About Tangeda</h1>
-    <p>Heritage, Culture, and the Story of Our Village</p>
+    <h1>Welcome to Tangeda</h1>
+    <p>A Village Rich in Heritage, Culture & Community</p>
 
-    <!-- Search bar (same as Home) -->
     <div class="search-container">
       <input
         type="text"
@@ -21,19 +21,15 @@
         placeholder="Search..."
         onkeypress="if(event.key==='Enter'){ performSearch(); }"
       />
-      <button onclick="performSearch()" title="Search">
-        🔍
-      </button>
-      <button onclick="startVoiceSearch()" title="Voice Search">
-        🎤
-      </button>
+      <button onclick="performSearch()" title="Search">🔍</button>
+      <button onclick="startVoiceSearch()" title="Voice Search">🎤</button>
     </div>
   </header>
 
-  <!-- Navigation -->
+  <!-- NAVIGATION BAR -->
   <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html" class="active">About</a>
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
     <a href="festivals.html">Festivals</a>
     <a href="temples.html">Temples</a>
     <a href="people.html">People</a>
@@ -46,83 +42,50 @@
     <a href="travel.html">Travel Info</a>
   </nav>
 
-  <!-- Main About Content -->
-  <main class="about-container">
-    <h2>Welcome to Tangeda</h2>
-    <p>
-      Tangeda is a village rich in culture, tradition, and natural beauty.
-      Nestled along the river, it has grown from a historic settlement into
-      a vibrant community that still honours its roots and legends.
+  <!-- MAIN CONTENT -->
+  <section class="about-container" style="text-align:center;">
+    <h2>Discover Tangeda</h2>
+    <p class="lead-text">
+      Explore the rich culture, peaceful landscapes, and community traditions of Tangeda.
+      Learn about our festivals, temples, people, and the heritage passed down for generations.
     </p>
-    <p>
-      The village is closely associated with the legacy of
-      <strong>The King Anumula Machireddy Garu</strong>, whose influence
-      and stories are still remembered with pride by the people of Tangeda.
-      Over generations, families have preserved customs, festivals, and
-      values that keep the spirit of the village alive.
-    </p>
+  </section>
 
-    <!-- Optional image – update the file if you have a better one -->
-    <img
-      src="images/tangeda-village.jpg"
-      alt="Scenic view of Tangeda village"
-      class="about-image"
-    />
+  <!-- HIGHLIGHTS SECTION -->
+  <section>
+    <div class="highlights">
+      <div class="highlight-box">
+        <h3>Rich Heritage</h3>
+        <p>
+          Founded centuries ago, Tangeda is home to deep-rooted traditions
+          and historic temples that preserve its royal legacy.
+        </p>
+      </div>
 
-    <h3>The Heart of the Village</h3>
-    <p>
-      Life in Tangeda revolves around its temples, festivals, fields, and
-      community gatherings. Agriculture, small businesses, and traditional
-      occupations support daily life, while schools and modern facilities
-      help the younger generation move forward without losing connection to
-      their roots.
-    </p>
+      <div class="highlight-box">
+        <h3>Cultural Events</h3>
+        <p>
+          Celebrate colourful festivals like Sankranthi, Ganesh Chaturthi, and Muharram
+          with unity and joy across the village.
+        </p>
+      </div>
 
-    <!-- Timeline style list -->
-    <h3>Journey of Tangeda (Timeline)</h3>
-    <ul class="timeline">
-      <li><strong>Early Settlement:</strong> Foundations laid under the influence of local rulers and royal families.</li>
-      <li><strong>Temple Development:</strong> Construction of key temples that became spiritual and social centres.</li>
-      <li><strong>Community Growth:</strong> Expansion of families, farmlands, and local markets around the village core.</li>
-      <li><strong>Modern Era:</strong> Introduction of electricity, schools, healthcare, and improved transport.</li>
-      <li><strong>Today:</strong> A village that balances heritage with progress, staying connected to people across the world.</li>
-    </ul>
-
-    <!-- You can style these with .news-card if you like the look -->
-    <h3>What Makes Tangeda Special</h3>
-
-    <div class="news-card">
-      <strong>Unity in Diversity</strong>
-      <p>
-        People of different backgrounds and beliefs live together with respect,
-        celebrating festivals and important days as one community.
-      </p>
+      <div class="highlight-box">
+        <h3>Community Services</h3>
+        <p>
+          From schools to healthcare and agriculture, Tangeda continues to grow
+          while supporting its people with essential services.
+        </p>
+      </div>
     </div>
+  </section>
 
-    <div class="news-card">
-      <strong>Festivals & Traditions</strong>
-      <p>
-        From Sankranthi and Ganesh Chaturthi to Muharram and local jatara,
-        every festival is an opportunity for families to return, meet, and
-        celebrate together.
-      </p>
-    </div>
-
-    <div class="news-card">
-      <strong>Bond with Nature</strong>
-      <p>
-        The river, fields, and greenery around Tangeda are not just scenic,
-        but an important part of daily life, agriculture, and local stories.
-      </p>
-    </div>
-  </main>
-
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
     <p>© 2025 Tangeda Village. All rights reserved.</p>
   </footer>
 
-  <!-- Same JS search & voice search used on Home -->
+  <!-- SEARCH + VOICE SCRIPT -->
   <script>
     function performSearch() {
       const query = document.getElementById("site-search").value.toLowerCase().trim();
@@ -130,8 +93,8 @@
 
       const pageMap = {
         home: "index.html",
-        history: "about.html",
         about: "about.html",
+        history: "about.html",
         festivals: "festivals.html",
         festival: "festivals.html",
         temples: "temples.html",
@@ -139,12 +102,13 @@
         people: "people.html",
         gallery: "gallery.html",
         photos: "gallery.html",
+        images: "gallery.html",
         contact: "contact.html",
         services: "services.html",
         service: "services.html",
-        recipes: "recipes.html",
         news: "news.html",
-        travel: "travel.html"
+        travel: "travel.html",
+        direction: "travel.html"
       };
 
       for (const keyword in pageMap) {
@@ -153,14 +117,16 @@
           return;
         }
       }
+
       alert("No matching page found.");
     }
 
     function startVoiceSearch() {
       if (!("webkitSpeechRecognition" in window)) {
-        alert("Voice recognition not supported in this browser.");
+        alert("Voice search is not supported in this browser.");
         return;
       }
+
       const recognition = new webkitSpeechRecognition();
       recognition.lang = "en-US";
       recognition.onresult = function (event) {
@@ -171,5 +137,6 @@
       recognition.start();
     }
   </script>
+
 </body>
 </html>
