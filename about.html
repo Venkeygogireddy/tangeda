@@ -1,247 +1,175 @@
-/* ===== Base layout ===== */
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  background-color: #fffceb;
-  color: #222;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Tangeda</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-/* ===== Navigation ===== */
-nav {
-  background-color: #111;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 10px 0;
-}
+  <!-- Hero / Header -->
+  <header>
+    <h1>About Tangeda</h1>
+    <p>Heritage, Culture, and the Story of Our Village</p>
 
-nav a {
-  color: #f5f5f5;          /* fixed: was black on black */
-  padding: 10px 20px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 14px;
-  white-space: nowrap;
-  transition: background 0.2s ease, color 0.2s ease;
-}
+    <!-- Search bar (same as Home) -->
+    <div class="search-container">
+      <input
+        type="text"
+        id="site-search"
+        placeholder="Search..."
+        onkeypress="if(event.key==='Enter'){ performSearch(); }"
+      />
+      <button onclick="performSearch()" title="Search">
+        🔍
+      </button>
+      <button onclick="startVoiceSearch()" title="Voice Search">
+        🎤
+      </button>
+    </div>
+  </header>
 
-nav a:hover {
-  background-color: #333;
-}
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="festivals.html">Festivals</a>
+    <a href="temples.html">Temples</a>
+    <a href="people.html">People</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="news.html">News</a>
+    <a href="services.html">Services</a>
+    <a href="directory.html">Directory</a>
+    <a href="guestbook.html">Guestbook</a>
+    <a href="contact.html">Contact</a>
+    <a href="travel.html">Travel Info</a>
+  </nav>
 
-nav a.active {
-  background-color: #ffc800;
-  color: #111;
-}
+  <!-- Main About Content -->
+  <main class="about-container">
+    <h2>Welcome to Tangeda</h2>
+    <p>
+      Tangeda is a village rich in culture, tradition, and natural beauty.
+      Nestled along the river, it has grown from a historic settlement into
+      a vibrant community that still honours its roots and legends.
+    </p>
+    <p>
+      The village is closely associated with the legacy of
+      <strong>The King Anumula Machireddy Garu</strong>, whose influence
+      and stories are still remembered with pride by the people of Tangeda.
+      Over generations, families have preserved customs, festivals, and
+      values that keep the spirit of the village alive.
+    </p>
 
-/* ===== Header / Hero ===== */
-header {
-  position: relative;
-  text-align: center;
-  padding: 60px 20px;
-  background-image: url('images/village-banner.jpg');
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-  overflow: hidden;
-}
+    <!-- Optional image – update the file if you have a better one -->
+    <img
+      src="images/tangeda-village.jpg"
+      alt="Scenic view of Tangeda village"
+      class="about-image"
+    />
 
-/* dark overlay for better text contrast */
-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.45),
-    rgba(0, 0, 0, 0.55)
-  );
-  z-index: 0;
-}
+    <h3>The Heart of the Village</h3>
+    <p>
+      Life in Tangeda revolves around its temples, festivals, fields, and
+      community gatherings. Agriculture, small businesses, and traditional
+      occupations support daily life, while schools and modern facilities
+      help the younger generation move forward without losing connection to
+      their roots.
+    </p>
 
-header > * {
-  position: relative;
-  z-index: 1;
-}
+    <!-- Timeline style list -->
+    <h3>Journey of Tangeda (Timeline)</h3>
+    <ul class="timeline">
+      <li><strong>Early Settlement:</strong> Foundations laid under the influence of local rulers and royal families.</li>
+      <li><strong>Temple Development:</strong> Construction of key temples that became spiritual and social centres.</li>
+      <li><strong>Community Growth:</strong> Expansion of families, farmlands, and local markets around the village core.</li>
+      <li><strong>Modern Era:</strong> Introduction of electricity, schools, healthcare, and improved transport.</li>
+      <li><strong>Today:</strong> A village that balances heritage with progress, staying connected to people across the world.</li>
+    </ul>
 
-header h1 {
-  margin: 0 0 8px;
-  font-size: 2.3rem;
-  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
-}
+    <!-- You can style these with .news-card if you like the look -->
+    <h3>What Makes Tangeda Special</h3>
 
-header p {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 400;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-}
+    <div class="news-card">
+      <strong>Unity in Diversity</strong>
+      <p>
+        People of different backgrounds and beliefs live together with respect,
+        celebrating festivals and important days as one community.
+      </p>
+    </div>
 
-/* ===== Search bar in header ===== */
-.search-container {
-  margin-top: 15px;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
+    <div class="news-card">
+      <strong>Festivals & Traditions</strong>
+      <p>
+        From Sankranthi and Ganesh Chaturthi to Muharram and local jatara,
+        every festival is an opportunity for families to return, meet, and
+        celebrate together.
+      </p>
+    </div>
 
-.search-container input[type="text"] {
-  padding: 10px 15px;
-  border: 1px solid #ccc;
-  border-radius: 24px;
-  width: 250px;
-  max-width: 80%;
-  font-size: 15px;
-  outline: none;
-}
+    <div class="news-card">
+      <strong>Bond with Nature</strong>
+      <p>
+        The river, fields, and greenery around Tangeda are not just scenic,
+        but an important part of daily life, agriculture, and local stories.
+      </p>
+    </div>
+  </main>
 
-.search-container input[type="text"]:focus {
-  border-color: #ffc800;
-  box-shadow: 0 0 0 2px rgba(255, 200, 0, 0.3);
-}
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Tangeda Village. All rights reserved.</p>
+  </footer>
 
-.search-container button {
-  padding: 10px;
-  border: none;
-  border-radius: 50%;
-  background-color: #333;
-  color: white;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s ease;
-}
+  <!-- Same JS search & voice search used on Home -->
+  <script>
+    function performSearch() {
+      const query = document.getElementById("site-search").value.toLowerCase().trim();
+      if (!query) return;
 
-.search-container button:hover {
-  background-color: #555;
-}
+      const pageMap = {
+        home: "index.html",
+        history: "about.html",
+        about: "about.html",
+        festivals: "festivals.html",
+        festival: "festivals.html",
+        temples: "temples.html",
+        temple: "temples.html",
+        people: "people.html",
+        gallery: "gallery.html",
+        photos: "gallery.html",
+        contact: "contact.html",
+        services: "services.html",
+        service: "services.html",
+        recipes: "recipes.html",
+        news: "news.html",
+        travel: "travel.html"
+      };
 
-/* ===== Hero helper class (if you use <div class="hero"> somewhere) ===== */
-.hero {
-  background-image: url('images/village-banner.jpg');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  text-align: center;
-  padding: 60px 20px;
-}
+      for (const keyword in pageMap) {
+        if (query.includes(keyword)) {
+          window.location.href = pageMap[keyword];
+          return;
+        }
+      }
+      alert("No matching page found.");
+    }
 
-/* ===== About page layout ===== */
-.about-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  text-align: left;
-}
-
-.about-image {
-  display: block;
-  max-width: 300px;
-  border-radius: 8px;
-  margin: 20px auto;
-}
-
-.timeline {
-  max-width: 600px;
-  margin: 20px auto;
-  padding-left: 20px;
-  list-style-type: disc;
-}
-
-/* ===== News section ===== */
-.news-section {
-  text-align: center;
-  padding: 40px 20px;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.news-intro {
-  font-size: 1.05rem;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.news-card {
-  background: #fff;
-  padding: 20px;
-  margin-bottom: 15px;
-  border-left: 6px solid #007BFF;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  text-align: left;
-  border-radius: 6px;
-}
-
-/* ===== Gallery ===== */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 16px;
-  padding: 20px;
-  background-color: #f8f8f8;
-}
-
-.gallery img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
-}
-
-figure {
-  margin: 0;
-  text-align: center;
-}
-
-figcaption {
-  margin-top: 8px;
-  font-size: 14px;
-  color: #333;
-}
-
-/* ===== Footer ===== */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #4c7337;
-  color: white;
-  font-size: 14px;
-}
-
-/* ===== Responsive Design ===== */
-@media (max-width: 768px) {
-  nav {
-    overflow-x: auto;          /* allow horizontal scroll instead of huge column */
-    justify-content: flex-start;
-  }
-
-  nav a {
-    flex: 0 0 auto;
-  }
-
-  header {
-    padding: 40px 16px;
-  }
-
-  header h1 {
-    font-size: 1.9rem;
-  }
-
-  .search-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .search-container input[type="text"] {
-    width: 90%;
-  }
-}
+    function startVoiceSearch() {
+      if (!("webkitSpeechRecognition" in window)) {
+        alert("Voice recognition not supported in this browser.");
+        return;
+      }
+      const recognition = new webkitSpeechRecognition();
+      recognition.lang = "en-US";
+      recognition.onresult = function (event) {
+        const transcript = event.results[0][0].transcript;
+        document.getElementById("site-search").value = transcript;
+        performSearch();
+      };
+      recognition.start();
+    }
+  </script>
+</body>
+</html>
