@@ -1,209 +1,307 @@
-/* Reset */
+/* ===== Base layout ===== */
 body {
   margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #fdfae8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #fffceb;
+  color: #222;
 }
 
-/* Header */
+/* ===== Navigation ===== */
+nav {
+  background-color: #111;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+nav a {
+  color: #f5f5f5;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover {
+  background-color: #333;
+}
+
+nav a.active {
+  background-color: #ffc800;
+  color: #111;
+}
+
+/* ===== Header / Hero with slideshow ===== */
 header {
   position: relative;
-  background-image: url("images/village-banner.jpg"); /* Use your correct image path */
+  text-align: center;
+  padding: 60px 20px;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Slideshow background layer */
+.hero-slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+/* Dark overlay on top of slides for readability */
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.55)
+  );
+  z-index: 1;
+}
+
+/* Foreground content */
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+header h1 {
+  margin: 0 0 8px;
+  font-size: 2.3rem;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+header p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== Search bar in header ===== */
+.search-container {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.search-container input[type="text"] {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 24px;
+  width: 250px;
+  max-width: 80%;
+  font-size: 15px;
+  outline: none;
+}
+
+.search-container input[type="text"]:focus {
+  border-color: #ffc800;
+  box-shadow: 0 0 0 2px rgba(255, 200, 0, 0.3);
+}
+
+.search-container button {
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.search-container button:hover {
+  background-color: #555;
+}
+
+/* ===== Generic hero helper (if needed elsewhere) ===== */
+.hero {
+  background-image: url('images/village-banner.jpg');
   background-size: cover;
   background-position: center;
   color: white;
   text-align: center;
   padding: 60px 20px;
-  
-}
-header {
-  animation: fadeIn 1.5s ease-in-out;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-header::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 0;
-}
-
-header h1, header p, .search-container {
-  position: relative;
-  z-index: 1;
-}
-
-/* Search Bar */
-.search-container {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  z-index: 2;
-}
-
-.search-container {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.search-container input {
-  padding: 10px 16px;
-  border-radius: 30px;
-  border: 1px solid #ccc;
-  font-size: 14px;
-  width: 200px;
-  outline: none;
-  transition: all 0.2s ease-in-out;
-}
-
-.search-container button {
-  background: white;
-  border: none;
-  padding: 8px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.2s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-}
-
-.search-container button img {
-  width: 18px;
-  height: 18px;
-}
-
-.search-container button:hover {
-  background: #eee;
-}
-
-.search-container button {
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Navigation */
-nav {
-  background-color: #111;
-  text-align: center;
-  padding: 10px 0;
-  position: sticky;
-  top: 0;
-  z-index: 99;
-}
-
-nav a {
-  color: white;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 5px 8px;
-  border-bottom: 3px solid transparent;
-  transition: 0.3s;
-}
-
-nav a:hover,
-nav a.active {
-  border-bottom: 3px solid orange;
-}
-/* Responsive Navigation */
-nav {
-  background-color: #111;
-  text-align: center;
-  padding: 10px 0;
-}
-
-nav .menu {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 12px;
-  transition: background 0.3s;
-}
-
-nav a:hover {
-  background-color: #444;
-  border-radius: 4px;
-}
-
-nav .hamburger {
-  display: none;
-  font-size: 24px;
-  color: white;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  nav .menu {
-    display: none;
-    flex-direction: column;
-    background-color: #111;
-  }
-
-  nav .menu.show {
-    display: flex;
-  }
-
-  nav .hamburger {
-    display: block;
-    margin: 0 auto 10px auto;
-  }
-}
-
-/* Sections */
-section {
+/* ===== About / Main text container ===== */
+.about-container {
+  max-width: 900px;
+  margin: 0 auto;
   padding: 40px 20px;
-  text-align: center;
-  color: #333;
+  text-align: left;
 }
 
-.highlights {
-  background-color: #fdfae8;
-}
-
-.highlight-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.highlight-box {
-  background-color: #f4f4f4;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 280px;
-}
-
-.highlight-box h3 {
-  color: #2f4f2f;
+.about-container h2 {
+  margin-top: 0;
   margin-bottom: 10px;
 }
 
-/* Footer */
-footer {
-  background-color: #4a773c;
-  color: white;
+.lead-text {
+  font-size: 1.05rem;
+  margin-top: 8px;
+}
+
+/* ===== About image & timeline ===== */
+.about-image {
+  display: block;
+  max-width: 300px;
+  border-radius: 8px;
+  margin: 20px auto;
+}
+
+.timeline {
+  max-width: 600px;
+  margin: 20px auto;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+/* ===== Highlights on home ===== */
+.highlights {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+}
+
+.highlight-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  width: 260px;
+  max-width: 100%;
+  text-align: left;
+}
+
+.highlight-box h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+/* ===== News section ===== */
+.news-section {
   text-align: center;
-  padding: 15px;
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.news-intro {
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.news-card {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-left: 6px solid #007BFF;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  text-align: left;
+  border-radius: 6px;
+}
+
+/* ===== Gallery ===== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
+}
+
+figure {
+  margin: 0;
+  text-align: center;
+}
+
+figcaption {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #4c7337;
+  color: white;
+  font-size: 14px;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  nav {
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  nav a {
+    flex: 0 0 auto;
+  }
+
+  header {
+    padding: 40px 16px;
+  }
+
+  header h1 {
+    font-size: 1.9rem;
+  }
+
+  .search-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-container input[type="text"] {
+    width: 90%;
+  }
+
+  .highlight-box {
+    width: 100%;
+  }
 }
