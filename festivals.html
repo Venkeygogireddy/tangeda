@@ -6,63 +6,223 @@
   <title>Festivals of Tangeda</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-  <header class="hero">
-    <h1>Festivals of Tangeda</h1>
-    <p>Celebrating traditions with colors, unity, and joy.</p>
+  <!-- HEADER -->
+  <header style="background-image: url('images/tangeda-festival.jpg');">
+    <div class="hero-content">
+      <h1>Festivals of Tangeda</h1>
+      <p>Celebrating Faith, Culture, and Community Together</p>
+
+      <div class="search-container">
+        <input
+          type="text"
+          id="site-search"
+          placeholder="Search..."
+          onkeypress="if(event.key==='Enter'){ performSearch(); }"
+        />
+        <button onclick="performSearch()" title="Search">🔍</button>
+        <button onclick="startVoiceSearch()" title="Voice Search">🎤</button>
+      </div>
+    </div>
   </header>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="festivals.html" class="active">Festivals</a>
-  <a href="temples.html">Temples</a>
-  <a href="people.html">People</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="news.html">News</a>
-  <a href="services.html">Services</a>
-  <a href="directory.html">Directory</a>
-  <a href="guestbook.html">Guestbook</a>
-  <a href="contact.html">Contact</a>
-  <a href="travel.html">Travel Info</a>
-</nav>
+  <!-- NAVBAR -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="festivals.html" class="active">Festivals</a>
+    <a href="temples.html">Temples</a>
+    <a href="people.html">People</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="news.html">News</a>
+    <a href="services.html">Services</a>
+    <a href="directory.html">Directory</a>
+    <a href="guestbook.html">Guestbook</a>
+    <a href="contact.html">Contact</a>
+    <a href="travel.html">Travel Info</a>
+  </nav>
 
-<div class="about-container">
-  <section>
-    <h2>Sankranthi</h2>
-    <p>
-      Sankranthi is one of the most celebrated festivals in Tangeda. Families decorate their homes with colorful rangoli, fly kites, and cook traditional sweets like ariselu and pongal.
-    </p>
-    <img src="images/sankranthi.jpg" alt="Sankranthi Celebration" style="max-width: 400px; border-radius: 8px;">
-  </section>
-
-  <section>
-    <h2>Ganesh Chaturthi</h2>
-    <p>
-      Villagers come together to build beautiful clay Ganesh idols and celebrate with music, prayers, and processions. The immersion ceremony is a symbol of unity and devotion.
-    </p>
-    <img src="images/ganesh.jpg" alt="Ganesh Festival" style="max-width: 400px; border-radius: 8px;">
-  </section>
-
-  <section>
-    <h2>Muharram</h2>
-    <p>
-      Tangeda embraces all cultures. Muharram is respectfully observed by many villagers through taziyas and peaceful processions, highlighting religious harmony.
-    </p>
-    <img src="images/muharram.jpg" alt="Muharram in Tangeda" style="max-width: 400px; border-radius: 8px;">
-  </section>
-
-  <section>
-    <h2>Other Celebrations</h2>
-    <p>
-      Ugadi, Dussehra, and Diwali are also celebrated with equal enthusiasm, bringing together people of all ages and backgrounds to enjoy food, prayers, and cultural performances.
+  <!-- INTRO -->
+  <section class="about-container">
+    <h2>Festivals in Tangeda</h2>
+    <p class="lead-text">
+      Festivals are the heartbeat of Tangeda. They bring families home, unite
+      neighbours, and fill the village with colour, devotion, and joy. From
+      harvest celebrations to spiritual processions, each festival has its own
+      story and traditions that have been followed for generations.
     </p>
   </section>
 
+  <!-- FESTIVAL CARDS (LINKING TO GALLERY SECTIONS) -->
+  <section>
+    <div class="highlights">
+      <div class="highlight-box">
+        <h3>Sankranthi</h3>
+        <p>
+          The harvest festival marked with rangoli (muggulu), decorated homes,
+          traditional games, and visits between relatives.
+        </p>
+        <p style="margin-top: 10px;">
+          <a href="gallery.html#sankranthi" style="text-decoration:none; font-weight:bold; color:#0057b8;">
+            → View Sankranthi Photos
+          </a>
+        </p>
+      </div>
+
+      <div class="highlight-box">
+        <h3>Ganesh Chaturthi</h3>
+        <p>
+          Installations of beautifully crafted Ganesh idols, daily aarti,
+          cultural programs, and grand immersion processions.
+        </p>
+        <p style="margin-top: 10px;">
+          <a href="gallery.html#ganesh" style="text-decoration:none; font-weight:bold; color:#0057b8;">
+            → View Ganesh Chaturthi Photos
+          </a>
+        </p>
+      </div>
+
+      <div class="highlight-box">
+        <h3>Muharram</h3>
+        <p>
+          Processions, tazias, and gatherings that reflect respect, remembrance,
+          and unity across communities in the village.
+        </p>
+        <p style="margin-top: 10px;">
+          <a href="gallery.html#muharram" style="text-decoration:none; font-weight:bold; color:#0057b8;">
+            → View Muharram Photos
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SANKRANTHI DETAIL SECTION -->
+  <section class="festival-section">
+    <div class="about-container">
+      <h3>Sankranthi in Tangeda</h3>
+      <p>
+        Sankranthi is one of the most vibrant festivals in Tangeda. Families
+        clean and decorate their houses, draw colourful muggulu, prepare
+        traditional sweets, and gather to thank nature for a good harvest.
+        Children enjoy games, kites, and visits to relatives’ houses.
+      </p>
+
+      <div class="news-card">
+        <strong>Recent Sankranthi Highlights</strong>
+        <p>
+          • <strong>2025:</strong> Village-wide rangoli competition and cultural night. <br />
+          • <strong>2024:</strong> Bullock cart rides and kite-flying near the fields. <br />
+          • <strong>2023:</strong> Community lunch at the temple and traditional games.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GANESH CHATURTHI DETAIL SECTION -->
+  <section class="festival-section">
+    <div class="about-container">
+      <h3>Ganesh Chaturthi in Tangeda</h3>
+      <p>
+        During Ganesh Chaturthi, idols of Lord Ganesha are installed at homes
+        and public pandals. Devotees offer prayers, perform aarti, and gather
+        every day for bhajans and cultural programs. The visarjan procession is
+        one of the most awaited events, filled with music, devotion, and emotion.
+      </p>
+
+      <div class="news-card">
+        <strong>Recent Ganesh Chaturthi Highlights</strong>
+        <p>
+          • <strong>2025:</strong> Focus on eco-friendly clay idols and clean immersion. <br />
+          • <strong>2024:</strong> Cultural programs by children and youth at the main pandal. <br />
+          • <strong>2023:</strong> Community prasadam distribution and decoration contests.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MUHARRAM DETAIL SECTION -->
+  <section class="festival-section">
+    <div class="about-container">
+      <h3>Muharram in Tangeda</h3>
+      <p>
+        Muharram is observed with deep respect and discipline. Tazias are
+        prepared with great care and carried in processions through the village.
+        People from different communities participate or support, showing the
+        unity and understanding that Tangeda is known for.
+      </p>
+
+      <div class="news-card">
+        <strong>Recent Muharram Highlights</strong>
+        <p>
+          • <strong>2025:</strong> Peaceful processions with proper arrangements and support. <br />
+          • <strong>2024:</strong> Youth volunteers assisting with routes and facilities. <br />
+          • <strong>2023:</strong> Beautiful tazias created by local artisans and families.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
     <p>© 2025 Tangeda Village. All rights reserved.</p>
   </footer>
 
+  <!-- JS: Search + Voice -->
+  <script>
+    function performSearch() {
+      const query = document.getElementById("site-search").value.toLowerCase().trim();
+      if (!query) return;
+
+      const pageMap = {
+        home: "index.html",
+        about: "about.html",
+        festivals: "festivals.html",
+        festival: "festivals.html",
+        sankranthi: "gallery.html#sankranthi",
+        pongal: "gallery.html#sankranthi",
+        ganesh: "gallery.html#ganesh",
+        ganeshchaturthi: "gallery.html#ganesh",
+        chaturthi: "gallery.html#ganesh",
+        muharram: "gallery.html#muharram",
+        temples: "temples.html",
+        people: "people.html",
+        gallery: "gallery.html",
+        photos: "gallery.html",
+        contact: "contact.html",
+        services: "services.html",
+        news: "news.html",
+        travel: "travel.html"
+      };
+
+      for (const keyword in pageMap) {
+        if (query.includes(keyword)) {
+          window.location.href = pageMap[keyword];
+          return;
+        }
+      }
+
+      alert("No matching page found.");
+    }
+
+    function startVoiceSearch() {
+      if (!("webkitSpeechRecognition" in window)) {
+        alert("Voice search is not supported in this browser.");
+        return;
+      }
+      const recognition = new webkitSpeechRecognition();
+      recognition.lang = "en-US";
+      recognition.onresult = function (event) {
+        const transcript = event.results[0][0].transcript;
+        document.getElementById("site-search").value = transcript;
+        performSearch();
+      };
+      recognition.start();
+    }
+  </script>
+
 </body>
 </html>
+
