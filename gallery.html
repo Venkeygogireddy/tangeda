@@ -3,15 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gallery - Tangeda</title>
+  <title>Festival Gallery – Tangeda</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="hero">
-    <h1>Gallery</h1>
-    <p>Photos of festivals, people, and beautiful spots in Tangeda.</p>
+
+  <!-- HERO / HEADER -->
+  <header style="background-image: url('images/tangeda-festival.jpg');">
+    <div class="hero-content">
+      <h1>Festival Gallery</h1>
+      <p>Memories from Sankranthi, Ganesh Chaturthi & Muharram in Tangeda</p>
+
+      <div class="search-container">
+        <input
+          type="text"
+          id="site-search"
+          placeholder="Search..."
+          onkeypress="if(event.key==='Enter'){ performSearch(); }"
+        />
+        <button onclick="performSearch()" title="Search">🔍</button>
+        <button onclick="startVoiceSearch()" title="Voice Search">🎤</button>
+      </div>
+    </div>
   </header>
 
+  <!-- MAIN NAV -->
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -27,20 +43,180 @@
     <a href="travel.html">Travel Info</a>
   </nav>
 
-  <section class="gallery">
-    <figure>
-      <img src="images/festival.jpg" alt="Festival Celebration" />
-      <figcaption>Festival Celebration</figcaption>
-    </figure>
-    <figure>
-      <img src="images/school.jpg" alt="Village School" />
-      <figcaption>Village School</figcaption>
-    </figure>
-    <!-- Add more images with <figure> and <figcaption> as needed -->
+  <!-- INTERNAL FESTIVAL NAV -->
+  <section class="about-container" style="text-align:center;">
+    <h2>Festival Folders</h2>
+    <p class="lead-text">
+      Browse photos and memories from different festivals celebrated in Tangeda.
+    </p>
+
+    <div class="festival-nav">
+      <a href="#sankranthi">Sankranthi</a>
+      <a href="#ganesh">Ganesh Chaturthi</a>
+      <a href="#muharram">Muharram</a>
+    </div>
   </section>
 
+  <!-- SANKRANTHI SECTION -->
+  <section id="sankranthi" class="festival-section">
+    <div class="about-container">
+      <h2>Sankranthi Gallery</h2>
+      <p>
+        Sankranthi in Tangeda is celebrated with rangoli (muggulu), decorated houses,
+        traditional games, and family gatherings. These photos capture the joy and colours
+        of the harvest festival over the years.
+      </p>
+
+      <h3>Sankranthi Timeline</h3>
+      <ul class="timeline">
+        <li><strong>2025:</strong> Village-wide rangoli competition and cultural night.</li>
+        <li><strong>2024:</strong> Traditional bullock cart procession and kite flying near the fields.</li>
+        <li><strong>2023:</strong> Community lunch at the temple premises and games for children.</li>
+      </ul>
+    </div>
+
+    <div class="gallery">
+      <!-- Replace image paths with your real photos -->
+      <figure>
+        <img src="images/sankranthi-1.jpg" alt="Colourful rangoli in front of a house" />
+        <figcaption>Beautiful rangoli designs welcoming Sankranthi.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/sankranthi-2.jpg" alt="Family celebrating harvest festival" />
+        <figcaption>Families gathering to celebrate the harvest.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/sankranthi-3.jpg" alt="Traditional games during Sankranthi" />
+        <figcaption>Traditional games and fun for children and elders.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- GANESH CHATURTHI SECTION -->
+  <section id="ganesh" class="festival-section">
+    <div class="about-container">
+      <h2>Ganesh Chaturthi Gallery</h2>
+      <p>
+        Ganesh Chaturthi brings beautifully crafted idols of Lord Ganesha to streets and homes
+        across Tangeda. The photos show the devotion, decorations, and immersion processions
+        over the years.
+      </p>
+
+      <h3>Ganesh Chaturthi Timeline</h3>
+      <ul class="timeline">
+        <li><strong>2025:</strong> Eco-friendly clay idols and awareness drive on clean immersions.</li>
+        <li><strong>2024:</strong> Evening aarti and cultural programs at the main Ganesh pandal.</li>
+        <li><strong>2023:</strong> Youth-led decoration teams and community prasadam distribution.</li>
+      </ul>
+    </div>
+
+    <div class="gallery">
+      <figure>
+        <img src="images/ganesh-1.jpg" alt="Decorated Ganesh idol in Tangeda" />
+        <figcaption>Decorated Ganesh idol at a local pandal.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/ganesh-2.jpg" alt="Devotees performing aarti" />
+        <figcaption>Devotees performing evening aarti with devotional songs.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/ganesh-3.jpg" alt="Ganesh immersion procession" />
+        <figcaption>Ganesh visarjan procession with music and dance.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- MUHARRAM SECTION -->
+  <section id="muharram" class="festival-section">
+    <div class="about-container">
+      <h2>Muharram Gallery</h2>
+      <p>
+        Muharram in Tangeda reflects unity and respect across communities. These images show
+        processions, tazias, and gatherings that honour tradition and togetherness.
+      </p>
+
+      <h3>Muharram Timeline</h3>
+      <ul class="timeline">
+        <li><strong>2025:</strong> Peaceful procession through main streets with community participation.</li>
+        <li><strong>2024:</strong> Youth volunteers managing routes, water points, and support.</li>
+        <li><strong>2023:</strong> Traditional tazias prepared by local artisans.</li>
+      </ul>
+    </div>
+
+    <div class="gallery">
+      <figure>
+        <img src="images/muharram-1.jpg" alt="Muharram procession in Tangeda" />
+        <figcaption>Muharram procession passing through the village streets.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/muharram-2.jpg" alt="Decorated tazia" />
+        <figcaption>Decorated tazia prepared by local groups.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/muharram-3.jpg" alt="People gathered during Muharram" />
+        <figcaption>People gathered respectfully to observe Muharram rituals.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 Tangeda Village. All rights reserved.</p>
+    <p>© 2025 Tangeda Village. All rights reserved.</p>
   </footer>
+
+  <!-- SEARCH + VOICE SCRIPT (same pattern as other pages) -->
+  <script>
+    function performSearch() {
+      const query = document.getElementById("site-search").value.toLowerCase().trim();
+      if (!query) return;
+
+      const pageMap = {
+        home: "index.html",
+        about: "about.html",
+        history: "about.html",
+        festivals: "festivals.html",
+        festival: "festivals.html",
+        gallery: "gallery.html",
+        photos: "gallery.html",
+        images: "gallery.html",
+        sankranthi: "gallery.html#sankranthi",
+        ganesh: "gallery.html#ganesh",
+        ganeshchaturthi: "gallery.html#ganesh",
+        chaturthi: "gallery.html#ganesh",
+        muharram: "gallery.html#muharram",
+        temples: "temples.html",
+        people: "people.html",
+        contact: "contact.html",
+        services: "services.html",
+        news: "news.html",
+        travel: "travel.html"
+      };
+
+      for (const keyword in pageMap) {
+        if (query.includes(keyword)) {
+          window.location.href = pageMap[keyword];
+          return;
+        }
+      }
+
+      alert("No matching page found.");
+    }
+
+    function startVoiceSearch() {
+      if (!("webkitSpeechRecognition" in window)) {
+        alert("Voice search is not supported in this browser.");
+        return;
+      }
+
+      const recognition = new webkitSpeechRecognition();
+      recognition.lang = "en-US";
+      recognition.onresult = function (event) {
+        const transcript = event.results[0][0].transcript;
+        document.getElementById("site-search").value = transcript;
+        performSearch();
+      };
+      recognition.start();
+    }
+  </script>
 </body>
 </html>
