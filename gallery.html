@@ -48,12 +48,57 @@
     <h2>Festival Folders</h2>
     <p class="lead-text">
       Browse photos and memories from different festivals celebrated in Tangeda.
+      Use the buttons below to jump to each festival gallery.
     </p>
 
     <div class="festival-nav">
       <a href="#sankranthi">Sankranthi</a>
       <a href="#ganesh">Ganesh Chaturthi</a>
       <a href="#muharram">Muharram</a>
+    </div>
+  </section>
+
+  <!-- ⭐ FESTIVALS OVERVIEW (NOW INCLUDED IN GALLERY) -->
+  <section>
+    <div class="highlights">
+      <div class="highlight-box">
+        <h3>Sankranthi</h3>
+        <p>
+          Harvest festival filled with colourful rangoli (muggulu), traditional games,
+          decorated houses, and family visits.
+        </p>
+        <p style="margin-top:8px;">
+          <a href="#sankranthi" style="text-decoration:none; font-weight:bold; color:#0057b8;">
+            → Go to Sankranthi Gallery
+          </a>
+        </p>
+      </div>
+
+      <div class="highlight-box">
+        <h3>Ganesh Chaturthi</h3>
+        <p>
+          Lord Ganesha idols, daily aarti, bhajans, cultural programs, and grand
+          immersion processions across the village.
+        </p>
+        <p style="margin-top:8px;">
+          <a href="#ganesh" style="text-decoration:none; font-weight:bold; color:#0057b8;">
+            → Go to Ganesh Chaturthi Gallery
+          </a>
+        </p>
+      </div>
+
+      <div class="highlight-box">
+        <h3>Muharram</h3>
+        <p>
+          Processions, tazias, and gatherings that reflect unity, remembrance, and
+          respect across all communities in Tangeda.
+        </p>
+        <p style="margin-top:8px;">
+          <a href="#muharram" style="text-decoration:none; font-weight:bold; color:#0057b8;">
+            → Go to Muharram Gallery
+          </a>
+        </p>
+      </div>
     </div>
   </section>
 
@@ -76,7 +121,6 @@
     </div>
 
     <div class="gallery">
-      <!-- Replace image paths with your real photos -->
       <figure>
         <img src="images/sankranthi-1.jpg" alt="Colourful rangoli in front of a house" />
         <figcaption>Beautiful rangoli designs welcoming Sankranthi.</figcaption>
@@ -164,7 +208,7 @@
     <p>© 2025 Tangeda Village. All rights reserved.</p>
   </footer>
 
-  <!-- SEARCH + VOICE SCRIPT (same pattern as other pages) -->
+  <!-- SEARCH + VOICE SCRIPT -->
   <script>
     function performSearch() {
       const query = document.getElementById("site-search").value.toLowerCase().trim();
@@ -173,13 +217,13 @@
       const pageMap = {
         home: "index.html",
         about: "about.html",
-        history: "about.html",
         festivals: "festivals.html",
         festival: "festivals.html",
         gallery: "gallery.html",
         photos: "gallery.html",
         images: "gallery.html",
         sankranthi: "gallery.html#sankranthi",
+        pongal: "gallery.html#sankranthi",
         ganesh: "gallery.html#ganesh",
         ganeshchaturthi: "gallery.html#ganesh",
         chaturthi: "gallery.html#ganesh",
