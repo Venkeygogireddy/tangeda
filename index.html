@@ -6,11 +6,24 @@
   <title>Welcome to Tangeda</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<!-- NAVIGATION BAR -->
+
+<body>
+
+  <!-- NAVBAR (overlay) -->
   <nav>
     <a href="index.html" class="active">Home</a>
     <a href="about.html">About</a>
-    <a href="festivals.html">Festivals</a>
+
+    <!-- Festivals dropdown -->
+    <div class="dropdown">
+      <a href="festivals.html" class="dropbtn">Festivals ▾</a>
+      <div class="dropdown-content">
+        <a href="gallery.html#sankranthi">Sankranthi</a>
+        <a href="gallery.html#ganesh">Ganesh Chaturthi</a>
+        <a href="gallery.html#muharram">Muharram</a>
+      </div>
+    </div>
+
     <a href="temples.html">Temples</a>
     <a href="people.html">People</a>
     <a href="gallery.html">Gallery</a>
@@ -21,22 +34,21 @@
     <a href="contact.html">Contact</a>
     <a href="travel.html">Travel Info</a>
   </nav>
-<body>
 
   <!-- HERO SECTION WITH SLIDESHOW -->
   <header>
     <!-- Slideshow background -->
     <div class="hero-slideshow">
-      <!-- Update image paths/names as per your /images folder -->
+      <!-- Update image filenames as per your /images folder -->
       <div class="hero-slide active" style="background-image: url('images/village-banner.jpg');"></div>
-      <div class="hero-slide" style="background-image: url('images/Aqua Star II_20160116_151733_1.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('images/tangeda-village.jpg');"></div>
       <div class="hero-slide" style="background-image: url('images/tangeda-festival.jpg');"></div>
     </div>
 
     <!-- Foreground content -->
     <div class="hero-content">
       <h1>Welcome to Tangeda</h1>
-      <p>A Village Rich in Heritage, Culture & Community</p>
+      <p>A village rich in heritage, culture, and community.</p>
 
       <div class="search-container">
         <input
@@ -94,7 +106,7 @@
     <p>© 2025 Tangeda Village. All rights reserved.</p>
   </footer>
 
-  <!-- SEARCH + VOICE + SLIDESHOW SCRIPT -->
+  <!-- JS: Search + Voice + Slideshow -->
   <script>
     function performSearch() {
       const query = document.getElementById("site-search").value.toLowerCase().trim();
@@ -106,6 +118,12 @@
         history: "about.html",
         festivals: "festivals.html",
         festival: "festivals.html",
+        sankranthi: "gallery.html#sankranthi",
+        pongal: "gallery.html#sankranthi",
+        ganesh: "gallery.html#ganesh",
+        ganeshchaturthi: "gallery.html#ganesh",
+        chaturthi: "gallery.html#ganesh",
+        muharram: "gallery.html#muharram",
         temples: "temples.html",
         temple: "temples.html",
         people: "people.html",
