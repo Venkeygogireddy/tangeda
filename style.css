@@ -90,6 +90,20 @@ nav a.active {
   background-color: #ffc800;
   color: black !important;
 }
+/* Fade + slide animation */
+.dropdown-content {
+  opacity: 0;
+  transform: translateY(10px);
+  visibility: hidden;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+}
+
+/* When hovered → show dropdown smoothly */
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
 
 /* ===== Header / Hero with slideshow ===== */
 header {
