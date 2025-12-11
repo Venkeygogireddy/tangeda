@@ -1,4 +1,6 @@
-/* ===== Base layout ===== */
+/* ===========================
+   BASE LAYOUT
+=========================== */
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -7,9 +9,11 @@ body {
   color: #222;
 }
 
-/* ===== Navigation (overlay on hero) ===== */
+/* ===========================
+   NAVIGATION (OVERLAY)
+=========================== */
 nav {
-  position: absolute;                 /* float on top of header image */
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -22,104 +26,101 @@ nav {
   padding: 10px 0;
 }
 
-nav a {
+nav a,
+.dropbtn {
   color: #f5f5f5;
   padding: 10px 20px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 14px;
   white-space: nowrap;
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-nav a:hover {
+nav a:hover,
+.dropbtn:hover {
   background-color: #333;
 }
 
 nav a.active {
   background-color: #ffc800;
-  color: #111;
+  color: #111 !important;
 }
 
-/* ===== Dropdown Menu (Festivals) ===== */
-
+/* ===========================
+   DROPDOWN MENU (Festivals)
+=========================== */
 .dropdown {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.dropbtn {
-  cursor: pointer;
-}
-
 /* Hidden by default */
 .dropdown-content {
-  display: none;
   position: absolute;
-  top: 100%;              /* just below Festivals link */
+  top: 100%;
   left: 0;
-  background-color: #222;
   min-width: 180px;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
-  z-index: 2000;
-  border-radius: 4px;
-}
+  background-color: #222;
+  border-radius: 6px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.25);
 
-/* Dropdown links */
-.dropdown-content a {
-  color: white !important;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  font-weight: 500;
-}
-
-.dropdown-content a:hover {
-  background-color: #ffc800;
-  color: black !important;
-}
-
-/* Show menu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* Highlight Festivals tab on hover */
-.dropdown:hover > .dropbtn {
-  background-color: #ffc800;
-  color: black !important;
-}
-/* Fade + slide animation */
-.dropdown-content {
+  /* Smooth fade + slide animation */
   opacity: 0;
   transform: translateY(10px);
   visibility: hidden;
   transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
 }
 
-/* When hovered → show dropdown smoothly */
+/* Dropdown Items */
+.dropdown-content a {
+  display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 500;
+  background: #222;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+/* Hover highlight inside dropdown */
+.dropdown-content a:hover {
+  background-color: #ffc800 !important;
+  color: #111 !important;
+}
+
+/* Show dropdown on hover */
 .dropdown:hover .dropdown-content {
   opacity: 1;
   transform: translateY(0);
   visibility: visible;
 }
 
-/* ===== Header / Hero with slideshow ===== */
+/* Highlight ONLY the navbar button (not submenu) */
+.dropdown:hover > .dropbtn {
+  background-color: #ffc800;
+  color: #111 !important;
+}
+
+/* ===========================
+   HEADER / HERO SECTION
+=========================== */
 header {
   position: relative;
   text-align: center;
-  padding: 90px 20px 60px; /* extra top padding for nav overlay */
+  padding: 90px 20px 60px;
   color: #fff;
   overflow: hidden;
 }
 
-/* Slideshow background layer (home page) */
+/* Background slideshow container */
 .hero-slideshow {
   position: absolute;
   inset: 0;
   z-index: 0;
-  overflow: hidden;
 }
 
 .hero-slide {
@@ -135,44 +136,40 @@ header {
   opacity: 1;
 }
 
-/* Dark overlay on top of slides for readability */
+/* Dark overlay */
 header::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.45),
-    rgba(0, 0, 0, 0.55)
-  );
+  background: rgba(0,0,0,0.45);
   z-index: 1;
 }
 
-/* Foreground content */
 .hero-content {
   position: relative;
   z-index: 2;
 }
 
 header h1 {
-  margin: 0 0 8px;
-  font-size: 2.3rem;
-  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+  margin: 0 0 10px;
+  font-size: 2.4rem;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.4);
 }
 
 header p {
   margin: 0;
-  font-size: 1rem;
-  font-weight: 400;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  font-size: 1.1rem;
+  opacity: 0.95;
 }
 
-/* ===== Search bar in header ===== */
+/* ===========================
+   SEARCH BAR
+=========================== */
 .search-container {
   margin-top: 15px;
   display: flex;
-  justify-content: center;
   gap: 8px;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -183,7 +180,6 @@ header p {
   width: 250px;
   max-width: 80%;
   font-size: 15px;
-  outline: none;
 }
 
 .search-container input[type="text"]:focus {
@@ -198,60 +194,30 @@ header p {
   background-color: #333;
   color: white;
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s ease;
+  transition: background 0.2s;
 }
 
 .search-container button:hover {
   background-color: #555;
 }
 
-/* ===== Generic hero helper (if needed elsewhere) ===== */
-.hero {
-  background-image: url('images/village-banner.jpg');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  text-align: center;
-  padding: 60px 20px;
-}
-
-/* ===== About / Main text container ===== */
+/* ===========================
+   ABOUT + TEXT SECTIONS
+=========================== */
 .about-container {
   max-width: 900px;
   margin: 0 auto;
   padding: 40px 20px;
-  text-align: left;
-}
-
-.about-container h2 {
-  margin-top: 0;
-  margin-bottom: 10px;
 }
 
 .lead-text {
-  font-size: 1.05rem;
-  margin-top: 8px;
+  font-size: 1.1rem;
+  opacity: 0.9;
 }
 
-/* ===== About image & timeline ===== */
-.about-image {
-  display: block;
-  max-width: 300px;
-  border-radius: 8px;
-  margin: 20px auto;
-}
-
-.timeline {
-  max-width: 600px;
-  margin: 20px auto;
-  padding-left: 20px;
-  list-style-type: disc;
-}
-
-/* ===== Highlights (cards) ===== */
+/* ===========================
+   CARDS / HIGHLIGHTS
+=========================== */
 .highlights {
   display: flex;
   flex-wrap: wrap;
@@ -259,122 +225,56 @@ header p {
   gap: 20px;
   max-width: 900px;
   margin: 0 auto 40px;
-  padding: 0 20px;
 }
 
 .highlight-box {
   background: #fff;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   width: 260px;
-  max-width: 100%;
-  text-align: left;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .highlight-box h3 {
   margin-top: 0;
-  margin-bottom: 8px;
 }
 
-/* ===== News section ===== */
-.news-section {
-  text-align: center;
-  padding: 40px 20px;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.news-intro {
-  font-size: 1.05rem;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.news-card {
-  background: #fff;
-  padding: 20px;
-  margin-bottom: 15px;
-  border-left: 6px solid #007BFF;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  text-align: left;
-  border-radius: 6px;
-}
-
-/* ===== Gallery grid ===== */
+/* ===========================
+   GALLERY GRID
+=========================== */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 16px;
   padding: 20px;
-  background-color: #f8f8f8;
+  background-color: #f6f6f6;
 }
 
 .gallery img {
   width: 100%;
-  height: auto;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .gallery img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
 }
 
-figure {
-  margin: 0;
-  text-align: center;
-}
-
-figcaption {
-  margin-top: 8px;
-  font-size: 14px;
-  color: #333;
-}
-
-/* ===== Footer ===== */
+/* ===========================
+   FOOTER
+=========================== */
 footer {
+  background: #4c7337;
+  color: white;
   text-align: center;
   padding: 20px;
-  background-color: #4c7337;
-  color: white;
   font-size: 14px;
 }
 
-/* ===== Festival Gallery extras ===== */
-.festival-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.festival-nav a {
-  padding: 8px 16px;
-  border-radius: 999px;
-  background: #fff;
-  border: 1px solid #ddd;
-  text-decoration: none;
-  font-size: 14px;
-  color: #333;
-  font-weight: 600;
-  transition: background 0.2s ease, border-color 0.2s ease;
-}
-
-.festival-nav a:hover {
-  background: #ffc800;
-  border-color: #ffc800;
-  color: #111;
-}
-
-.festival-section {
-  padding: 30px 0 10px;
-}
-
-/* ===== Responsive Design ===== */
+/* ===========================
+   RESPONSIVE
+=========================== */
 @media (max-width: 768px) {
   nav {
     overflow-x: auto;
@@ -382,6 +282,7 @@ footer {
   }
 
   nav a,
+  .dropbtn,
   .dropdown {
     flex: 0 0 auto;
   }
@@ -391,16 +292,11 @@ footer {
   }
 
   header h1 {
-    font-size: 1.9rem;
+    font-size: 2rem;
   }
 
   .search-container {
     flex-direction: column;
-    align-items: center;
-  }
-
-  .search-container input[type="text"] {
-    width: 90%;
   }
 
   .highlight-box {
