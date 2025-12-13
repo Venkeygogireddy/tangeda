@@ -273,37 +273,48 @@
     }
 
     // Dropdown groups: open on first click (mobile), close on outside click/ESC
-    (function () {
-      const dropdowns = Array.from(document.querySelectorAll(".nav-dd"));
+<script>
+(function () {
+  const dropdowns = Array.from(document.querySelectorAll(".nav-dd"));
 
-      function closeAll() {
-        dropdowns.forEach(d => d.classList.remove("open"));
-      }
+  function closeAll() {
+    dropdowns.forEach(d => d.classList.remove("open"));
+  }
 
-      document.querySelectorAll(".dd-link").forEach(link => {
-        link.addEventListener("click", function (e) {
-          e.preventDefault();
-          const id = link.getAttribute("data-dd");
-          const dd = document.getElementById(id);
+  document.querySelectorAll(".dd-link").forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
 
-          const wasOpen = dd.classList.contains("open");
-          closeAll();
-          if (!wasOpen) dd.classList.add("open");
-        });
-      });
+      const id = link.getAttribute("data-dd");
+      const dd = document.getElementById(id);
 
-      document.addEventListener("click", function (e) {
-     // Only close if click is completely outside nav dropdowns
-          if (!e.target.closest(".nav-dd") && !e.target.closest(".dropdown-content")) {
-          closeAll();
-        }
-      });
+      const wasOpen = dd.classList.contains("open");
+      closeAll();
+      if (!wasOpen) dd.classList.add("open");
+    });
+  });
 
+  // Allow clicking inside dropdown
+  document.querySelectorAll(".dropdown-content a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.stopPropagation();
+    });
+  });
 
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") closeAll();
-      });
-    })();
+  // Close only when clicking truly outside
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".nav-dd")) {
+      closeAll();
+    }
+  });
+
+  // ESC key closes
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeAll();
+  });
+})();
+</script>
+
 
     // Mobile hamburger menu
     (function () {
