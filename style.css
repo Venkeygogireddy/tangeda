@@ -172,35 +172,37 @@ header {
   opacity: 1;
 }
 
-/* Dark overlay */
+/* Dark overlay (gradient) */
 header::before {
   content: "";
   position: absolute;
   inset: 0;
-  /* Better contrast + premium look */
   background:
     linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0.65) 100%);
   z-index: 1;
 }
 
-
 .hero-content{
+  position: relative;
+  z-index: 2;
   max-width: 980px;
   margin: 0 auto;
   padding: 0 12px;
 }
 
 header h1{
+  margin: 0 0 10px;
   font-size: clamp(2.1rem, 3.6vw, 3.2rem);
   letter-spacing: 0.2px;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.4);
 }
 
 header p{
+  margin: 0;
   margin-top: 6px;
   font-size: clamp(1.05rem, 1.5vw, 1.25rem);
   opacity: 0.95;
 }
-
 
 /* ===========================
    HERO SEARCH (NEW)
@@ -388,19 +390,6 @@ footer {
   .top-nav {
     overflow-x: auto;
     justify-content: flex-start;
-  .search-pill{
-  flex-wrap: wrap;
-  border-radius: 20px;
-}
-
-.pill-btn{
-  width: 100%;
-}
-
-.pill-btn.ghost{
-  width: 100%;
-}
-   
   }
 
   .top-nav a,
@@ -417,9 +406,17 @@ footer {
     font-size: 2rem;
   }
 
-  .search-container {
-    flex-direction: column;
-    align-items: center;
+  .search-pill{
+    flex-wrap: wrap;
+    border-radius: 20px;
+  }
+
+  .pill-btn{
+    width: 100%;
+  }
+
+  .pill-btn.ghost{
+    width: 100%;
   }
 
   .highlight-box {
