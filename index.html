@@ -9,31 +9,42 @@
 
 <body>
 
-  <!-- NAVBAR (sticky) -->
-  <nav class="top-nav">
-    <a href="index.html" class="active">Home</a>
-    <a href="about.html">About</a>
+  <!-- NAVBAR (sticky + mobile hamburger) -->
+  <nav class="top-nav" id="top-nav">
+    <a href="index.html" class="brand">Tangeda</a>
 
-    <!-- Festivals dropdown (no arrow, tap-friendly) -->
-    <div class="dropdown" id="festivals-dd">
-      <a href="festivals.html" class="dropbtn" id="festivals-link">Festivals</a>
-      <div class="dropdown-content">
-        <a href="festivals.html">All Festivals</a>
-        <a href="gallery.html#sankranthi">Sankranthi</a>
-        <a href="gallery.html#ganesh">Ganesh Chaturthi</a>
-        <a href="gallery.html#muharram">Muharram</a>
+    <button class="nav-toggle" id="nav-toggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="nav-links">
+      ☰
+    </button>
+
+    <div class="nav-links" id="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+
+      <!-- Festivals dropdown -->
+      <div class="dropdown" id="festivals-dd">
+        <a href="festivals.html" class="dropbtn" id="festivals-link">Festivals</a>
+        <div class="dropdown-content">
+          <a href="festivals.html">All Festivals</a>
+          <a href="gallery.html#sankranthi">Sankranthi</a>
+          <a href="gallery.html#ganesh">Ganesh Chaturthi</a>
+          <a href="gallery.html#muharram">Muharram</a>
+        </div>
       </div>
-    </div>
 
-    <a href="temples.html">Temples</a>
-    <a href="people.html">People</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="news.html">News</a>
-    <a href="services.html">Services</a>
-    <a href="directory.html">Directory</a>
-    <a href="guestbook.html">Guestbook</a>
-    <a href="contact.html">Contact</a>
-    <a href="travel.html">Travel Info</a>
+      <a href="temples.html">Temples</a>
+      <a href="people.html">People</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="news.html">News</a>
+      <a href="services.html">Services</a>
+      <a href="directory.html">Directory</a>
+      <a href="guestbook.html">Guestbook</a>
+      <a href="contact.html">Contact</a>
+      <a href="travel.html">Travel Info</a>
+    </div>
   </nav>
 
   <!-- HERO SECTION WITH SLIDESHOW -->
@@ -48,34 +59,36 @@
       <h1>Welcome to Tangeda</h1>
       <p>A village rich in heritage, culture, and community.</p>
 
-    <div class="hero-search">
-  <label class="sr-only" for="site-search">Search</label>
+      <!-- NEW HERO SEARCH -->
+      <div class="hero-search">
+        <label class="sr-only" for="site-search">Search</label>
 
-  <div class="search-pill">
-    <span class="search-icon" aria-hidden="true">🔍</span>
+        <div class="search-pill">
+          <span class="search-icon" aria-hidden="true">🔍</span>
 
-    <input
-      type="text"
-      id="site-search"
-      placeholder="Search temples, festivals, people..."
-      onkeypress="if(event.key==='Enter'){ performSearch(); }"
-      autocomplete="off"
-    />
+          <input
+            type="text"
+            id="site-search"
+            placeholder="Search temples, festivals, people..."
+            onkeypress="if(event.key==='Enter'){ performSearch(); }"
+            autocomplete="off"
+          />
 
-    <button class="pill-btn" onclick="performSearch()" title="Search" aria-label="Search">
-      Search
-    </button>
+          <button class="pill-btn" onclick="performSearch()" title="Search" aria-label="Search">
+            Search
+          </button>
 
-    <button class="pill-btn ghost" onclick="startVoiceSearch()" title="Voice Search" aria-label="Voice Search">
-      🎤
-    </button>
-  </div>
+          <button class="pill-btn ghost" onclick="startVoiceSearch()" title="Voice Search" aria-label="Voice Search">
+            🎤
+          </button>
+        </div>
 
-  <div class="quick-hints">
-    Try: <a href="temples.html">Temples</a>, <a href="festivals.html">Festivals</a>, <a href="people.html">People</a>
-  </div>
-</div>
-
+        <div class="quick-hints">
+          Try: <a href="temples.html">Temples</a>, <a href="festivals.html">Festivals</a>, <a href="people.html">People</a>
+        </div>
+      </div>
+    </div>
+  </header>
 
   <!-- MAIN CONTENT -->
   <section class="about-container" style="text-align:center;">
@@ -117,58 +130,56 @@
 
   <!-- FOOTER -->
   <footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-col">
-      <h4>Tangeda Village</h4>
-      <p class="footer-text">
-        A place of heritage, culture, and community. Explore festivals, temples, people, and local services.
-      </p>
-    </div>
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Tangeda Village</h4>
+        <p class="footer-text">
+          A place of heritage, culture, and community. Explore festivals, temples, people, and local services.
+        </p>
+      </div>
 
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <ul class="footer-links">
-        <li><a href="about.html">About</a></li>
-        <li><a href="festivals.html">Festivals</a></li>
-        <li><a href="temples.html">Temples</a></li>
-        <li><a href="people.html">People</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-      </ul>
-    </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="festivals.html">Festivals</a></li>
+          <li><a href="temples.html">Temples</a></li>
+          <li><a href="people.html">People</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </div>
 
-    <div class="footer-col">
-      <h4>Information</h4>
-      <ul class="footer-links">
-        <li><a href="news.html">News</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="directory.html">Directory</a></li>
-        <li><a href="travel.html">Travel Info</a></li>
-        <li><a href="guestbook.html">Guestbook</a></li>
-      </ul>
-    </div>
+      <div class="footer-col">
+        <h4>Information</h4>
+        <ul class="footer-links">
+          <li><a href="news.html">News</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="directory.html">Directory</a></li>
+          <li><a href="travel.html">Travel Info</a></li>
+          <li><a href="guestbook.html">Guestbook</a></li>
+        </ul>
+      </div>
 
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <ul class="footer-links">
-        <li><a href="contact.html">Contact Page</a></li>
-        <li><a href="mailto:yourmail@example.com">yourmail@example.com</a></li>
-      </ul>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li><a href="contact.html">Contact Page</a></li>
+          <li><a href="mailto:yourmail@example.com">yourmail@example.com</a></li>
+        </ul>
 
-      <!-- Optional: add your real links or remove this block -->
-      <div class="footer-social">
-        <a href="#" aria-label="Facebook">Facebook</a>
-        <a href="#" aria-label="Instagram">Instagram</a>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">Facebook</a>
+          <a href="#" aria-label="Instagram">Instagram</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="footer-bottom">
-    <p>© 2025 Tangeda Village. All rights reserved.</p>
-  </div>
-</footer>
+    <div class="footer-bottom">
+      <p>© 2025 Tangeda Village. All rights reserved.</p>
+    </div>
+  </footer>
 
-
-  <!-- JS: Search + Voice + Slideshow + Festivals dropdown click -->
+  <!-- JS: Search + Voice + Slideshow + Dropdown + Mobile Menu -->
   <script>
     function performSearch() {
       const query = document.getElementById("site-search").value.toLowerCase().trim();
@@ -263,6 +274,38 @@
 
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") dd.classList.remove("open");
+      });
+    })();
+
+    // Mobile hamburger menu
+    (function () {
+      const nav = document.getElementById("top-nav");
+      const toggle = document.getElementById("nav-toggle");
+      const links = document.getElementById("nav-links");
+      if (!nav || !toggle || !links) return;
+
+      function closeMenu(){
+        nav.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Open menu");
+      }
+
+      toggle.addEventListener("click", function () {
+        const isOpen = nav.classList.toggle("open");
+        toggle.setAttribute("aria-expanded", String(isOpen));
+        toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+      });
+
+      links.addEventListener("click", function (e) {
+        if (e.target.tagName.toLowerCase() === "a") closeMenu();
+      });
+
+      document.addEventListener("click", function (e) {
+        if (!nav.contains(e.target)) closeMenu();
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeMenu();
       });
     })();
   </script>
