@@ -3,104 +3,226 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Temples of Tangeda</title>
+
+  <!-- SEO -->
+  <meta name="description"
+    content="Temples of Tangeda — explore important temples, traditions, and spiritual places in the village with photos and visit details." />
+
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-<nav class="top-nav" id="top-nav">
-  <a href="index.html" class="brand">Tangeda</a>
 
-  <button class="nav-toggle" id="nav-toggle"
-    aria-label="Open menu"
-    aria-expanded="false"
-    aria-controls="nav-links">
-    ☰
-  </button>
+  <!-- NAVBAR -->
+  <nav class="top-nav" id="top-nav">
+    <a href="index.html" class="brand">Tangeda</a>
 
-  <div class="nav-links" id="nav-links">
-    <a href="index.html">Home</a>
+    <button class="nav-toggle" id="nav-toggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="nav-links">☰</button>
 
-    <!-- Explore -->
-    <div class="dropdown nav-dd" id="dd-explore">
-      <a href="#" class="dropbtn dd-link" data-dd="dd-explore">Explore</a>
-      <div class="dropdown-content">
-        <a href="about.html">About</a>
-        <a href="people.html">People</a>
-        <a href="gallery.html">Gallery</a>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+
+      <!-- Explore -->
+      <div class="dropdown nav-dd" id="dd-explore">
+        <a href="#" class="dropbtn dd-link" data-dd="dd-explore">Explore</a>
+        <div class="dropdown-content">
+          <a href="about.html">About</a>
+          <a href="people.html">People</a>
+          <a href="gallery.html">Gallery</a>
+        </div>
       </div>
+
+      <!-- Culture (ACTIVE) -->
+      <div class="dropdown nav-dd" id="dd-culture">
+        <a href="#" class="dropbtn dd-link active" data-dd="dd-culture">Culture</a>
+        <div class="dropdown-content">
+          <a href="festivals.html">Festivals</a>
+          <a href="temples.html" class="active">Temples</a>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="dropdown nav-dd" id="dd-info">
+        <a href="#" class="dropbtn dd-link" data-dd="dd-info">Info</a>
+        <div class="dropdown-content">
+          <a href="news.html">News</a>
+          <a href="services.html">Services</a>
+          <a href="directory.html">Directory</a>
+          <a href="travel.html">Travel Info</a>
+        </div>
+      </div>
+
+      <a href="guestbook.html">Guestbook</a>
+      <a href="contact.html">Contact</a>
     </div>
 
-    <!-- Culture (ACTIVE) -->
-    <div class="dropdown nav-dd" id="dd-culture">
-      <a href="#" class="dropbtn dd-link active" data-dd="dd-culture">Culture</a>
-      <div class="dropdown-content">
-        <a href="festivals.html">Festivals</a>
-        <a href="temples.html" class="active">Temples</a>
-      </div>
+    <!-- Compact header search -->
+    <form class="nav-search" onsubmit="performSearch(); return false;">
+      <input
+        type="search"
+        id="site-search"
+        placeholder="Search festivals, temples, people…"
+        aria-label="Search Tangeda"
+      />
+      <button type="submit" title="Search" aria-label="Search">🔍</button>
+    </form>
+  </nav>
+
+  <!-- HERO -->
+  <header>
+    <div class="hero-slideshow">
+      <!-- Change this image if you have a temple banner -->
+      <div class="hero-slide active" style="background-image: url('images/tangeda-temple.jpg');"></div>
     </div>
 
-    <!-- Info -->
-    <div class="dropdown nav-dd" id="dd-info">
-      <a href="#" class="dropbtn dd-link" data-dd="dd-info">Info</a>
-      <div class="dropdown-content">
-        <a href="news.html">News</a>
-        <a href="services.html">Services</a>
-        <a href="directory.html">Directory</a>
-        <a href="travel.html">Travel Info</a>
-      </div>
+    <div class="hero-content">
+      <h1>Temples of Tangeda</h1>
+      <p>Spiritual places that preserve faith, tradition, and village unity</p>
     </div>
-
-    <a href="guestbook.html">Guestbook</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
-
-
-   <header class="hero">
-    <h1>Temples of Tangeda</h1>
-    <p>Spiritual roots and sacred spaces of our village.</p>
   </header>
 
- <div class="about-container">
-  <section>
-    <h2>About the Temples</h2>
-    <p>
-      Tangeda is home to several ancient temples that reflect the village's deep spiritual heritage. These temples are not just places of worship, but also centers of community, tradition, and local pride.
+  <!-- INTRO -->
+  <section class="about-container">
+    <h2>Temples in Tangeda</h2>
+    <p class="lead-text">
+      Temples are an important part of daily life in Tangeda. They are places for prayer,
+      festivals, community gatherings, and tradition. Below you can explore key temples
+      and the spiritual heritage connected to them.
     </p>
+
+    <div class="temple-nav">
+      <a href="#main">Main Temples</a>
+      <a href="#festival-days">Special Days</a>
+      <a href="#visit">Visiting Info</a>
+    </div>
   </section>
 
-  <section>
-    <h2>Sri Rama Temple</h2>
-    <p>
-      One of the oldest temples in the village, Sri Rama Temple is known for its peaceful surroundings and yearly celebrations during Rama Navami.
-    </p>
-    <img src="images/ram-temple.jpg" alt="Sri Rama Temple" style="max-width: 400px; border-radius: 8px;" />
+  <!-- TEMPLE CARDS -->
+  <section id="main">
+    <div class="highlights">
+
+      <div class="highlight-box">
+        <h3>Temple 1 (Name)</h3>
+        <p>
+          Short description about the temple, deity, and what makes it special.
+          Add 2–3 lines maximum for clean layout.
+        </p>
+        <p class="jump-link"><a href="#temple-1">→ Read more</a></p>
+      </div>
+
+      <div class="highlight-box">
+        <h3>Temple 2 (Name)</h3>
+        <p>
+          Short description about the temple, location, and popular events.
+        </p>
+        <p class="jump-link"><a href="#temple-2">→ Read more</a></p>
+      </div>
+
+      <div class="highlight-box">
+        <h3>Temple 3 (Name)</h3>
+        <p>
+          Short description about the temple, history, and local traditions.
+        </p>
+        <p class="jump-link"><a href="#temple-3">→ Read more</a></p>
+      </div>
+
+    </div>
   </section>
 
-  <section>
-    <h2>Shiva Temple by the River</h2>
-    <p>
-      This temple sits beautifully by the Krishna riverbank. It is especially visited during Maha Shivratri, where villagers gather for night-long prayers.
-    </p>
-    <img src="images/shiva-temple.jpg" alt="Shiva Temple" style="max-width: 400px; border-radius: 8px;" />
+  <!-- DETAILS SECTION -->
+  <section class="festival-section" id="temple-1">
+    <div class="about-container">
+      <h3>Temple 1 (Full Name)</h3>
+      <p>
+        Write the full description here: history, deity, festivals conducted, how villagers
+        participate, and any special rituals.
+      </p>
+
+      <div class="news-card">
+        <strong>Highlights</strong>
+        <p>
+          • Morning & evening prayers <br />
+          • Festival celebrations (add name) <br />
+          • Community gathering during special days
+        </p>
+      </div>
+    </div>
   </section>
 
-  <section>
-    <h2>Village Hanuman Temple</h2>
-    <p>
-      Located in the center of Tangeda, this temple is a landmark where villagers gather every Saturday for prayers, bhajans, and blessings.
-    </p>
-    <img src="images/hanuman-temple.jpg" alt="Hanuman Temple" style="max-width: 400px; border-radius: 8px;" />
+  <section class="festival-section" id="temple-2">
+    <div class="about-container">
+      <h3>Temple 2 (Full Name)</h3>
+      <p>
+        Add details like location, history, and why people visit. You can also add photo
+        references if available.
+      </p>
+
+      <div class="news-card">
+        <strong>Highlights</strong>
+        <p>
+          • Popular offerings & prasadam <br />
+          • Annual festival (month) <br />
+          • Cultural programs and bhajans
+        </p>
+      </div>
+    </div>
   </section>
 
-  <footer>
-    <p>© 2025 Tangeda Village. All rights reserved.</p>
+  <section class="festival-section" id="temple-3">
+    <div class="about-container">
+      <h3>Temple 3 (Full Name)</h3>
+      <p>
+        Add information about traditions, important days, and unique spiritual aspects.
+      </p>
+
+      <div class="news-card">
+        <strong>Highlights</strong>
+        <p>
+          • Special pujas on Fridays / Tuesdays (edit) <br />
+          • Village participation and donations <br />
+          • Calm environment for prayer
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECIAL DAYS -->
+  <section class="about-container" id="festival-days">
+    <h2>Special Days & Celebrations</h2>
+    <ul class="timeline">
+      <li><strong>Weekly:</strong> Regular puja days (edit: e.g., Tuesday/Friday).</li>
+      <li><strong>Monthly:</strong> Special day celebrations (edit).</li>
+      <li><strong>Yearly:</strong> Main temple festivals and processions (edit).</li>
+    </ul>
+  </section>
+
+  <!-- VISITING INFO -->
+  <section class="about-container" id="visit">
+    <h2>Visiting Information</h2>
+    <div class="news-card">
+      <strong>Tips for visitors</strong>
+      <p>
+        • Dress respectfully and remove footwear before entering. <br />
+        • Visit early morning or evening for peaceful darshan. <br />
+        • During festivals, expect crowds and processions.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <p>© 2025 Tangeda Village. All rights reserved.</p>
+    </div>
   </footer>
+
+  <!-- SHARED JS -->
+  <script src="script.js" defer></script>
 
 </body>
 </html>
-
-
-
-
-
