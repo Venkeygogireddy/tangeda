@@ -327,28 +327,53 @@ header p{
 }
 
 /* ===========================
-   CARDS / HIGHLIGHTS
+   CARDS / HIGHLIGHTS (EQUAL HEIGHT + HOVER)
 =========================== */
 .highlights {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
   max-width: 900px;
-  margin: 0 auto 40px;
+  margin: 0 auto 50px;
+  padding: 0 12px;
 }
 
 .highlight-box {
-  background: #fff;
-  padding: 20px;
-  width: 260px;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  background: #ffffff;
+  padding: 24px 22px;
+  border-radius: 14px;
+
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.05);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
-.highlight-box h3 {
-  margin-top: 0;
+.highlight-box h3::before {
+  content: "• ";
+  color: var(--accent);
+  font-weight: 900;
 }
+
+.highlight-box p {
+  margin: 0;
+  opacity: 0.9;
+  flex-grow: 1; /* makes all cards equal height */
+}
+
+/* Hover effect */
+.highlight-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.14);
+  border-color: rgba(159,182,214,0.45); /* matches accent */
+}
+
 
 /* ===========================
    GALLERY GRID
