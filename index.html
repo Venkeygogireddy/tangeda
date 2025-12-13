@@ -4,12 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Welcome to Tangeda</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Welcome to Tangeda village — explore festivals, temples, people, gallery, services, news, directory, and travel information." />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <!-- NAVBAR (sticky + mobile hamburger) -->
+  <!-- NAVBAR (sticky + grouped dropdowns + mobile hamburger) -->
   <nav class="top-nav" id="top-nav">
     <a href="index.html" class="brand">Tangeda</a>
 
@@ -22,28 +26,39 @@
 
     <div class="nav-links" id="nav-links">
       <a href="index.html" class="active">Home</a>
-      <a href="about.html">About</a>
 
-      <!-- Festivals dropdown -->
-      <div class="dropdown" id="festivals-dd">
-        <a href="festivals.html" class="dropbtn" id="festivals-link">Festivals</a>
+      <!-- Explore -->
+      <div class="dropdown nav-dd" id="dd-explore">
+        <a href="#" class="dropbtn dd-link" data-dd="dd-explore">Explore</a>
         <div class="dropdown-content">
-          <a href="festivals.html">All Festivals</a>
-          <a href="gallery.html#sankranthi">Sankranthi</a>
-          <a href="gallery.html#ganesh">Ganesh Chaturthi</a>
-          <a href="gallery.html#muharram">Muharram</a>
+          <a href="about.html">About</a>
+          <a href="people.html">People</a>
+          <a href="gallery.html">Gallery</a>
         </div>
       </div>
 
-      <a href="temples.html">Temples</a>
-      <a href="people.html">People</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="news.html">News</a>
-      <a href="services.html">Services</a>
-      <a href="directory.html">Directory</a>
+      <!-- Culture -->
+      <div class="dropdown nav-dd" id="dd-culture">
+        <a href="#" class="dropbtn dd-link" data-dd="dd-culture">Culture</a>
+        <div class="dropdown-content">
+          <a href="festivals.html">Festivals</a>
+          <a href="temples.html">Temples</a>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="dropdown nav-dd" id="dd-info">
+        <a href="#" class="dropbtn dd-link" data-dd="dd-info">Info</a>
+        <div class="dropdown-content">
+          <a href="news.html">News</a>
+          <a href="services.html">Services</a>
+          <a href="directory.html">Directory</a>
+          <a href="travel.html">Travel Info</a>
+        </div>
+      </div>
+
       <a href="guestbook.html">Guestbook</a>
       <a href="contact.html">Contact</a>
-      <a href="travel.html">Travel Info</a>
     </div>
   </nav>
 
@@ -59,12 +74,12 @@
       <h1>Welcome to Tangeda</h1>
       <p>A village rich in heritage, culture, and community.</p>
 
-      <!-- NEW HERO SEARCH -->
+      <!-- HERO SEARCH -->
       <div class="hero-search">
         <label class="sr-only" for="site-search">Search</label>
 
         <div class="search-pill">
-          <span class="search-icon" aria-hidden="true"></span>
+          <span class="search-icon" aria-hidden="true">🔍</span>
 
           <input
             type="text"
@@ -78,6 +93,9 @@
             Search
           </button>
 
+          <button class="pill-btn ghost" onclick="startVoiceSearch()" title="Voice Search" aria-label="Voice Search">
+            🎤
+          </button>
         </div>
 
         <div class="quick-hints">
@@ -96,7 +114,7 @@
     </p>
   </section>
 
-  <!-- HIGHLIGHTS SECTION -->
+  <!-- HIGHLIGHTS -->
   <section>
     <div class="highlights">
       <div class="highlight-box">
@@ -176,7 +194,7 @@
     </div>
   </footer>
 
-  <!-- JS: Search + Voice + Slideshow + Dropdown + Mobile Menu -->
+  <!-- JS: Search + Voice + Slideshow + Dropdowns + Mobile Menu -->
   <script>
     function performSearch() {
       const query = document.getElementById("site-search").value.toLowerCase().trim();
@@ -205,7 +223,9 @@
         service: "services.html",
         news: "news.html",
         travel: "travel.html",
-        direction: "travel.html"
+        direction: "travel.html",
+        directory: "directory.html",
+        guestbook: "guestbook.html"
       };
 
       for (const keyword in pageMap) {
@@ -252,25 +272,32 @@
       }, SLIDE_INTERVAL);
     }
 
-    // Festivals dropdown: first click opens, second click navigates
+    // Dropdown groups: open on first click (mobile), close on outside click/ESC
     (function () {
-      const dd = document.getElementById("festivals-dd");
-      const link = document.getElementById("festivals-link");
-      if (!dd || !link) return;
+      const dropdowns = Array.from(document.querySelectorAll(".nav-dd"));
 
-      link.addEventListener("click", function (e) {
-        if (!dd.classList.contains("open")) {
+      function closeAll() {
+        dropdowns.forEach(d => d.classList.remove("open"));
+      }
+
+      document.querySelectorAll(".dd-link").forEach(link => {
+        link.addEventListener("click", function (e) {
           e.preventDefault();
-          dd.classList.add("open");
-        }
+          const id = link.getAttribute("data-dd");
+          const dd = document.getElementById(id);
+
+          const wasOpen = dd.classList.contains("open");
+          closeAll();
+          if (!wasOpen) dd.classList.add("open");
+        });
       });
 
       document.addEventListener("click", function (e) {
-        if (!dd.contains(e.target)) dd.classList.remove("open");
+        if (!e.target.closest(".nav-dd")) closeAll();
       });
 
       document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") dd.classList.remove("open");
+        if (e.key === "Escape") closeAll();
       });
     })();
 
