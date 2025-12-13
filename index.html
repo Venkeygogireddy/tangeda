@@ -9,47 +9,41 @@
 
 <body>
 
-  <!-- NAVBAR (overlay) -->
- <!-- NAVBAR (sticky) -->
-<nav class="top-nav">
-  <a href="index.html" class="active">Home</a>
-  <a href="about.html">About</a>
+  <!-- NAVBAR (sticky) -->
+  <nav class="top-nav">
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
 
-  <!-- Festivals dropdown (tap-friendly, no arrow) -->
-<div class="dropdown">
-  <button class="dropbtn" type="button">Festivals</button>
-  <div class="dropdown-content">
-
-      <a href="festivals.html">All Festivals</a>
-      <a href="gallery.html#sankranthi">Sankranthi</a>
-      <a href="gallery.html#ganesh">Ganesh Chaturthi</a>
-      <a href="gallery.html#muharram">Muharram</a>
+    <!-- Festivals dropdown (no arrow, tap-friendly) -->
+    <div class="dropdown" id="festivals-dd">
+      <a href="festivals.html" class="dropbtn" id="festivals-link">Festivals</a>
+      <div class="dropdown-content">
+        <a href="festivals.html">All Festivals</a>
+        <a href="gallery.html#sankranthi">Sankranthi</a>
+        <a href="gallery.html#ganesh">Ganesh Chaturthi</a>
+        <a href="gallery.html#muharram">Muharram</a>
+      </div>
     </div>
-  </div>
 
-  <a href="temples.html">Temples</a>
-  <a href="people.html">People</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="news.html">News</a>
-  <a href="services.html">Services</a>
-  <a href="directory.html">Directory</a>
-  <a href="guestbook.html">Guestbook</a>
-  <a href="contact.html">Contact</a>
-  <a href="travel.html">Travel Info</a>
-</nav>
-
+    <a href="temples.html">Temples</a>
+    <a href="people.html">People</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="news.html">News</a>
+    <a href="services.html">Services</a>
+    <a href="directory.html">Directory</a>
+    <a href="guestbook.html">Guestbook</a>
+    <a href="contact.html">Contact</a>
+    <a href="travel.html">Travel Info</a>
+  </nav>
 
   <!-- HERO SECTION WITH SLIDESHOW -->
   <header>
-    <!-- Slideshow background -->
     <div class="hero-slideshow">
-      <!-- Update image filenames as per your /images folder -->
       <div class="hero-slide active" style="background-image: url('images/village-banner.jpg');"></div>
       <div class="hero-slide" style="background-image: url('images/tangeda-village.jpg');"></div>
       <div class="hero-slide" style="background-image: url('images/tangeda-festival.jpg');"></div>
     </div>
 
-    <!-- Foreground content -->
     <div class="hero-content">
       <h1>Welcome to Tangeda</h1>
       <p>A village rich in heritage, culture, and community.</p>
@@ -58,7 +52,7 @@
         <input
           type="text"
           id="site-search"
-          placeholder="Search..."
+          placeholder="Search temples, festivals, people..."
           onkeypress="if(event.key==='Enter'){ performSearch(); }"
         />
         <button onclick="performSearch()" title="Search">🔍</button>
@@ -110,7 +104,7 @@
     <p>© 2025 Tangeda Village. All rights reserved.</p>
   </footer>
 
-  <!-- JS: Search + Voice + Slideshow -->
+  <!-- JS: Search + Voice + Slideshow + Festivals dropdown click -->
   <script>
     function performSearch() {
       const query = document.getElementById("site-search").value.toLowerCase().trim();
@@ -168,10 +162,10 @@
       recognition.start();
     }
 
-    // SIMPLE HERO SLIDESHOW
+    // HERO SLIDESHOW
     const slides = document.querySelectorAll(".hero-slide");
     let currentSlide = 0;
-    const SLIDE_INTERVAL = 6000; // 6 seconds
+    const SLIDE_INTERVAL = 6000;
 
     function showSlide(index) {
       slides.forEach((slide, i) => {
@@ -185,6 +179,28 @@
         showSlide(currentSlide);
       }, SLIDE_INTERVAL);
     }
+
+    // Festivals dropdown: first click opens, second click navigates
+    (function () {
+      const dd = document.getElementById("festivals-dd");
+      const link = document.getElementById("festivals-link");
+      if (!dd || !link) return;
+
+      link.addEventListener("click", function (e) {
+        if (!dd.classList.contains("open")) {
+          e.preventDefault();
+          dd.classList.add("open");
+        }
+      });
+
+      document.addEventListener("click", function (e) {
+        if (!dd.contains(e.target)) dd.classList.remove("open");
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") dd.classList.remove("open");
+      });
+    })();
   </script>
 
 </body>
