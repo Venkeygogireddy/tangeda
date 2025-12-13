@@ -513,10 +513,10 @@ header p{
 }
 
 /* ===========================
-   FOOTER
+   FOOTER (COMPACT)
 =========================== */
 .site-footer{
-  margin-top: 40px;
+  margin-top: 30px;
   background: rgba(10, 10, 10, 0.92);
   color: rgba(255,255,255,0.9);
   border-top: 1px solid rgba(255,255,255,0.08);
@@ -525,22 +525,23 @@ header p{
 .footer-inner{
   max-width: 1100px;
   margin: 0 auto;
-  padding: 34px 16px;
+  padding: 20px 16px;      /* ↓ reduced from 34px */
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr 1fr;
-  gap: 22px;
+  gap: 16px;               /* ↓ reduced gap */
 }
 
 .footer-col h4{
-  margin: 0 0 12px;
-  font-size: 15px;
+  margin: 0 0 8px;         /* ↓ less vertical space */
+  font-size: 14px;
   color: #fff;
 }
 
 .footer-text{
   margin: 0;
-  opacity: 0.85;
-  font-size: 14px;
+  opacity: 0.8;
+  font-size: 13px;
+  line-height: 1.6;
 }
 
 .footer-links{
@@ -548,13 +549,13 @@ header p{
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 10px;
+  gap: 6px;                /* ↓ tighter links */
 }
 
 .footer-links a{
-  color: rgba(255,255,255,0.82);
+  color: rgba(255,255,255,0.78);
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .footer-links a:hover{
@@ -563,15 +564,16 @@ header p{
 
 .footer-bottom{
   border-top: 1px solid rgba(255,255,255,0.08);
-  padding: 14px 16px;
+  padding: 10px 12px;      /* ↓ reduced */
   text-align: center;
 }
 
 .footer-bottom p{
   margin: 0;
-  font-size: 13px;
-  opacity: 0.85;
+  font-size: 12px;
+  opacity: 0.75;
 }
+
 
 /* ===========================
    RESPONSIVE (mobile menu + search)
