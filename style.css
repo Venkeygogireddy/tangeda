@@ -16,7 +16,7 @@
   --hover: rgba(255,255,255,0.08);
 }
 
-body {
+body{
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
@@ -25,7 +25,7 @@ body {
 }
 
 /* ===========================
-   NAVIGATION (STICKY + CLEAN)
+   NAVIGATION (STICKY + MOBILE)
 =========================== */
 .top-nav{
   position: fixed;
@@ -41,8 +41,8 @@ body {
 
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   padding: 10px 10px;
   gap: 2px;
@@ -80,8 +80,46 @@ body {
   outline: none;
 }
 
+/* Brand + hamburger */
+.brand{
+  margin-right: auto;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  padding: 10px 14px;
+}
+
+.nav-toggle{
+  display: none; /* shown only on mobile */
+  margin-left: auto;
+
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 18px;
+  cursor: pointer;
+
+  transition: background 0.18s ease;
+}
+
+.nav-toggle:hover{
+  background: rgba(255,255,255,0.14);
+}
+
+/* Links container */
+.nav-links{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  width: 100%;
+}
+
 /* ===========================
-   DROPDOWN MENU (FADE IN)
+   DROPDOWN MENU (DESKTOP)
 =========================== */
 .dropdown{
   position: relative;
@@ -136,16 +174,15 @@ body {
   transform: translate(-50%, 0);
 }
 
-/* Highlight Festivals trigger when open */
 .dropdown:hover > .dropbtn,
 .dropdown.open > .dropbtn{
   background: rgba(159,182,214,0.25);
 }
 
 /* ===========================
-   HEADER / HERO SECTION
+   HEADER / HERO
 =========================== */
-header {
+header{
   position: relative;
   text-align: center;
   padding: 110px 20px 60px; /* navbar is fixed */
@@ -153,13 +190,13 @@ header {
   overflow: hidden;
 }
 
-.hero-slideshow {
+.hero-slideshow{
   position: absolute;
   inset: 0;
   z-index: 0;
 }
 
-.hero-slide {
+.hero-slide{
   position: absolute;
   inset: 0;
   background-size: cover;
@@ -168,17 +205,15 @@ header {
   transition: opacity 1s ease-in-out;
 }
 
-.hero-slide.active {
+.hero-slide.active{
   opacity: 1;
 }
 
-/* Dark overlay (gradient) */
-header::before {
+header::before{
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0.65) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0.65) 100%);
   z-index: 1;
 }
 
@@ -205,7 +240,7 @@ header p{
 }
 
 /* ===========================
-   HERO SEARCH (NEW)
+   HERO SEARCH
 =========================== */
 .sr-only{
   position:absolute;
@@ -313,23 +348,23 @@ header p{
 }
 
 /* ===========================
-   ABOUT + TEXT SECTIONS
+   ABOUT
 =========================== */
-.about-container {
+.about-container{
   max-width: 900px;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
-.lead-text {
+.lead-text{
   font-size: 1.1rem;
   opacity: 0.9;
 }
 
 /* ===========================
-   CARDS / HIGHLIGHTS (EQUAL HEIGHT + HOVER)
+   CARDS (EQUAL HEIGHT + HOVER)
 =========================== */
-.highlights {
+.highlights{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 22px;
@@ -338,7 +373,7 @@ header p{
   padding: 0 12px;
 }
 
-.highlight-box {
+.highlight-box{
   background: #ffffff;
   padding: 24px 22px;
   border-radius: 14px;
@@ -349,36 +384,30 @@ header p{
   box-shadow: 0 4px 14px rgba(0,0,0,0.08);
   border: 1px solid rgba(0,0,0,0.05);
 
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.highlight-box h3::before {
-  content: "• ";
-  color: var(--accent);
-  font-weight: 900;
+.highlight-box h3{
+  margin: 0 0 10px;
+  font-size: 1.1rem;
 }
 
-.highlight-box p {
+.highlight-box p{
   margin: 0;
   opacity: 0.9;
-  flex-grow: 1; /* makes all cards equal height */
+  flex-grow: 1;
 }
 
-/* Hover effect */
-.highlight-box:hover {
+.highlight-box:hover{
   transform: translateY(-6px);
   box-shadow: 0 18px 40px rgba(0,0,0,0.14);
-  border-color: rgba(159,182,214,0.45); /* matches accent */
+  border-color: rgba(159,182,214,0.45);
 }
-
 
 /* ===========================
    GALLERY GRID
 =========================== */
-.gallery {
+.gallery{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 16px;
@@ -386,13 +415,13 @@ header p{
   background-color: #f6f6f6;
 }
 
-.gallery img {
+.gallery img{
   width: 100%;
   border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.gallery img:hover {
+.gallery img:hover{
   transform: scale(1.05);
   box-shadow: 0 6px 14px rgba(0,0,0,0.15);
 }
@@ -487,40 +516,80 @@ header p{
   opacity: 0.85;
 }
 
-/* Footer responsive */
+/* ===========================
+   RESPONSIVE
+=========================== */
 @media (max-width: 900px){
   .footer-inner{
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (max-width: 520px){
-  .footer-inner{
-    grid-template-columns: 1fr;
-  }
-}
-
-
-/* ===========================
-   RESPONSIVE
-=========================== */
-@media (max-width: 768px) {
-  .top-nav {
-    overflow-x: auto;
-    justify-content: flex-start;
+@media (max-width: 768px){
+  .top-nav{
+    justify-content: space-between;
+    padding: 10px 10px;
   }
 
-  .top-nav a,
-  .top-nav .dropbtn,
-  .top-nav .dropdown {
-    flex: 0 0 auto;
+  .nav-toggle{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  header {
+  /* collapsed by default */
+  .nav-links{
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 16px;
+
+    background: rgba(18, 18, 18, 0.92);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* open state */
+  .top-nav.open .nav-links{
+    display: flex;
+  }
+
+  .nav-links a,
+  .nav-links .dropbtn{
+    width: 100%;
+    text-align: left;
+    padding: 12px 14px;
+    border-radius: 12px;
+  }
+
+  /* dropdown panel should be full-width on mobile */
+  .dropdown-content{
+    position: static;
+    transform: none;
+    min-width: auto;
+    width: 100%;
+    margin-top: 6px;
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    display: none; /* hidden until open */
+  }
+
+  .dropdown.open .dropdown-content{
+    display: block;
+  }
+
+  header{
     padding: 105px 16px 40px;
   }
 
-  header h1 {
+  header h1{
     font-size: 2rem;
   }
 
@@ -529,15 +598,12 @@ header p{
     border-radius: 20px;
   }
 
-  .pill-btn{
-    width: 100%;
-  }
-
+  .pill-btn,
   .pill-btn.ghost{
     width: 100%;
   }
 
-  .highlight-box {
-    width: 100%;
+  .footer-inner{
+    grid-template-columns: 1fr;
   }
 }
