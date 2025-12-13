@@ -3,84 +3,112 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guestbook - Tangeda</title>
+
+  <title>Guestbook – Tangeda</title>
+
+  <!-- SEO -->
+  <meta name="description"
+    content="Guestbook of Tangeda village — leave your blessings, memories, and messages for the community." />
+
   <link rel="stylesheet" href="style.css" />
-  <style>
-    .guest-form {
-      max-width: 600px;
-      margin: 40px auto;
-      text-align: center;
-    }
-    iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-    }
-  </style>
 </head>
-<nav class="top-nav" id="top-nav">
-  <a href="index.html" class="brand">Tangeda</a>
-
-  <button class="nav-toggle" id="nav-toggle"
-    aria-label="Open menu"
-    aria-expanded="false"
-    aria-controls="nav-links">☰</button>
-
-  <div class="nav-links" id="nav-links">
-    <a href="index.html">Home</a>
-
-    <div class="dropdown nav-dd" id="dd-explore">
-      <a href="#" class="dropbtn dd-link" data-dd="dd-explore">Explore</a>
-      <div class="dropdown-content">
-        <a href="about.html">About</a>
-        <a href="people.html">People</a>
-        <a href="gallery.html">Gallery</a>
-      </div>
-    </div>
-
-    <div class="dropdown nav-dd" id="dd-culture">
-      <a href="#" class="dropbtn dd-link" data-dd="dd-culture">Culture</a>
-      <div class="dropdown-content">
-        <a href="festivals.html">Festivals</a>
-        <a href="temples.html">Temples</a>
-      </div>
-    </div>
-
-    <div class="dropdown nav-dd" id="dd-info">
-      <a href="#" class="dropbtn dd-link" data-dd="dd-info">Info</a>
-      <div class="dropdown-content">
-        <a href="news.html">News</a>
-        <a href="services.html">Services</a>
-        <a href="directory.html">Directory</a>
-        <a href="travel.html">Travel Info</a>
-      </div>
-    </div>
-
-    <!-- Guestbook ACTIVE -->
-    <a href="guestbook.html" class="active">Guestbook</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
 
 <body>
 
+  <!-- NAVBAR -->
+  <nav class="top-nav" id="top-nav">
+    <a href="index.html" class="brand">Tangeda</a>
+
+    <button class="nav-toggle" id="nav-toggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="nav-links">☰</button>
+
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+
+      <div class="dropdown nav-dd" id="dd-explore">
+        <a href="#" class="dropbtn dd-link" data-dd="dd-explore">Explore</a>
+        <div class="dropdown-content">
+          <a href="about.html">About</a>
+          <a href="people.html">People</a>
+          <a href="gallery.html">Gallery</a>
+        </div>
+      </div>
+
+      <div class="dropdown nav-dd" id="dd-culture">
+        <a href="#" class="dropbtn dd-link" data-dd="dd-culture">Culture</a>
+        <div class="dropdown-content">
+          <a href="festivals.html">Festivals</a>
+          <a href="temples.html">Temples</a>
+        </div>
+      </div>
+
+      <div class="dropdown nav-dd" id="dd-info">
+        <a href="#" class="dropbtn dd-link" data-dd="dd-info">Info</a>
+        <div class="dropdown-content">
+          <a href="news.html">News</a>
+          <a href="services.html">Services</a>
+          <a href="directory.html">Directory</a>
+          <a href="travel.html">Travel Info</a>
+        </div>
+      </div>
+
+      <a href="guestbook.html" class="active">Guestbook</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Header search -->
+    <form class="nav-search" onsubmit="performSearch(); return false;">
+      <input
+        type="search"
+        id="site-search"
+        placeholder="Search festivals, temples, people…"
+        aria-label="Search Tangeda"
+      />
+      <button type="submit" title="Search" aria-label="Search">🔍</button>
+    </form>
+  </nav>
+
+  <!-- HERO -->
   <header>
-    <h1>Tangeda Guestbook</h1>
-    <p>Leave your blessings, memories, or messages for the village!</p>
+    <div class="hero-slideshow">
+      <div class="hero-slide active" style="background-image: url('images/village-banner.jpg');"></div>
+    </div>
+
+    <div class="hero-content">
+      <h1>Tangeda Guestbook</h1>
+      <p>Leave your blessings, memories, or messages for the village</p>
+    </div>
   </header>
 
-  <section class="guest-form">
-    <p>Please leave a message for our village below. Your thoughts are valuable!</p>
+  <!-- GUEST FORM -->
+  <section class="about-container guestbook-section">
+    <h2>Leave a Message</h2>
+    <p class="lead-text">
+      We’d love to hear from you. Share your thoughts, blessings, or memories
+      connected to Tangeda village.
+    </p>
 
-    <!-- Embed your Google Form here -->
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfDUMMYFORMLINK/viewform?embedded=true">Loading…</iframe>
+    <div class="guestbook-embed">
+      <!-- Replace with your real Google Form link -->
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfDUMMYFORMLINK/viewform?embedded=true"
+        loading="lazy"
+        title="Tangeda Guestbook Form">
+      </iframe>
+    </div>
   </section>
 
-  <footer>
-    <p>© 2025 Tangeda Village. All rights reserved.</p>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <p>© 2025 Tangeda Village. All rights reserved.</p>
+    </div>
   </footer>
+
+  <!-- SHARED JS -->
+  <script src="script.js" defer></script>
 
 </body>
 </html>
-
-
