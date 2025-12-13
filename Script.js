@@ -1,6 +1,95 @@
-/* ===========================
-   SEARCH ROUTING
-=========================== */
+/* ============================
+   Shared script.js for all pages
+   - Dropdown groups
+   - Mobile hamburger
+   - Search routing
+   - Hero slideshow (if present)
+============================ */
+
+document.addEventListener("DOMContentLoaded", () => {
+  /* ----------------------------
+     Dropdowns (Explore/Culture/Info)
+  ---------------------------- */
+  const dropdowns = Array.from(document.querySelectorAll(".dropdown.nav-dd"));
+
+  function closeAllDropdowns() {
+    dropdowns.forEach(dd => dd.classList.remove("open"));
+  }
+
+  // open/close when clicking the trigger (.dd-link)
+  document.querySelectorAll(".dd-link").forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const dd = link.closest(".dropdown");
+      const wasOpen = dd.classList.contains("open");
+
+      closeAllDropdowns();
+      if (!wasOpen) dd.classList.add("open");
+    });
+  });
+
+  // allow clicking inside dropdown
+  document.querySelectorAll(".dropdown-content").forEach(menu => {
+    menu.addEventListener("click", (e) => e.stopPropagation());
+  });
+
+  // close when clicking outside or pressing Esc
+  document.addEventListener("click", closeAllDropdowns);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeAllDropdowns();
+  });
+
+  /* ----------------------------
+     Mobile hamburger
+  ---------------------------- */
+  const nav = document.getElementById("top-nav");
+  const toggle = document.getElementById("nav-toggle");
+
+  function closeMenu() {
+    if (!nav || !toggle) return;
+    nav.classList.remove("open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.textContent = "☰";
+  }
+
+  if (nav && toggle) {
+    toggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = nav.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      toggle.textContent = isOpen ? "✕" : "☰";
+      closeAllDropdowns();
+    });
+
+    // close menu if click outside
+    document.addEventListener("click", (e) => {
+      if (!nav.contains(e.target)) closeMenu();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+  }
+
+  /* ----------------------------
+     Hero slideshow (only if hero slides exist)
+  ---------------------------- */
+  const slides = document.querySelectorAll(".hero-slide");
+  if (slides.length > 1) {
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove("active");
+      current = (current + 1) % slides.length;
+      slides[current].classList.add("active");
+    }, 6000);
+  }
+});
+
+/* ----------------------------
+   Search routing (global)
+---------------------------- */
 function performSearch() {
   const input = document.getElementById("site-search");
   if (!input) return;
@@ -12,13 +101,10 @@ function performSearch() {
     home: "index.html",
     about: "about.html",
     history: "about.html",
-
-    explore: "about.html",
     people: "people.html",
     gallery: "gallery.html",
     photos: "gallery.html",
-
-    culture: "festivals.html",
+    images: "gallery.html",
     festivals: "festivals.html",
     festival: "festivals.html",
     sankranthi: "gallery.html#sankranthi",
@@ -28,12 +114,11 @@ function performSearch() {
     chaturthi: "gallery.html#ganesh",
     muharram: "gallery.html#muharram",
     temples: "temples.html",
-
+    temple: "temples.html",
     news: "news.html",
     services: "services.html",
     directory: "directory.html",
     travel: "travel.html",
-
     guestbook: "guestbook.html",
     contact: "contact.html"
   };
@@ -47,89 +132,3 @@ function performSearch() {
 
   alert("No matching page found.");
 }
-
-/* ===========================
-   HERO SLIDESHOW
-=========================== */
-(function () {
-  const slides = document.querySelectorAll(".hero-slide");
-  if (!slides.length) return;
-
-  let index = 0;
-  const interval = 6000;
-
-  setInterval(() => {
-    slides[index].classList.remove("active");
-    index = (index + 1) % slides.length;
-    slides[index].classList.add("active");
-  }, interval);
-})();
-
-/* ===========================
-   DROPDOWNS (stable click)
-=========================== */
-(function () {
-  const dropdowns = document.querySelectorAll(".nav-dd");
-  const triggers = document.querySelectorAll(".dd-link");
-
-  function closeAll() {
-    dropdowns.forEach(dd => dd.classList.remove("open"));
-  }
-
-  triggers.forEach(trigger => {
-    trigger.addEventListener("click", e => {
-      e.preventDefault();
-      e.stopPropagation();
-
-      const id = trigger.dataset.dd;
-      const target = document.getElementById(id);
-      const wasOpen = target.classList.contains("open");
-
-      closeAll();
-      if (!wasOpen) target.classList.add("open");
-    });
-  });
-
-  document.querySelectorAll(".dropdown-content a").forEach(link => {
-    link.addEventListener("click", e => {
-      e.stopPropagation();
-      closeAll();
-    });
-  });
-
-  document.addEventListener("click", closeAll);
-  document.addEventListener("keydown", e => {
-    if (e.key === "Escape") closeAll();
-  });
-})();
-
-/* ===========================
-   MOBILE HAMBURGER MENU
-=========================== */
-(function () {
-  const nav = document.getElementById("top-nav");
-  const toggle = document.getElementById("nav-toggle");
-
-  if (!nav || !toggle) return;
-
-  function closeMenu() {
-    nav.classList.remove("open");
-    toggle.setAttribute("aria-expanded", "false");
-    toggle.textContent = "☰";
-  }
-
-  toggle.addEventListener("click", e => {
-    e.stopPropagation();
-    const isOpen = nav.classList.toggle("open");
-    toggle.setAttribute("aria-expanded", isOpen);
-    toggle.textContent = isOpen ? "✕" : "☰";
-  });
-
-  document.addEventListener("click", e => {
-    if (!nav.contains(e.target)) closeMenu();
-  });
-
-  document.addEventListener("keydown", e => {
-    if (e.key === "Escape") closeMenu();
-  });
-})();
