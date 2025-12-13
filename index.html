@@ -13,16 +13,14 @@
 
 <body>
 
-  <!-- NAVBAR (sticky + grouped dropdowns + mobile hamburger) -->
+  <!-- NAVBAR -->
   <nav class="top-nav" id="top-nav">
     <a href="index.html" class="brand">Tangeda</a>
 
     <button class="nav-toggle" id="nav-toggle"
       aria-label="Open menu"
       aria-expanded="false"
-      aria-controls="nav-links">
-      ☰
-    </button>
+      aria-controls="nav-links">☰</button>
 
     <div class="nav-links" id="nav-links">
       <a href="index.html" class="active">Home</a>
@@ -60,6 +58,17 @@
       <a href="guestbook.html">Guestbook</a>
       <a href="contact.html">Contact</a>
     </div>
+
+    <!-- Compact header search -->
+    <form class="nav-search" onsubmit="performSearch(); return false;">
+      <input
+        type="search"
+        id="site-search"
+        placeholder="Search festivals, temples, people…"
+        aria-label="Search Tangeda"
+      />
+      <button type="submit" title="Search" aria-label="Search">🔍</button>
+    </form>
   </nav>
 
   <!-- HERO SECTION WITH SLIDESHOW -->
@@ -73,33 +82,6 @@
     <div class="hero-content">
       <h1>Welcome to Tangeda</h1>
       <p>A village rich in heritage, culture, and community.</p>
-
-      <!-- HERO SEARCH -->
-      <div class="hero-search">
-        <label class="sr-only" for="site-search">Search</label>
-
-        <div class="search-pill">
-          <span class="search-icon" aria-hidden="true"></span>
-
-          <input
-            type="text"
-            id="site-search"
-            placeholder="Search temples, festivals, people..."
-            onkeypress="if(event.key==='Enter'){ performSearch(); }"
-            autocomplete="off"
-          />
-
-          <button class="pill-btn" onclick="performSearch()" title="Search" aria-label="Search">
-            Search
-          </button>
-
-          </button>
-        </div>
-
-        <div class="quick-hints">
-          Try: <a href="temples.html">Temples</a>, <a href="festivals.html">Festivals</a>, <a href="people.html">People</a>
-        </div>
-      </div>
     </div>
   </header>
 
@@ -145,7 +127,7 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-col">
-        <h4>Tangeda Village</h4>
+        <h4>About Tangeda</h4>
         <p class="footer-text">
           A place of heritage, culture, and community. Explore festivals, temples, people, and local services.
         </p>
@@ -179,11 +161,6 @@
           <li><a href="contact.html">Contact Page</a></li>
           <li><a href="mailto:yourmail@example.com">yourmail@example.com</a></li>
         </ul>
-
-        <div class="footer-social">
-          <a href="#" aria-label="Facebook">Facebook</a>
-          <a href="#" aria-label="Instagram">Instagram</a>
-        </div>
       </div>
     </div>
 
@@ -192,8 +169,9 @@
     </div>
   </footer>
 
-  <!-- JS: Search + Voice + Slideshow + Dropdowns + Mobile Menu -->
+  <!-- JS -->
   <script>
+    // Search routing
     function performSearch() {
       const query = document.getElementById("site-search").value.toLowerCase().trim();
       if (!query) return;
@@ -208,7 +186,6 @@
         pongal: "gallery.html#sankranthi",
         ganesh: "gallery.html#ganesh",
         ganeshchaturthi: "gallery.html#ganesh",
-        chaturthi: "gallery.html#ganesh",
         muharram: "gallery.html#muharram",
         temples: "temples.html",
         temple: "temples.html",
@@ -216,14 +193,12 @@
         gallery: "gallery.html",
         photos: "gallery.html",
         images: "gallery.html",
-        contact: "contact.html",
-        services: "services.html",
-        service: "services.html",
         news: "news.html",
-        travel: "travel.html",
-        direction: "travel.html",
+        services: "services.html",
         directory: "directory.html",
-        guestbook: "guestbook.html"
+        travel: "travel.html",
+        guestbook: "guestbook.html",
+        contact: "contact.html"
       };
 
       for (const keyword in pageMap) {
@@ -232,24 +207,7 @@
           return;
         }
       }
-
       alert("No matching page found.");
-    }
-
-    function startVoiceSearch() {
-      if (!("webkitSpeechRecognition" in window)) {
-        alert("Voice search is not supported in this browser.");
-        return;
-      }
-
-      const recognition = new webkitSpeechRecognition();
-      recognition.lang = "en-US";
-      recognition.onresult = function (event) {
-        const transcript = event.results[0][0].transcript;
-        document.getElementById("site-search").value = transcript;
-        performSearch();
-      };
-      recognition.start();
     }
 
     // HERO SLIDESHOW
@@ -258,9 +216,7 @@
     const SLIDE_INTERVAL = 6000;
 
     function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === index);
-      });
+      slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
     }
 
     if (slides.length > 1) {
@@ -270,71 +226,56 @@
       }, SLIDE_INTERVAL);
     }
 
-    // Dropdown groups: open on first click (mobile), close on outside click/ESC
-<script>
-(function () {
-  const dropdowns = Array.from(document.querySelectorAll(".nav-dd"));
+    // Dropdown groups + stable click behavior
+    (function () {
+      const dropdowns = Array.from(document.querySelectorAll(".nav-dd"));
+      function closeAll() { dropdowns.forEach(d => d.classList.remove("open")); }
 
-  function closeAll() {
-    dropdowns.forEach(d => d.classList.remove("open"));
-  }
+      document.querySelectorAll(".dd-link").forEach(link => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
 
-  document.querySelectorAll(".dd-link").forEach(link => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
+          const id = link.getAttribute("data-dd");
+          const dd = document.getElementById(id);
+          const wasOpen = dd.classList.contains("open");
 
-      const id = link.getAttribute("data-dd");
-      const dd = document.getElementById(id);
+          closeAll();
+          if (!wasOpen) dd.classList.add("open");
+        });
+      });
 
-      const wasOpen = dd.classList.contains("open");
-      closeAll();
-      if (!wasOpen) dd.classList.add("open");
-    });
-  });
+      document.querySelectorAll(".dropdown-content a").forEach(a => {
+        a.addEventListener("click", function (e) {
+          e.stopPropagation(); // allow click
+          closeAll();          // close after click
+        });
+      });
 
-  // Allow clicking inside dropdown
-  document.querySelectorAll(".dropdown-content a").forEach(link => {
-    link.addEventListener("click", function (e) {
-      e.stopPropagation();
-    });
-  });
+      document.addEventListener("click", function () { closeAll(); });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeAll();
+      });
+    })();
 
-  // Close only when clicking truly outside
-  document.addEventListener("click", function (e) {
-    if (!e.target.closest(".nav-dd")) {
-      closeAll();
-    }
-  });
-
-  // ESC key closes
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") closeAll();
-  });
-})();
-</script>
-
-
-    // Mobile hamburger menu
+    // Mobile hamburger
     (function () {
       const nav = document.getElementById("top-nav");
       const toggle = document.getElementById("nav-toggle");
       const links = document.getElementById("nav-links");
       if (!nav || !toggle || !links) return;
 
-      function closeMenu(){
+      function closeMenu() {
         nav.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
-        toggle.setAttribute("aria-label", "Open menu");
+        toggle.textContent = "☰";
       }
 
-      toggle.addEventListener("click", function () {
+      toggle.addEventListener("click", function (e) {
+        e.stopPropagation();
         const isOpen = nav.classList.toggle("open");
         toggle.setAttribute("aria-expanded", String(isOpen));
-        toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
-      });
-
-      links.addEventListener("click", function (e) {
-        if (e.target.tagName.toLowerCase() === "a") closeMenu();
+        toggle.textContent = isOpen ? "✕" : "☰";
       });
 
       document.addEventListener("click", function (e) {
