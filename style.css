@@ -389,3 +389,32 @@ header p{
 
   .footer-inner{ grid-template-columns: 1fr; }
 }
+/* ==============================
+   DROPDOWN ALIGNMENT FIX
+   Narrow + aligned under button
+============================== */
+
+/* Align dropdown under the trigger button */
+.top-nav .dropdown{
+  position: relative;
+}
+
+/* Dropdown panel */
+.top-nav .dropdown-content{
+  left: 0 !important;          /* align to button start */
+  transform: none !important;  /* remove centering */
+  top: calc(100% + 6px);
+
+  min-width: 180px;            /* slightly narrower */
+  max-width: 200px;
+
+  padding: 6px;
+  border-radius: 12px;
+}
+
+/* Dropdown links (clean list style) */
+.top-nav .dropdown-content a{
+  padding: 8px 10px !important;
+  font-size: 13.5px;
+  border-radius: 8px !important;
+}
