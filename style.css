@@ -1,6 +1,31 @@
 /* ===========================
    BASE LAYOUT
 =========================== */
+<script>
+  (function () {
+    const dd = document.getElementById("festivals-dd");
+    const link = document.getElementById("festivals-link");
+
+    // First click opens dropdown, second click navigates
+    link.addEventListener("click", function (e) {
+      if (!dd.classList.contains("open")) {
+        e.preventDefault();
+        dd.classList.add("open");
+      }
+    });
+
+    // Close when clicking outside
+    document.addEventListener("click", function (e) {
+      if (!dd.contains(e.target)) dd.classList.remove("open");
+    });
+
+    // Close on ESC
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") dd.classList.remove("open");
+    });
+  })();
+</script>
+
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -124,17 +149,27 @@ body {
 
 /* Show dropdown on hover (desktop) AND focus-within (mobile tap) */
 .dropdown:hover .dropdown-content,
-.dropdown:focus-within .dropdown-content{
+.dropdown.open .dropdown-content {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
   transform: translate(-50%, 0);
 }
 
+
 /* Highlight Festivals trigger when open */
 .dropdown:hover > .dropbtn,
 .dropdown:focus-within > .dropbtn{
   background: rgba(159,182,214,0.25);
+}
+.top-nav .dropbtn {
+  background: transparent;
+  border: 0;
+}
+
+.top-nav .dropbtn:focus,
+.top-nav .dropbtn:focus-visible {
+  outline: none;
 }
 
 /* ===========================
