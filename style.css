@@ -1,5 +1,5 @@
 /* ===========================
-   BASE LAYOUT
+   BASE
 =========================== */
 :root{
   --bg: #fffceb;
@@ -24,13 +24,11 @@ body{
 }
 
 /* ===========================
-   NAVIGATION (GROUPED)
+   NAVBAR (clean layout)
 =========================== */
 .top-nav{
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   z-index: 1000;
 
   background: var(--nav-bg);
@@ -39,29 +37,64 @@ body{
   -webkit-backdrop-filter: blur(10px);
 
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
 
-  padding: 10px 10px;
-  gap: 2px;
+  padding: 10px 12px;
+  gap: 10px;
 }
 
+.brand{
+  font-weight: 900;
+  letter-spacing: 0.35px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.10);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-toggle{
+  display: none;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.nav-toggle:hover{
+  background: rgba(255,255,255,0.14);
+}
+
+.nav-links{
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: auto;
+}
+
+/* nav buttons */
 .top-nav a,
 .top-nav .dropbtn{
   color: var(--text);
   padding: 10px 16px;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 750;
   font-size: 14px;
   white-space: nowrap;
 
   border-radius: 999px;
   background: transparent;
   border: 1px solid rgba(255,255,255,0.08);
-
   cursor: pointer;
-  transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+
+  transition: background 0.18s ease, border-color 0.18s ease;
 }
 
 .top-nav a:hover,
@@ -70,64 +103,18 @@ body{
   border-color: rgba(255,255,255,0.14);
 }
 
-.top-nav a.active{
+.top-nav a.active,
+.top-nav .dropbtn.active{
   background: rgba(159,182,214,0.95);
   color: var(--accent-dark) !important;
   border-color: rgba(159,182,214,0.75);
   box-shadow: 0 10px 24px rgba(0,0,0,0.22);
 }
 
-.top-nav .dropbtn:focus,
-.top-nav .dropbtn:focus-visible{
-  outline: none;
-}
-
-/* Brand + hamburger */
-.brand{
-  margin-right: auto;
-  font-weight: 900;
-  letter-spacing: 0.35px;
-  padding: 10px 14px;
-  border: 1px solid rgba(255,255,255,0.10);
-}
-
-.nav-toggle{
-  display: none;
-  margin-left: auto;
-
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(255,255,255,0.08);
-  color: #fff;
-
-  border-radius: 12px;
-  padding: 10px 12px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: background 0.18s ease;
-}
-
-.nav-toggle:hover{
-  background: rgba(255,255,255,0.14);
-}
-
-/* Links container */
-.nav-links{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  width: 100%;
-}
-
 /* ===========================
    DROPDOWNS
 =========================== */
-.dropdown{
-  position: relative;
-  display: flex;
-  align-items: center;
-}
+.dropdown{ position: relative; }
 
 .dropdown-content{
   position: absolute;
@@ -154,13 +141,11 @@ body{
   padding: 10px 12px;
   border-radius: 10px;
   border: 0;
+  background: transparent;
 
   color: var(--muted) !important;
   font-weight: 700;
   font-size: 14px;
-
-  background: transparent;
-  transition: background 0.15s ease, color 0.15s ease;
 }
 
 .dropdown-content a:hover{
@@ -176,10 +161,47 @@ body{
   transform: translate(-50%, 0);
 }
 
-.dropdown:hover > .dropbtn,
-.dropdown.open > .dropbtn{
-  background: rgba(159,182,214,0.22);
-  border-color: rgba(159,182,214,0.45);
+/* ===========================
+   HEADER SEARCH (compact)
+=========================== */
+.nav-search{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 8px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.22);
+  backdrop-filter: blur(8px);
+}
+
+.nav-search input{
+  width: 170px;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font-size: 13px;
+}
+
+.nav-search input::placeholder{
+  color: rgba(255,255,255,0.75);
+}
+
+.nav-search button{
+  border: 0;
+  background: rgba(255,255,255,0.92);
+  color: #111;
+  font-size: 13px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.nav-search button:hover{
+  background: #fff;
 }
 
 /* ===========================
@@ -188,16 +210,12 @@ body{
 header{
   position: relative;
   text-align: center;
-  padding: 110px 20px 60px;
+  padding: 120px 20px 60px; /* space for fixed nav */
   color: #fff;
   overflow: hidden;
 }
 
-.hero-slideshow{
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
+.hero-slideshow{ position: absolute; inset: 0; z-index: 0; }
 
 .hero-slide{
   position: absolute;
@@ -208,9 +226,7 @@ header{
   transition: opacity 1s ease-in-out;
 }
 
-.hero-slide.active{
-  opacity: 1;
-}
+.hero-slide.active{ opacity: 1; }
 
 header::before{
   content: "";
@@ -231,123 +247,13 @@ header::before{
 header h1{
   margin: 0 0 10px;
   font-size: clamp(2.1rem, 3.6vw, 3.2rem);
-  letter-spacing: 0.2px;
   text-shadow: 0 3px 8px rgba(0,0,0,0.45);
 }
 
 header p{
   margin: 0;
-  margin-top: 6px;
   font-size: clamp(1.05rem, 1.5vw, 1.25rem);
   opacity: 0.96;
-}
-
-/* ===========================
-   HERO SEARCH
-=========================== */
-.sr-only{
-  position:absolute;
-  width:1px;
-  height:1px;
-  padding:0;
-  margin:-1px;
-  overflow:hidden;
-  clip:rect(0,0,0,0);
-  white-space:nowrap;
-  border:0;
-}
-
-.hero-search{
-  margin-top: 18px;
-  display: grid;
-  justify-items: center;
-  gap: 10px;
-}
-
-.search-pill{
-  width: min(720px, 92%);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  padding: 10px 12px;
-  border-radius: 999px;
-
-  background: rgba(255,255,255,0.14);
-  border: 1px solid rgba(255,255,255,0.20);
-  box-shadow: 0 18px 45px rgba(0,0,0,0.28);
-
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.search-icon{
-  opacity: 0.95;
-  font-size: 16px;
-  transform: translateY(1px);
-}
-
-.search-pill input{
-  flex: 1;
-  min-width: 140px;
-
-  border: 0;
-  outline: none;
-  background: transparent;
-  color: #fff;
-
-  font-size: 15px;
-  padding: 8px 6px;
-}
-
-.search-pill input::placeholder{
-  color: rgba(255,255,255,0.78);
-}
-
-.pill-btn{
-  border: 0;
-  cursor: pointer;
-  border-radius: 999px;
-
-  padding: 9px 14px;
-  font-weight: 800;
-  font-size: 14px;
-
-  background: rgba(255,255,255,0.92);
-  color: #111;
-
-  transition: transform 0.15s ease, background 0.15s ease;
-}
-
-.pill-btn:hover{
-  transform: translateY(-1px);
-  background: rgba(255,255,255,1);
-}
-
-.pill-btn.ghost{
-  background: rgba(255,255,255,0.16);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.22);
-  padding: 9px 12px;
-}
-
-.pill-btn.ghost:hover{
-  background: rgba(255,255,255,0.22);
-}
-
-.quick-hints{
-  font-size: 13px;
-  color: rgba(255,255,255,0.86);
-}
-
-.quick-hints a{
-  color: rgba(255,255,255,0.95);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,0.28);
-}
-
-.quick-hints a:hover{
-  border-bottom-color: rgba(255,255,255,0.65);
 }
 
 /* ===========================
@@ -365,7 +271,7 @@ header p{
 }
 
 /* ===========================
-   CARDS
+   CARDS (equal height + hover)
 =========================== */
 .highlights{
   display: grid;
@@ -377,22 +283,14 @@ header p{
 }
 
 .highlight-box{
-  background: #ffffff;
+  background: #fff;
   padding: 24px 22px;
   border-radius: 14px;
-
   display: flex;
   flex-direction: column;
-
   box-shadow: 0 4px 14px rgba(0,0,0,0.08);
   border: 1px solid rgba(0,0,0,0.05);
-
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-.highlight-box h3{
-  margin: 0 0 10px;
-  font-size: 1.1rem;
 }
 
 .highlight-box p{
@@ -421,7 +319,6 @@ header p{
   max-width: 1100px;
   margin: 0 auto;
   padding: 34px 16px;
-
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr 1fr;
   gap: 22px;
@@ -430,15 +327,12 @@ header p{
 .footer-col h4{
   margin: 0 0 12px;
   font-size: 15px;
-  letter-spacing: 0.2px;
-  color: #ffffff;
+  color: #fff;
 }
 
 .footer-text{
   margin: 0;
-  max-width: 420px;
   opacity: 0.85;
-  line-height: 1.6;
   font-size: 14px;
 }
 
@@ -454,35 +348,10 @@ header p{
   color: rgba(255,255,255,0.82);
   text-decoration: none;
   font-size: 14px;
-  transition: color 0.18s ease, transform 0.18s ease;
 }
 
 .footer-links a:hover{
-  color: #ffffff;
-  transform: translateX(2px);
-}
-
-.footer-social{
-  margin-top: 12px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.footer-social a{
-  color: rgba(255,255,255,0.78);
-  text-decoration: none;
-  font-size: 13px;
-  padding: 8px 10px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.10);
-  transition: background 0.18s ease, color 0.18s ease;
-}
-
-.footer-social a:hover{
-  background: rgba(159,182,214,0.22);
-  color: #ffffff;
+  color: #fff;
 }
 
 .footer-bottom{
@@ -498,18 +367,15 @@ header p{
 }
 
 /* ===========================
-   RESPONSIVE
+   RESPONSIVE (mobile menu + search)
 =========================== */
 @media (max-width: 900px){
-  .footer-inner{
-    grid-template-columns: 1fr 1fr;
-  }
+  .footer-inner{ grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 768px){
   .top-nav{
-    justify-content: space-between;
-    padding: 10px 10px;
+    flex-wrap: wrap;
   }
 
   .nav-toggle{
@@ -520,6 +386,7 @@ header p{
 
   .nav-links{
     display: none;
+    flex: 0 0 100%;
     width: 100%;
     flex-direction: column;
     align-items: stretch;
@@ -537,25 +404,16 @@ header p{
     display: flex;
   }
 
-  .nav-links a,
-  .nav-links .dropbtn{
-    width: 100%;
-    text-align: left;
-    padding: 12px 14px;
-    border-radius: 12px;
-  }
-
+  /* dropdown content should be full-width in mobile menu */
   .dropdown-content{
     position: static;
     transform: none;
     min-width: auto;
     width: 100%;
     margin-top: 6px;
-
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-
     display: none;
   }
 
@@ -563,25 +421,20 @@ header p{
     display: block;
   }
 
-  header{
-    padding: 105px 16px 40px;
+  /* header search in mobile full width */
+  .nav-search{
+    width: 100%;
+    margin-top: 8px;
+    justify-content: space-between;
   }
 
-  header h1{
-    font-size: 2rem;
-  }
-
-  .search-pill{
-    flex-wrap: wrap;
-    border-radius: 20px;
-  }
-
-  .pill-btn,
-  .pill-btn.ghost{
+  .nav-search input{
     width: 100%;
   }
 
-  .footer-inner{
-    grid-template-columns: 1fr;
+  header{
+    padding: 130px 16px 40px;
   }
+
+  .footer-inner{ grid-template-columns: 1fr; }
 }
