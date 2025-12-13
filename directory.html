@@ -3,146 +3,144 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Village Directory - Tangeda</title>
+
+  <title>Village Directory – Tangeda</title>
+
+  <!-- SEO -->
+  <meta name="description"
+    content="Village Directory of Tangeda — key contacts for administration, school, health, agriculture, and electricity support." />
+
   <link rel="stylesheet" href="style.css" />
-  <style>
-    .directory-section {
-      max-width: 800px;
-      margin: 30px auto;
-      padding: 20px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-      background: #fff;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    th, td {
-      padding: 12px 15px;
-      border-bottom: 1px solid #ddd;
-      text-align: left;
-    }
-
-    th {
-      background-color: #4a773c;
-      color: white;
-    }
-
-    @media (max-width: 600px) {
-      table, thead, tbody, th, td, tr {
-        display: block;
-      }
-      th {
-        position: sticky;
-        top: 0;
-      }
-      td {
-        padding: 10px;
-      }
-    }
-  </style>
 </head>
-<nav class="top-nav" id="top-nav">
-  <a href="index.html" class="brand">Tangeda</a>
-
-  <button class="nav-toggle" id="nav-toggle"
-    aria-label="Open menu"
-    aria-expanded="false"
-    aria-controls="nav-links">☰</button>
-
-  <div class="nav-links" id="nav-links">
-    <a href="index.html">Home</a>
-
-    <div class="dropdown nav-dd" id="dd-explore">
-      <a href="#" class="dropbtn dd-link" data-dd="dd-explore">Explore</a>
-      <div class="dropdown-content">
-        <a href="about.html">About</a>
-        <a href="people.html">People</a>
-        <a href="gallery.html">Gallery</a>
-      </div>
-    </div>
-
-    <div class="dropdown nav-dd" id="dd-culture">
-      <a href="#" class="dropbtn dd-link" data-dd="dd-culture">Culture</a>
-      <div class="dropdown-content">
-        <a href="festivals.html">Festivals</a>
-        <a href="temples.html">Temples</a>
-      </div>
-    </div>
-
-    <!-- Info (ACTIVE) -->
-    <div class="dropdown nav-dd" id="dd-info">
-      <a href="#" class="dropbtn dd-link active" data-dd="dd-info">Info</a>
-      <div class="dropdown-content">
-        <a href="news.html">News</a>
-        <a href="services.html">Services</a>
-        <a href="directory.html" class="active">Directory</a>
-        <a href="travel.html">Travel Info</a>
-      </div>
-    </div>
-
-    <a href="guestbook.html">Guestbook</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
 
 <body>
 
+  <!-- NAVBAR -->
+  <nav class="top-nav" id="top-nav">
+    <a href="index.html" class="brand">Tangeda</a>
+
+    <button class="nav-toggle" id="nav-toggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="nav-links">☰</button>
+
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+
+      <!-- Explore -->
+      <div class="dropdown nav-dd" id="dd-explore">
+        <a href="#" class="dropbtn dd-link" data-dd="dd-explore">Explore</a>
+        <div class="dropdown-content">
+          <a href="about.html">About</a>
+          <a href="people.html">People</a>
+          <a href="gallery.html">Gallery</a>
+        </div>
+      </div>
+
+      <!-- Culture -->
+      <div class="dropdown nav-dd" id="dd-culture">
+        <a href="#" class="dropbtn dd-link" data-dd="dd-culture">Culture</a>
+        <div class="dropdown-content">
+          <a href="festivals.html">Festivals</a>
+          <a href="temples.html">Temples</a>
+        </div>
+      </div>
+
+      <!-- Info (ACTIVE) -->
+      <div class="dropdown nav-dd" id="dd-info">
+        <a href="#" class="dropbtn dd-link active" data-dd="dd-info">Info</a>
+        <div class="dropdown-content">
+          <a href="news.html">News</a>
+          <a href="services.html">Services</a>
+          <a href="directory.html" class="active">Directory</a>
+          <a href="travel.html">Travel Info</a>
+        </div>
+      </div>
+
+      <a href="guestbook.html">Guestbook</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Compact header search -->
+    <form class="nav-search" onsubmit="performSearch(); return false;">
+      <input
+        type="search"
+        id="site-search"
+        placeholder="Search festivals, temples, people…"
+        aria-label="Search Tangeda"
+      />
+      <button type="submit" title="Search" aria-label="Search">🔍</button>
+    </form>
+  </nav>
+
+  <!-- HERO -->
   <header>
-    <h1>Village Directory</h1>
-    <p>Key contacts for administration, services, and support in Tangeda.</p>
+    <div class="hero-slideshow">
+      <div class="hero-slide active" style="background-image: url('images/village-banner.jpg');"></div>
+    </div>
+
+    <div class="hero-content">
+      <h1>Village Directory</h1>
+      <p>Key contacts for administration, services, and support in Tangeda</p>
+    </div>
   </header>
 
+  <!-- DIRECTORY TABLE -->
+  <section class="about-container">
+    <h2>Key Contacts</h2>
+    <p class="lead-text">
+      This directory lists important village contacts for quick reference.
+    </p>
 
-  <section class="directory-section">
-    <table>
-      <thead>
-        <tr>
-          <th>Role</th>
-          <th>Name</th>
-          <th>Phone</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Sarpanch</td>
-          <td>Smt. Lakshmi Garu</td>
-          <td>98765 43210</td>
-        </tr>
-        <tr>
-          <td>School Headmaster</td>
-          <td>Shri. Krishnaiah</td>
-          <td>98765 12345</td>
-        </tr>
-        <tr>
-          <td>Primary Health Worker</td>
-          <td>Dr. Lakshmi</td>
-          <td>99887 77665</td>
-        </tr>
-        <tr>
-          <td>Agricultural Officer</td>
-          <td>Sri Ramesh</td>
-          <td>99000 11000</td>
-        </tr>
-        <tr>
-          <td>Electricity Board Contact</td>
-          <td>Engineer Balu</td>
-          <td>98765 55678</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-wrap">
+      <table class="directory-table">
+        <thead>
+          <tr>
+            <th>Role</th>
+            <th>Name</th>
+            <th>Phone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sarpanch</td>
+            <td>Smt. Lakshmi Garu</td>
+            <td>98765 43210</td>
+          </tr>
+          <tr>
+            <td>School Headmaster</td>
+            <td>Shri. Krishnaiah</td>
+            <td>98765 12345</td>
+          </tr>
+          <tr>
+            <td>Primary Health Worker</td>
+            <td>Dr. Lakshmi</td>
+            <td>99887 77665</td>
+          </tr>
+          <tr>
+            <td>Agricultural Officer</td>
+            <td>Sri Ramesh</td>
+            <td>99000 11000</td>
+          </tr>
+          <tr>
+            <td>Electricity Board Contact</td>
+            <td>Engineer Balu</td>
+            <td>98765 55678</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
-  <footer>
-    <p>© 2025 Tangeda Village. All rights reserved.</p>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <p>© 2025 Tangeda Village. All rights reserved.</p>
+    </div>
   </footer>
+
+  <!-- SHARED JS -->
+  <script src="script.js" defer></script>
 
 </body>
 </html>
-
-
