@@ -3,80 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Festival Gallery – Tangeda</title>
+
+  <!-- SEO -->
+  <meta name="description"
+    content="Festival Gallery of Tangeda — Sankranthi, Ganesh Chaturthi, and Muharram memories with photos and timelines." />
+
   <link rel="stylesheet" href="style.css" />
 </head>
-  
+
 <body>
-<nav class="top-nav" id="top-nav">
-  <a href="index.html" class="brand">Tangeda</a>
 
-  <button class="nav-toggle" id="nav-toggle"
-    aria-label="Open menu"
-    aria-expanded="false"
-    aria-controls="nav-links">
-    ☰
-  </button>
+  <!-- NAVBAR -->
+  <nav class="top-nav" id="top-nav">
+    <a href="index.html" class="brand">Tangeda</a>
 
-  <div class="nav-links" id="nav-links">
-    <a href="index.html">Home</a>
+    <button class="nav-toggle" id="nav-toggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="nav-links">☰</button>
 
-    <!-- Explore (ACTIVE) -->
-    <div class="dropdown nav-dd" id="dd-explore">
-      <a href="#" class="dropbtn dd-link active" data-dd="dd-explore">Explore</a>
-      <div class="dropdown-content">
-        <a href="about.html">About</a>
-        <a href="people.html">People</a>
-        <a href="gallery.html" class="active">Gallery</a>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+
+      <!-- Explore (ACTIVE) -->
+      <div class="dropdown nav-dd" id="dd-explore">
+        <a href="#" class="dropbtn dd-link active" data-dd="dd-explore">Explore</a>
+        <div class="dropdown-content">
+          <a href="about.html">About</a>
+          <a href="people.html">People</a>
+          <a href="gallery.html" class="active">Gallery</a>
+        </div>
       </div>
+
+      <!-- Culture -->
+      <div class="dropdown nav-dd" id="dd-culture">
+        <a href="#" class="dropbtn dd-link" data-dd="dd-culture">Culture</a>
+        <div class="dropdown-content">
+          <a href="festivals.html">Festivals</a>
+          <a href="temples.html">Temples</a>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="dropdown nav-dd" id="dd-info">
+        <a href="#" class="dropbtn dd-link" data-dd="dd-info">Info</a>
+        <div class="dropdown-content">
+          <a href="news.html">News</a>
+          <a href="services.html">Services</a>
+          <a href="directory.html">Directory</a>
+          <a href="travel.html">Travel Info</a>
+        </div>
+      </div>
+
+      <a href="guestbook.html">Guestbook</a>
+      <a href="contact.html">Contact</a>
     </div>
 
-    <!-- Culture -->
-    <div class="dropdown nav-dd" id="dd-culture">
-      <a href="#" class="dropbtn dd-link" data-dd="dd-culture">Culture</a>
-      <div class="dropdown-content">
-        <a href="festivals.html">Festivals</a>
-        <a href="temples.html">Temples</a>
-      </div>
-    </div>
-
-    <!-- Info -->
-    <div class="dropdown nav-dd" id="dd-info">
-      <a href="#" class="dropbtn dd-link" data-dd="dd-info">Info</a>
-      <div class="dropdown-content">
-        <a href="news.html">News</a>
-        <a href="services.html">Services</a>
-        <a href="directory.html">Directory</a>
-        <a href="travel.html">Travel Info</a>
-      </div>
-    </div>
-
-    <a href="guestbook.html">Guestbook</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
-
+    <!-- Compact header search -->
+    <form class="nav-search" onsubmit="performSearch(); return false;">
+      <input
+        type="search"
+        id="site-search"
+        placeholder="Search festivals, temples, people…"
+        aria-label="Search Tangeda"
+      />
+      <button type="submit" title="Search" aria-label="Search">🔍</button>
+    </form>
+  </nav>
 
   <!-- HERO / HEADER -->
-  <header style="background-image: url('images/tangeda-festival.jpg');">
+  <header>
+    <div class="hero-slideshow">
+      <div class="hero-slide active" style="background-image: url('images/tangeda-festival.jpg');"></div>
+    </div>
+
     <div class="hero-content">
       <h1>Festival Gallery</h1>
       <p>Memories from Sankranthi, Ganesh Chaturthi & Muharram in Tangeda</p>
-
-      <!--<div class="search-container">
-        <input
-          type="text"
-          id="site-search"
-          placeholder="Search..."
-          onkeypress="if(event.key==='Enter'){ performSearch(); }"
-        />
-        <button onclick="performSearch()" title="Search">🔍</button>
-        <button onclick="startVoiceSearch()" title="Voice Search">🎤</button>-->
-      </div>
     </div>
   </header>
-
-  <!-- MAIN NAV -->
 
   <!-- INTERNAL FESTIVAL NAV -->
   <section class="about-container" style="text-align:center;">
@@ -93,7 +100,7 @@
     </div>
   </section>
 
-  <!-- ⭐ FESTIVALS OVERVIEW (NOW INCLUDED IN GALLERY) -->
+  <!-- FESTIVALS OVERVIEW -->
   <section>
     <div class="highlights">
       <div class="highlight-box">
@@ -102,11 +109,7 @@
           Harvest festival filled with colourful rangoli (muggulu), traditional games,
           decorated houses, and family visits.
         </p>
-        <p style="margin-top:8px;">
-          <a href="#sankranthi" style="text-decoration:none; font-weight:bold; color:#0057b8;">
-            → Go to Sankranthi Gallery
-          </a>
-        </p>
+        <p class="jump-link"><a href="#sankranthi">→ Go to Sankranthi Gallery</a></p>
       </div>
 
       <div class="highlight-box">
@@ -115,11 +118,7 @@
           Lord Ganesha idols, daily aarti, bhajans, cultural programs, and grand
           immersion processions across the village.
         </p>
-        <p style="margin-top:8px;">
-          <a href="#ganesh" style="text-decoration:none; font-weight:bold; color:#0057b8;">
-            → Go to Ganesh Chaturthi Gallery
-          </a>
-        </p>
+        <p class="jump-link"><a href="#ganesh">→ Go to Ganesh Chaturthi Gallery</a></p>
       </div>
 
       <div class="highlight-box">
@@ -128,11 +127,7 @@
           Processions, tazias, and gatherings that reflect unity, remembrance, and
           respect across all communities in Tangeda.
         </p>
-        <p style="margin-top:8px;">
-          <a href="#muharram" style="text-decoration:none; font-weight:bold; color:#0057b8;">
-            → Go to Muharram Gallery
-          </a>
-        </p>
+        <p class="jump-link"><a href="#muharram">→ Go to Muharram Gallery</a></p>
       </div>
     </div>
   </section>
@@ -157,15 +152,15 @@
 
     <div class="gallery">
       <figure>
-        <img src="images/sankranthi-1.jpg" alt="Colourful rangoli in front of a house" />
+        <img src="images/sankranthi-1.jpg" alt="Colourful rangoli in front of a house" loading="lazy" />
         <figcaption>Beautiful rangoli designs welcoming Sankranthi.</figcaption>
       </figure>
       <figure>
-        <img src="images/sankranthi-2.jpg" alt="Family celebrating harvest festival" />
+        <img src="images/sankranthi-2.jpg" alt="Family celebrating harvest festival" loading="lazy" />
         <figcaption>Families gathering to celebrate the harvest.</figcaption>
       </figure>
       <figure>
-        <img src="images/sankranthi-3.jpg" alt="Traditional games during Sankranthi" />
+        <img src="images/sankranthi-3.jpg" alt="Traditional games during Sankranthi" loading="lazy" />
         <figcaption>Traditional games and fun for children and elders.</figcaption>
       </figure>
     </div>
@@ -191,15 +186,15 @@
 
     <div class="gallery">
       <figure>
-        <img src="images/ganesh-1.jpg" alt="Decorated Ganesh idol in Tangeda" />
+        <img src="images/ganesh-1.jpg" alt="Decorated Ganesh idol in Tangeda" loading="lazy" />
         <figcaption>Decorated Ganesh idol at a local pandal.</figcaption>
       </figure>
       <figure>
-        <img src="images/ganesh-2.jpg" alt="Devotees performing aarti" />
+        <img src="images/ganesh-2.jpg" alt="Devotees performing aarti" loading="lazy" />
         <figcaption>Devotees performing evening aarti with devotional songs.</figcaption>
       </figure>
       <figure>
-        <img src="images/ganesh-3.jpg" alt="Ganesh immersion procession" />
+        <img src="images/ganesh-3.jpg" alt="Ganesh immersion procession" loading="lazy" />
         <figcaption>Ganesh visarjan procession with music and dance.</figcaption>
       </figure>
     </div>
@@ -224,78 +219,29 @@
 
     <div class="gallery">
       <figure>
-        <img src="images/muharram-1.jpg" alt="Muharram procession in Tangeda" />
+        <img src="images/muharram-1.jpg" alt="Muharram procession in Tangeda" loading="lazy" />
         <figcaption>Muharram procession passing through the village streets.</figcaption>
       </figure>
       <figure>
-        <img src="images/muharram-2.jpg" alt="Decorated tazia" />
+        <img src="images/muharram-2.jpg" alt="Decorated tazia" loading="lazy" />
         <figcaption>Decorated tazia prepared by local groups.</figcaption>
       </figure>
       <figure>
-        <img src="images/muharram-3.jpg" alt="People gathered during Muharram" />
+        <img src="images/muharram-3.jpg" alt="People gathered during Muharram" loading="lazy" />
         <figcaption>People gathered respectfully to observe Muharram rituals.</figcaption>
       </figure>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <p>© 2025 Tangeda Village. All rights reserved.</p>
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <p>© 2025 Tangeda Village. All rights reserved.</p>
+    </div>
   </footer>
 
-  <!-- SEARCH + VOICE SCRIPT -->
-  <script>
-    function performSearch() {
-      const query = document.getElementById("site-search").value.toLowerCase().trim();
-      if (!query) return;
+  <!-- SHARED JS -->
+  <script src="script.js" defer></script>
 
-      const pageMap = {
-        home: "index.html",
-        about: "about.html",
-        festivals: "festivals.html",
-        festival: "festivals.html",
-        gallery: "gallery.html",
-        photos: "gallery.html",
-        images: "gallery.html",
-        sankranthi: "gallery.html#sankranthi",
-        pongal: "gallery.html#sankranthi",
-        ganesh: "gallery.html#ganesh",
-        ganeshchaturthi: "gallery.html#ganesh",
-        chaturthi: "gallery.html#ganesh",
-        muharram: "gallery.html#muharram",
-        temples: "temples.html",
-        people: "people.html",
-        contact: "contact.html",
-        services: "services.html",
-        news: "news.html",
-        travel: "travel.html"
-      };
-
-      for (const keyword in pageMap) {
-        if (query.includes(keyword)) {
-          window.location.href = pageMap[keyword];
-          return;
-        }
-      }
-
-      alert("No matching page found.");
-    }
-
-    function startVoiceSearch() {
-      if (!("webkitSpeechRecognition" in window)) {
-        alert("Voice search is not supported in this browser.");
-        return;
-      }
-
-      const recognition = new webkitSpeechRecognition();
-      recognition.lang = "en-US";
-      recognition.onresult = function (event) {
-        const transcript = event.results[0][0].transcript;
-        document.getElementById("site-search").value = transcript;
-        performSearch();
-      };
-      recognition.start();
-    }
-  </script>
 </body>
 </html>
