@@ -118,54 +118,50 @@ body{
 }
 .nav-toggle:hover{ background: rgba(255,255,255,0.14); }
 
-/* =====================================================
-   DROPDOWNS (aligned under button, NOT centered)
-===================================================== */
-.dropdown{ position: relative; }
+/* =========================
+   DROPDOWN – CLEAN & TIGHT
+========================= */
+.dropdown{
+  position: relative;
+}
 
-/* Dropdown panel */
 .dropdown-content{
   position: absolute;
-  top: calc(100% + 10px);
-  left: 0;                    /* ✅ aligned under button start */
-  transform: none;            /* ✅ remove centering */
-
-  min-width: 170px;           /* ✅ slightly narrower */
-  max-width: 210px;
-
+  top: calc(100% + 6px);      /* closer to nav */
+  left: 0;                   /* align under button */
+  transform: none;           /* remove centering */
+  
+  min-width: 180px;          /* slightly narrower */
   background: rgba(18,18,18,0.98);
-  border: 1px solid rgba(255,255,255,0.10);
   border-radius: 12px;
-  box-shadow: 0 14px 34px rgba(0,0,0,0.45);
-  padding: 6px;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.35);
 
+  padding: 4px 0;            /* ✅ FIX: remove top gap */
   display: none;
-  z-index: 9999;
+  z-index: 2000;
 }
 
-/* Show by JS open */
-.dropdown.open .dropdown-content{ display: block; }
+.dropdown.open .dropdown-content{
+  display: block;
+}
 
-/* Desktop hover fallback */
+/* desktop hover support */
 @media (min-width: 769px){
-  .dropdown:hover .dropdown-content{ display: block; }
+  .dropdown:hover .dropdown-content{
+    display: block;
+  }
 }
 
-/* Dropdown items should NOT look like buttons */
 .dropdown-content a{
   display: block;
-  padding: 9px 10px;
-  border-radius: 8px;
-
-  color: rgba(255,255,255,0.86);
-  text-decoration: none;
+  padding: 8px 14px;         /* consistent height */
+  margin: 0;                 /* ✅ no extra gaps */
+  line-height: 1.4;          /* tighter text */
+  font-size: 14px;
   font-weight: 600;
-  font-size: 13.5px;
-
-  background: transparent;
-  border: 0;
-
-  transition: background .14s ease, color .14s ease;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
 }
 
 .dropdown-content a:hover{
