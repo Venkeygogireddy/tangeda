@@ -3,81 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Festivals of Tangeda</title>
+
+  <!-- SEO -->
+  <meta name="description"
+    content="Festivals of Tangeda — Sankranthi, Ganesh Chaturthi, Muharram and more. Explore traditions, highlights, and photo galleries." />
+
   <link rel="stylesheet" href="style.css" />
 </head>
- <!-- NAVBAR (overlay) -->
- <nav class="top-nav" id="top-nav">
-  <a href="index.html" class="brand">Tangeda</a>
-
-  <button class="nav-toggle" id="nav-toggle"
-    aria-label="Open menu"
-    aria-expanded="false"
-    aria-controls="nav-links">
-    ☰
-  </button>
-
-  <div class="nav-links" id="nav-links">
-    <a href="index.html">Home</a>
-
-    <!-- Explore -->
-    <div class="dropdown nav-dd" id="dd-explore">
-      <a href="#" class="dropbtn dd-link" data-dd="dd-explore">Explore</a>
-      <div class="dropdown-content">
-        <a href="about.html">About</a>
-        <a href="people.html">People</a>
-        <a href="gallery.html">Gallery</a>
-      </div>
-    </div>
-
-    <!-- Culture (ACTIVE) -->
-    <div class="dropdown nav-dd" id="dd-culture">
-      <a href="#" class="dropbtn dd-link active" data-dd="dd-culture">Culture</a>
-      <div class="dropdown-content">
-        <a href="festivals.html" class="active">Festivals</a>
-        <a href="temples.html">Temples</a>
-      </div>
-    </div>
-
-    <!-- Info -->
-    <div class="dropdown nav-dd" id="dd-info">
-      <a href="#" class="dropbtn dd-link" data-dd="dd-info">Info</a>
-      <div class="dropdown-content">
-        <a href="news.html">News</a>
-        <a href="services.html">Services</a>
-        <a href="directory.html">Directory</a>
-        <a href="travel.html">Travel Info</a>
-      </div>
-    </div>
-
-    <a href="guestbook.html">Guestbook</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
-
 
 <body>
 
-  <!-- HEADER -->
-  <header style="background-image: url('images/tangeda-festival.jpg');">
+  <!-- NAVBAR -->
+  <nav class="top-nav" id="top-nav">
+    <a href="index.html" class="brand">Tangeda</a>
+
+    <button class="nav-toggle" id="nav-toggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="nav-links">☰</button>
+
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+
+      <!-- Explore -->
+      <div class="dropdown nav-dd" id="dd-explore">
+        <a href="#" class="dropbtn dd-link" data-dd="dd-explore">Explore</a>
+        <div class="dropdown-content">
+          <a href="about.html">About</a>
+          <a href="people.html">People</a>
+          <a href="gallery.html">Gallery</a>
+        </div>
+      </div>
+
+      <!-- Culture (ACTIVE) -->
+      <div class="dropdown nav-dd" id="dd-culture">
+        <a href="#" class="dropbtn dd-link active" data-dd="dd-culture">Culture</a>
+        <div class="dropdown-content">
+          <a href="festivals.html" class="active">Festivals</a>
+          <a href="temples.html">Temples</a>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="dropdown nav-dd" id="dd-info">
+        <a href="#" class="dropbtn dd-link" data-dd="dd-info">Info</a>
+        <div class="dropdown-content">
+          <a href="news.html">News</a>
+          <a href="services.html">Services</a>
+          <a href="directory.html">Directory</a>
+          <a href="travel.html">Travel Info</a>
+        </div>
+      </div>
+
+      <a href="guestbook.html">Guestbook</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Compact header search -->
+    <form class="nav-search" onsubmit="performSearch(); return false;">
+      <input
+        type="search"
+        id="site-search"
+        placeholder="Search festivals, temples, people…"
+        aria-label="Search Tangeda"
+      />
+      <button type="submit" title="Search" aria-label="Search">🔍</button>
+    </form>
+  </nav>
+
+  <!-- HERO -->
+  <header>
+    <div class="hero-slideshow">
+      <div class="hero-slide active" style="background-image: url('images/tangeda-festival.jpg');"></div>
+    </div>
+
     <div class="hero-content">
       <h1>Festivals of Tangeda</h1>
       <p>Celebrating Faith, Culture, and Community Together</p>
-
-      <div class="search-container">
-        <input
-          type="text"
-          id="site-search"
-          placeholder="Search..."
-          onkeypress="if(event.key==='Enter'){ performSearch(); }"
-        />
-        <!-- <button onclick="performSearch()" title="Search"></button>
-        <!--button onclick="startVoiceSearch()" title="Voice Search">🎤</button-->-->
-      </div>
     </div>
   </header>
-
-  <!-- NAVBAR -->
 
   <!-- INTRO -->
   <section class="about-container">
@@ -86,75 +92,61 @@
       Festivals are the heartbeat of Tangeda. They bring families home, unite
       neighbours, and fill the village with colour, devotion, and joy. From
       harvest celebrations to spiritual processions, each festival has its own
-      story and traditions that have been followed for generations.
+      story and traditions followed for generations.
     </p>
   </section>
 
-  <!-- FESTIVAL CARDS (LINKING TO GALLERY SECTIONS) -->
+  <!-- FESTIVAL CARDS -->
   <section>
     <div class="highlights">
+
       <div class="highlight-box">
         <h3>Sankranthi</h3>
         <p>
           The harvest festival marked with rangoli (muggulu), decorated homes,
           traditional games, and visits between relatives.
         </p>
-        <p style="margin-top: 10px;">
-          <a href="gallery.html#sankranthi" style="text-decoration:none; font-weight:bold; color:#0057b8;">
-            → View Sankranthi Photos
-          </a>
-        </p>
+        <p class="jump-link"><a href="gallery.html#sankranthi">→ View Sankranthi Photos</a></p>
       </div>
 
       <div class="highlight-box">
         <h3>Ganesh Chaturthi</h3>
         <p>
-          Installations of beautifully crafted Ganesh idols, daily aarti,
-          cultural programs, and grand immersion processions.
+          Beautiful Ganesh idols, daily aarti, cultural programs, and grand
+          immersion processions across the village.
         </p>
-        <p style="margin-top: 10px;">
-          <a href="gallery.html#ganesh" style="text-decoration:none; font-weight:bold; color:#0057b8;">
-            → View Ganesh Chaturthi Photos
-          </a>
-        </p>
+        <p class="jump-link"><a href="gallery.html#ganesh">→ View Ganesh Chaturthi Photos</a></p>
       </div>
 
       <div class="highlight-box">
         <h3>Muharram</h3>
         <p>
-          Processions, tazias, and gatherings that reflect respect, remembrance,
-          and unity across communities in the village.
+          Processions, tazias, and gatherings reflecting respect, remembrance,
+          and unity across communities in Tangeda.
         </p>
-        <p style="margin-top: 10px;">
-          <a href="gallery.html#muharram" style="text-decoration:none; font-weight:bold; color:#0057b8;">
-            → View Muharram Photos
-          </a>
-        </p>
+        <p class="jump-link"><a href="gallery.html#muharram">→ View Muharram Photos</a></p>
       </div>
-    </div>
-     <div class="highlight-box">
-        <h3>Other festivals</h3>
+
+      <div class="highlight-box">
+        <h3>Other Festivals</h3>
         <p>
-          Installations of beautifully crafted Ganesh idols, daily aarti,
-          cultural programs, and grand immersion processions.
+          Village celebrations, seasonal events, and local gatherings that make
+          Tangeda lively throughout the year.
         </p>
-        <p style="margin-top: 10px;">
-          <a href="gallery.html#other" style="text-decoration:none; font-weight:bold; color:#0057b8;">
-            → View Other Photos
-          </a>
-        </p>
+        <p class="jump-link"><a href="gallery.html#other">→ View Other Photos</a></p>
       </div>
+
+    </div>
   </section>
 
-  <!-- SANKRANTHI DETAIL SECTION -->
+  <!-- DETAILS -->
   <section class="festival-section">
     <div class="about-container">
       <h3>Sankranthi in Tangeda</h3>
       <p>
-        Sankranthi is one of the most vibrant festivals in Tangeda. Families
-        clean and decorate their houses, draw colourful muggulu, prepare
-        traditional sweets, and gather to thank nature for a good harvest.
-        Children enjoy games, kites, and visits to relatives’ houses.
+        Sankranthi is one of the most vibrant festivals in Tangeda. Families decorate
+        their houses, draw colourful muggulu, prepare traditional sweets, and gather
+        to thank nature for a good harvest.
       </p>
 
       <div class="news-card">
@@ -168,21 +160,19 @@
     </div>
   </section>
 
-  <!-- GANESH CHATURTHI DETAIL SECTION -->
   <section class="festival-section">
     <div class="about-container">
       <h3>Ganesh Chaturthi in Tangeda</h3>
       <p>
-        During Ganesh Chaturthi, idols of Lord Ganesha are installed at homes
-        and public pandals. Devotees offer prayers, perform aarti, and gather
-        every day for bhajans and cultural programs. The visarjan procession is
-        one of the most awaited events, filled with music, devotion, and emotion.
+        Idols of Lord Ganesha are installed at homes and public pandals. Devotees perform
+        aarti and gather for bhajans and cultural programs. The visarjan procession is
+        filled with music and devotion.
       </p>
 
       <div class="news-card">
         <strong>Recent Ganesh Chaturthi Highlights</strong>
         <p>
-          • <strong>2025:</strong> Focus on eco-friendly clay idols and clean immersion. <br />
+          • <strong>2025:</strong> Eco-friendly clay idols and clean immersion focus. <br />
           • <strong>2024:</strong> Cultural programs by children and youth at the main pandal. <br />
           • <strong>2023:</strong> Community prasadam distribution and decoration contests.
         </p>
@@ -190,15 +180,13 @@
     </div>
   </section>
 
-  <!-- MUHARRAM DETAIL SECTION -->
   <section class="festival-section">
     <div class="about-container">
       <h3>Muharram in Tangeda</h3>
       <p>
-        Muharram is observed with deep respect and discipline. Tazias are
-        prepared with great care and carried in processions through the village.
-        People from different communities participate or support, showing the
-        unity and understanding that Tangeda is known for.
+        Muharram is observed with deep respect. Tazias are prepared with care and carried
+        in processions through the village. People from different communities participate
+        or support, showing unity and mutual respect.
       </p>
 
       <div class="news-card">
@@ -213,75 +201,14 @@
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <p>© 2025 Tangeda Village. All rights reserved.</p>
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <p>© 2025 Tangeda Village. All rights reserved.</p>
+    </div>
   </footer>
 
-  <!-- JS: Search + Voice -->
-  <script>
-    function performSearch() {
-      const query = document.getElementById("site-search").value.toLowerCase().trim();
-      if (!query) return;
-
-      const pageMap = {
-        home: "index.html",
-        about: "about.html",
-        festivals: "festivals.html",
-        festival: "festivals.html",
-        sankranthi: "gallery.html#sankranthi",
-        pongal: "gallery.html#sankranthi",
-        ganesh: "gallery.html#ganesh",
-        ganeshchaturthi: "gallery.html#ganesh",
-        chaturthi: "gallery.html#ganesh",
-        muharram: "gallery.html#muharram",
-        temples: "temples.html",
-        people: "people.html",
-        gallery: "gallery.html",
-        photos: "gallery.html",
-        contact: "contact.html",
-        services: "services.html",
-        news: "news.html",
-        travel: "travel.html"
-      };
-
-      for (const keyword in pageMap) {
-        if (query.includes(keyword)) {
-          window.location.href = pageMap[keyword];
-          return;
-        }
-      }
-
-      alert("No matching page found.");
-    }
-
-    function startVoiceSearch() {
-      if (!("webkitSpeechRecognition" in window)) {
-        alert("Voice search is not supported in this browser.");
-        return;
-      }
-      const recognition = new webkitSpeechRecognition();
-      recognition.lang = "en-US";
-      recognition.onresult = function (event) {
-        const transcript = event.results[0][0].transcript;
-        document.getElementById("site-search").value = transcript;
-        performSearch();
-      };
-      recognition.start();
-    }
-  </script>
+  <!-- SHARED JS -->
+  <script src="script.js" defer></script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
