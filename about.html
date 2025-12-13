@@ -3,112 +3,116 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>About Tangeda</title>
+
+  <!-- SEO -->
+  <meta name="description"
+    content="Learn about Tangeda village — its history, culture, founder King Anumula Machireddy Garu, and the values that shape the community." />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-<nav class="top-nav" id="top-nav">
-  <a href="index.html" class="brand">Tangeda</a>
 
-  <button class="nav-toggle" id="nav-toggle"
-    aria-label="Open menu"
-    aria-expanded="false"
-    aria-controls="nav-links">
-    ☰
-  </button>
+  <!-- NAVBAR -->
+  <nav class="top-nav" id="top-nav">
+    <a href="index.html" class="brand">Tangeda</a>
 
-  <div class="nav-links" id="nav-links">
-    <a href="index.html">Home</a>
+    <button class="nav-toggle" id="nav-toggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="nav-links">☰</button>
 
-    <!-- Explore (ACTIVE) -->
-    <div class="dropdown nav-dd" id="dd-explore">
-      <a href="#" class="dropbtn dd-link active" data-dd="dd-explore">Explore</a>
-      <div class="dropdown-content">
-        <a href="about.html" class="active">About</a>
-        <a href="people.html">People</a>
-        <a href="gallery.html">Gallery</a>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+
+      <!-- Explore (ACTIVE) -->
+      <div class="dropdown nav-dd" id="dd-explore">
+        <a href="#" class="dropbtn dd-link active" data-dd="dd-explore">Explore</a>
+        <div class="dropdown-content">
+          <a href="about.html" class="active">About</a>
+          <a href="people.html">People</a>
+          <a href="gallery.html">Gallery</a>
+        </div>
       </div>
+
+      <!-- Culture -->
+      <div class="dropdown nav-dd" id="dd-culture">
+        <a href="#" class="dropbtn dd-link" data-dd="dd-culture">Culture</a>
+        <div class="dropdown-content">
+          <a href="festivals.html">Festivals</a>
+          <a href="temples.html">Temples</a>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="dropdown nav-dd" id="dd-info">
+        <a href="#" class="dropbtn dd-link" data-dd="dd-info">Info</a>
+        <div class="dropdown-content">
+          <a href="news.html">News</a>
+          <a href="services.html">Services</a>
+          <a href="directory.html">Directory</a>
+          <a href="travel.html">Travel Info</a>
+        </div>
+      </div>
+
+      <a href="guestbook.html">Guestbook</a>
+      <a href="contact.html">Contact</a>
     </div>
 
-    <!-- Culture -->
-    <div class="dropdown nav-dd" id="dd-culture">
-      <a href="#" class="dropbtn dd-link" data-dd="dd-culture">Culture</a>
-      <div class="dropdown-content">
-        <a href="festivals.html">Festivals</a>
-        <a href="temples.html">Temples</a>
-      </div>
+    <!-- Compact header search -->
+    <form class="nav-search" onsubmit="performSearch(); return false;">
+      <input
+        type="search"
+        id="site-search"
+        placeholder="Search festivals, temples, people…"
+        aria-label="Search Tangeda"
+      />
+      <button type="submit" title="Search" aria-label="Search">🔍</button>
+    </form>
+  </nav>
+
+  <!-- HERO / PAGE HEADER -->
+  <header>
+    <div class="hero-slideshow">
+      <div class="hero-slide active"
+        style="background-image: url('images/tangeda-village.jpg');"></div>
     </div>
 
-    <!-- Info -->
-    <div class="dropdown nav-dd" id="dd-info">
-      <a href="#" class="dropbtn dd-link" data-dd="dd-info">Info</a>
-      <div class="dropdown-content">
-        <a href="news.html">News</a>
-        <a href="services.html">Services</a>
-        <a href="directory.html">Directory</a>
-        <a href="travel.html">Travel Info</a>
-      </div>
-    </div>
-
-    <a href="guestbook.html">Guestbook</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
-
-  
-  <!-- HEADER -->
-  <header style="background-image: url('images/tangeda-village.jpg');">
     <div class="hero-content">
       <h1>About Tangeda</h1>
       <p>Heritage • Culture • Community • Legacy</p>
-
-     <!--  <div class="search-container">
-        <input type="text" id="site-search" placeholder="Search..." 
-          onkeypress="if(event.key==='Enter'){ performSearch(); }">
-        <button onclick="performSearch()">🔍</button>
-        <button onclick="startVoiceSearch()">🎤</button>-->
-      </div>
     </div>
   </header>
 
   <!-- MAIN CONTENT -->
   <section class="about-container">
 
-    <!-- Intro -->
     <h2>Welcome to Tangeda</h2>
     <p class="lead-text">
       Tangeda is a village where history, culture, and community blend into a vibrant
       lifestyle. Surrounded by nature and nurtured by tradition, the village carries
-      a legacy that has been passed on for centuries.
+      a legacy passed down through generations.
     </p>
 
-    <!-- Founder Section -->
     <h3>The Legacy of King Anumula Machireddy Garu</h3>
     <p>
-      Tangeda’s cultural foundation is deeply influenced by 
-      <strong>King Anumula Machireddy Garu</strong>, a respected leader known for 
-      his vision, generosity, and contributions to the region. Many traditions, 
-      festivals, and community practices followed today can be traced back to his 
-      leadership and values.
+      Tangeda’s cultural foundation is deeply influenced by
+      <strong>King Anumula Machireddy Garu</strong>, a respected leader known for his
+      vision, generosity, and contributions to the region. Many traditions, festivals,
+      and community practices followed today trace back to his leadership and values.
     </p>
 
-    <!-- Founder Image -->
-    <img src="images/founder.jpg" class="about-image" alt="Founder of Tangeda">
+    <img
+      src="images/founder.jpg"
+      class="about-image"
+      alt="King Anumula Machireddy Garu – Founder of Tangeda" />
 
-    <!-- Quote Block -->
-    <blockquote style="
-      padding: 20px;
-      background:white;
-      border-left: 5px solid #ffc800;
-      margin: 20px auto;
-      max-width: 600px;
-      border-radius: 6px;
-      font-style: italic;">
+    <blockquote class="quote-block">
       “A village is more than land and houses — it is the heartbeat of its people.”
     </blockquote>
 
-    <!-- Quick Facts -->
     <h3>Quick Facts About Tangeda</h3>
     <div class="highlights">
       <div class="highlight-box">
@@ -127,42 +131,42 @@
       </div>
     </div>
 
-    <!-- Timeline -->
     <h3>The Journey of Tangeda</h3>
     <ul class="timeline">
-      <li><strong>1500s:</strong> Early settlements and farming community began forming.</li>
-      <li><strong>1600s:</strong> Local rulers established cultural and religious structures.</li>
-      <li><strong>1800s:</strong> King Anumula Machireddy Garu’s era brought development, unity, and identity.</li>
-      <li><strong>1900s:</strong> Expansion of farmlands, festivals, temples, and village gatherings.</li>
-      <li><strong>2000–Today:</strong> Modern education, better roads, and digital connectivity transforming the village.</li>
+      <li><strong>1500s:</strong> Early settlements and farming communities.</li>
+      <li><strong>1600s:</strong> Cultural and religious structures established.</li>
+      <li><strong>1800s:</strong> Era of King Anumula Machireddy Garu.</li>
+      <li><strong>1900s:</strong> Expansion of farmlands and festivals.</li>
+      <li><strong>2000–Today:</strong> Education, roads, and digital growth.</li>
     </ul>
 
-    <!-- Our Values Section -->
     <h3>Our Village Values</h3>
     <div class="highlights">
       <div class="highlight-box">
         <h3>Unity</h3>
-        <p>Different communities living together with harmony and mutual respect.</p>
+        <p>Communities living together with harmony and respect.</p>
       </div>
       <div class="highlight-box">
         <h3>Culture</h3>
-        <p>Festivals and traditions preserved with pride and devotion.</p>
+        <p>Traditions preserved with pride and devotion.</p>
       </div>
       <div class="highlight-box">
         <h3>Nature</h3>
-        <p>Agriculture, rivers, and farmlands form the backbone of village life.</p>
+        <p>Rivers, farms, and greenery sustaining village life.</p>
       </div>
     </div>
 
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <p>© 2025 Tangeda Village. All rights reserved.</p>
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <p>© 2025 Tangeda Village. All rights reserved.</p>
+    </div>
   </footer>
 
-  <!-- JS Search & Voice -->
-<script src="script.js" defer></script>
+  <!-- SHARED JS -->
+  <script src="script.js" defer></script>
 
 </body>
 </html>
