@@ -1,11 +1,4 @@
-/* =====================================================
-   FULL UPDATED style.css (drop-in replacement)
-   Fixes:
-   - dropdown works on desktop hover + mobile click (.open)
-   - mobile dropdown content shows (was missing display:none + show rule)
-   - nav-links wraps correctly on mobile (full width)
-   - footer compact + links one under another
-===================================================== */
+
 
 /* =========================
    BASE
