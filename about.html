@@ -162,53 +162,7 @@
   </footer>
 
   <!-- JS Search & Voice -->
-  <script>
-    function performSearch() {
-      const query = document.getElementById("site-search").value.toLowerCase().trim();
-      if (!query) return;
-
-      const pageMap = {
-        home: "index.html",
-        about: "about.html",
-        festivals: "festivals.html",
-        festival: "festivals.html",
-        temples: "temples.html",
-        people: "people.html",
-        gallery: "gallery.html",
-        history: "about.html",
-        founder: "about.html",
-        contact: "contact.html",
-        directory: "directory.html",
-        travel: "travel.html",
-        services: "services.html",
-        news: "news.html"
-      };
-
-      for (const keyword in pageMap) {
-        if (query.includes(keyword)) {
-          window.location.href = pageMap[keyword];
-          return;
-        }
-      }
-
-      alert("No matching page found.");
-    }
-
-    function startVoiceSearch() {
-      if (!("webkitSpeechRecognition" in window)) {
-        alert("Voice search is not supported in this browser.");
-        return;
-      }
-      const recognition = new webkitSpeechRecognition();
-      recognition.lang = "en-US";
-      recognition.onresult = function (event) {
-        const transcript = event.results[0][0].transcript;
-        document.getElementById("site-search").value = transcript;
-        performSearch();
-      };
-      recognition.start();
-    }
-  </script>
+<script src="script.js" defer></script>
 
 </body>
 </html>
