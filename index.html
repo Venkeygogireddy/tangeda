@@ -293,8 +293,12 @@
       });
 
       document.addEventListener("click", function (e) {
-        if (!e.target.closest(".nav-dd")) closeAll();
+     // Only close if click is completely outside nav dropdowns
+          if (!e.target.closest(".nav-dd") && !e.target.closest(".dropdown-content")) {
+          closeAll();
+        }
       });
+
 
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") closeAll();
